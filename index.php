@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,6 +12,6 @@
     <title>WsparcieMistrzaGry</title>
 </head>
 <body>
-    <?= require_once('constoller.php'); ?>
+    <?php require_once('./Controller.php'); ?>
 </body>
 </html>
