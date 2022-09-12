@@ -31,22 +31,30 @@ class Controller
             case Action::ACTION_ADD_CHARACTER:
                 $this->action = new AddCharacterAction($this->request);
                 break;
+
+            case Action::ACTION_CLEAR_CHARACTERS:
+                $this->action = new ClearCharactersAction($this->request);
+                break;
             
             default:
                 $this->action = new NoAction($this->request);
                 break;
         }
+        Debuger::logInfo('$this->action', get_class($this->action), __CLASS__, __FUNCTION__, __LINE__);
     }
 
     public function setSubmit()
     {
-        if (isset($this->request->date['submit'])) {
-            $this->submit = $this->request->date['submit'];
+        if (isset($this->request->data['submit'])) {
+            Debuger::logInfo('$this->request->data[\'submit\']', $this->request->data['submit'], __CLASS__, __FUNCTION__, __LINE__);
+            $this->submit = $this->request->data['submit'];
+            unset($this->request->data['submit']);
         }
     }
 
     public function setRequest()
     {
+        Debuger::logInfo('$_SERVER[\'REQUEST_METHOD\']', $_SERVER['REQUEST_METHOD'], __CLASS__, __FUNCTION__, __LINE__);
         $this->request = new Request();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->request->setRequest($_POST);
