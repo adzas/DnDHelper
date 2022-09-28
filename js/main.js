@@ -1,5 +1,7 @@
 import app from './app.js';
 
+app.helloWorl();
+
 /**
  * let enemyList = app.getEnemyList()
  * for (let k in enemyList) {

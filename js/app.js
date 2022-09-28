@@ -1,7 +1,14 @@
 
 class App {
     constructor() {
-        //
+        this.name = 'DnDMpHepler';
+        this.mainElementDomID = 'app';
+    };
+    getMyDom() {
+        return $('#'+this.mainElementDomID);
+    };
+    helloWorl() {
+        this.getMyDom().html('Hello World!');
     }
 }
 
