@@ -2,8 +2,8 @@
 
 class DataStorageHelper
 {
-    const STORAGE_FILE_PATH = './storage/characters.json';
-    const STORAGE_LOG_FILE_PATH = './storage/log.txt';
+    const STORAGE_FILE_PATH = '../storage/characters.json';
+    const STORAGE_LOG_FILE_PATH = '../storage/log.txt';
     
     public function getCharacterStorage()
     {
