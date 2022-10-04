@@ -13,6 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- my JS -->
     <script src="./js/main.js" type="module"></script>
+
+    <!-- my style -->
+    <link rel="stylesheet" href="./style.css">
     
     <title>DnD-MP-Helper</title>
 </head>
@@ -23,20 +26,20 @@
         <div class="enemyList">
             <button
                 class="btn btn-danger"
-                type="button" data-toggle="collapse"
+                type="button" data-toggle="my-collapse"
             >
                 Bandyta
             </button>
-            <div class="collapse" id="banditActions">
+            <div class="my-collapse" id="banditActions">
                 <button
-                    class="action"
+                    class="btn btn-default action"
                     data-enemy-type="bandit"
                     data-attack-type="sword"
                 >
                     krótki miecz
                 </button>
                 <button
-                    class="action"
+                    class="btn btn-default action"
                     data-enemy-type="bandit"
                     data-attack-type="short-bow"
                 >
@@ -46,24 +49,24 @@
 
             <button
                 class="btn btn-danger"
-                type="button" data-toggle="collapse"
+                type="button" data-toggle="my-collapse"
             >
                 Golem Drzewny
             </button>
-            <div class="collapse" id="banditActions">
+            <div class="my-collapse" id="banditActions">
                 <button
-                    class="action"
+                    class="btn btn-default action"
                     data-enemy-type="bandit"
                     data-attack-type="sword"
                 >
-                    krótki miecz
+                    Atak z bliska
                 </button>
                 <button
-                    class="action"
+                    class="btn btn-default action"
                     data-enemy-type="bandit"
                     data-attack-type="short-bow"
                 >
-                    krótki łuk
+                    Ciskanie gałęzią
                 </button>
             </div>
         </div>

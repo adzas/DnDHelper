@@ -1,7 +1,4 @@
-// console.log('main.js');
 import App from './app.js';
-// import Bandit from './bandit.js';
-
 import {Bandit} from "./bandit.js";
 
 const app = new App;
@@ -29,11 +26,3 @@ $('.action').on('click', function(e) {
             break;
     }
 });
-
-
-// function attackBandit() {
-//     // const bandit = new Bandit;
-//     console.log(bandit);
-// }
-
-// export default bandit;
