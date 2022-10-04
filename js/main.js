@@ -1,5 +1,6 @@
 import App from './app.js';
-import {Bandit} from "./bandit.js";
+import { Bandit } from "./bandit.js";
+import { WoodGolem } from './wood-golem.js';
 
 const app = new App;
 

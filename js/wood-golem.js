@@ -7,25 +7,29 @@ export class WoodGolem extends Enemy {
     attack() {
         let result = '';
         switch (this.attackType) {
-            case 'short-bow':
+            case 'mele':
                 result += '<div class="cache">';
                 result += '<br>';
                 result += 'test ataku: ';
                 result += this.getRandom(1, 20);
                 result += '<br>';
-                result += 'obrażenia: ';
+                result += 'obrażenia obuchowe: ';
                 result += this.getRandom(1, 6) + 2;
+                result += 'obrażenia magiczne: ';
+                result += this.getRandom(1, 4);
                 result += '</div>';
                 break;
 
-            case 'sword':
+            case 'branch-throw':
                 result += '<div class="cache">';
                 result += '<br>';
                 result += 'test ataku: ';
                 result += this.getRandom(1, 20);
                 result += '<br>';
-                result += 'obrażenia: ';
-                result += this.getRandom(1, 6) + 2;
+                result += 'obrażenia obuchowe: ';
+                result += (this.getRandom(1, 6));
+                result += 'obrażenia magiczne: ';
+                result += (this.getRandom(1, 4));
                 break;
         
             default:
