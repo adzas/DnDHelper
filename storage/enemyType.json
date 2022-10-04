@@ -1,0 +1,164 @@
+[
+    {
+        "type": "bandit",
+        "name": "bandyta",
+        "die": "2k10+2",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    },
+    {
+        "type": "bandit",
+        "name": "zwiadowca",
+        "die": "2k10+5",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    },
+    {
+        "type": "bandit",
+        "name": "zbir",
+        "die": "2k10+5",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    },
+    {
+        "type": "bandit",
+        "name": "wilk",
+        "die": "2k10+5",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    },
+    {
+        "type": "bandit",
+        "name": "weteran",
+        "die": "2k10+5",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    },
+    {
+        "type": "bandit",
+        "name": "łucznik",
+        "die": "2k10+5",
+        "actions": [
+            {
+                "actionType": "sword",
+                "actionName": "krótki miecz",
+                "actionDie": "1k6",
+                "actionDamageBodun": "strength"
+            },
+            {
+                "actionType": "longSword",
+                "actionName": "długi miecz",
+                "actionDie": "2k6",
+                "actionDamageBodun": "strength"
+            }
+        ],
+        "statistics": {
+            "strength": "12",
+            "dexterity": "11",
+            "wisdom": "8",
+            "intelligence": "8",
+            "charisma": "8",
+            "condition": "12"
+        }
+    }
+]

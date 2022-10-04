@@ -1,13 +1,39 @@
-import app from './app.js';
+// console.log('main.js');
+import App from './app.js';
+// import Bandit from './bandit.js';
 
-app.helloWorl();
+import {Bandit} from "./bandit.js";
 
-/**
- * let enemyList = app.getEnemyList()
- * for (let k in enemyList) {
- *  enemyList[k]
- *  creatHtml.enemyButton();
- * }
- */
+const app = new App;
 
-console.log(app);
+$('.action').on('click', function(e) {
+    const attackType = $(e.target).data('attack-type');
+    const enemyType = $(e.target).data('enemy-type');
+    let cache = '';
+    switch (enemyType) {
+        case 'bandit':
+            const bandit = new Bandit;
+            bandit.setAttackType(attackType);
+            cache = bandit.attack();
+            app.renderCache(cache);
+            break;
+
+        case 'wood-golem':
+            const wg = new WoodGolem;
+            wg.setAttackType(attackType);
+            cache = wg.attack();
+            app.renderCache(cache);
+            break;
+    
+        default:
+            break;
+    }
+});
+
+
+// function attackBandit() {
+//     // const bandit = new Bandit;
+//     console.log(bandit);
+// }
+
+// export default bandit;
