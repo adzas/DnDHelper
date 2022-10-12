@@ -50,5 +50,13 @@ export class Bandit extends Enemy {
         result += '</div>';
 
         return result;
+    };
+    getRandomObject() {
+        return {
+            name: "bandyta"
+        };
+    };
+    render() {
+        return 'bandit <br/>';
     }
 }

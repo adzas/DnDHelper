@@ -39,5 +39,13 @@ export class WoodGolem extends Enemy {
         result += '</div>';
 
         return result;
+    };
+    getRandomObject() {
+        return {
+            name: "golem"
+        };
+    };
+    render() {
+        return 'wood golem <br/>';
     }
 }

@@ -23,9 +23,15 @@
 
     <h1>DnD-MP-Helper</h1>
     <div id="app">
+        <div class="row">
+            <div class="col-12">
+                <a href="./character-index.html">Index postaci</a>
+            </div>
+        </div>
+        <div id="battleField"></div>
         <div class="enemyList">
             <button
-                class="btn btn-danger"
+                class="btn btn-danger enemy" data-type="bandit"
                 type="button" data-toggle="my-collapse"
             >
                 Bandyta
@@ -48,7 +54,7 @@
             </div>
 
             <button
-                class="btn btn-danger"
+                class="btn btn-danger enemy" data-type="wood-golem"
                 type="button" data-toggle="my-collapse"
             >
                 Golem Drzewny
@@ -73,6 +79,7 @@
         <div id="cache">
 
         </div>
+        <button class="btn btn-xs btn-warning" id="clearBF">Wyczyść Pole bitwy</button>
     </div>
 
     <!-- Bootstrap -->

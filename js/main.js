@@ -1,8 +1,36 @@
 import App from './app.js';
 import { Bandit } from "./bandit.js";
+import { BattlefieldStorage } from './battlefield-storage.js';
 import { WoodGolem } from './wood-golem.js';
 
 const app = new App;
+const battlefield = new BattlefieldStorage;
+
+$('#app').on('click', function(){
+    app.renderBF(battlefield.get());
+});
+
+$('.enemy').on('click', function(e) {
+    const enemyType = $(e.target).data('type');
+    let message = '';
+    switch (enemyType) {
+        case 'bandit':
+            const bandit = new Bandit;
+            battlefield.store(bandit.getRandomObject());
+            message = 'Dodano Bandytę do listy';
+            break;
+
+        case 'wood-golem':
+            const wg = new WoodGolem;
+            battlefield.store(wg.getRandomObject());
+            message = 'Dodano Golema do listy';
+            break;
+    
+        default:
+            break;
+    }
+    app.renderCache(message);
+});
 
 $('.action').on('click', function(e) {
     const attackType = $(e.target).data('attack-type');
@@ -26,4 +54,8 @@ $('.action').on('click', function(e) {
         default:
             break;
     }
+});
+
+$('#clearBF').on('click', function(){
+    battlefield.clear();
 });
