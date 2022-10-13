@@ -8,10 +8,10 @@ $('.charecter-row').on('click', function(e){
     const new_show_details_status = show_details_status ? "false" : "true";
     target.attr('data-show-details', new_show_details_status);
     if (show_details_status) {
-        target.find('.second-name').addClass('d-none');
+        target.find('.location').addClass('d-none');
         target.find('.description').addClass('d-none');
     } else {
-        target.find('.second-name').removeClass('d-none');
+        target.find('.location').removeClass('d-none');
         target.find('.description').removeClass('d-none');
     }
 });

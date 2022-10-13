@@ -1,3 +1,4 @@
+import EnemyHelper from "./enemy-helper.js";
 
 export default class App {
     constructor() {
@@ -13,12 +14,10 @@ export default class App {
     renderBF(BFObjects) {
         console.log(BFObjects);
         let html = '';
+        const enemyHelper = new EnemyHelper();
         $.each(BFObjects, function(k, obj) {
-            /**
-             * obj.type
-             * bandit.render();
-             */
-            html += obj.name;
+            let enemyObj = enemyHelper.getEnemyObject(obj);
+            html += enemyObj.render();
         });
         $('#battleField').html(html);
     };

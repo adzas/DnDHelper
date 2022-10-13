@@ -61,5 +61,8 @@ export default class Enemy {
             default:
                 break;
         }
+    };
+    k(die) {
+        return this.getRandom(1, die);
     }
 }
