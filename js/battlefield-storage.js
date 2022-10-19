@@ -3,16 +3,13 @@ export class BattlefieldStorage {
         let bfStorage = [];
         const currentBfStorage = this.get();
         if (null === currentBfStorage) {
+            obj.id = 1;
             bfStorage[0] = obj;
         } else {
-            // for (currentBfStorage in k) {
-            //     bfStorage[k] = currentBfStorage[k]
-            // }
+            obj.id = currentBfStorage.length+1;
             bfStorage = currentBfStorage;
             bfStorage[currentBfStorage.length] = obj;
         }
-        console.log('bfStorage:');
-        console.log(bfStorage);
         localStorage.setItem('gameStorage', JSON.stringify(bfStorage));
     };
     get() {

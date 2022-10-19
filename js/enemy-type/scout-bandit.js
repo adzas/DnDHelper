@@ -1,6 +1,6 @@
 import Enemy from "../enemy.js";
 
-export default class Dwarf extends Enemy
+export default class ScoutBandit extends Enemy
 {   
     constructor(obj) {
         super(obj);

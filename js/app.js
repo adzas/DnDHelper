@@ -1,4 +1,4 @@
-import EnemyHelper from "./enemy-helper.js";
+import EnemyHelper from "./helpers/enemy-helper.js";
 
 export default class App {
     constructor() {
@@ -12,14 +12,22 @@ export default class App {
         this.getMyDom().html(html);
     };
     renderBF(BFObjects) {
-        console.log(BFObjects);
         let html = '';
         const enemyHelper = new EnemyHelper();
+        html += '<div class="row">';
         $.each(BFObjects, function(k, obj) {
             let enemyObj = enemyHelper.getEnemyObject(obj);
             html += enemyObj.render();
         });
+        html += '</div>';
         $('#battleField').html(html);
+        $('.my-collapse-target').slideUp();
+        $('.my-collapse').each(function(i, obj) {
+            const target = $(obj);
+            if ("true" === target.attr('data-collapse-show')) {
+                $(target.attr('data-collapse-target-id')).slideDown();
+            }
+        });
     };
     getHtml() {
         return this.getMyDom().html();

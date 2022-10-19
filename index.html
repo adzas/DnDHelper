@@ -14,6 +14,9 @@
     <!-- my JS -->
     <script src="./js/main.js" type="module"></script>
 
+    <!-- rpg icons -->
+    <link rel="stylesheet" href="./rpg-icons/css/rpg-awesome.min.css">
+
     <!-- my style -->
     <link rel="stylesheet" href="./style.css">
     
@@ -25,67 +28,92 @@
     <div id="app">
         <div class="row">
             <div class="col-12">
-                <a href="./character-index.html" class="link-success">Index postaci</a>
+                <a href="./pages/character-index.html" class="link-success">Index postaci</a>
+                <a href="./storage/mapaDDdlaGraczy.png" class="link-info" rel="noopener noreferrer">Mapa świata</a>
             </div>
         </div>
-        <div id="battleField"></div>
-        <div class="enemyList">
-            <button
-                class="btn btn-danger enemy" data-type="dwarf"
-                type="button"
-            >
-                Krasnolud wojownik
-            </button>
-            <button
-                class="btn btn-danger enemy" data-type="bandit"
-                type="button" data-toggle="my-collapse"
-            >
-                Bandyta
-            </button>
-            <div class="my-collapse" id="banditActions">
+        <div class="row mb-4">
+            <div class="col-6 text-left">
+                <button class="btn btn-success" id="refreshBF"><i class="ra ra-stopwatch"></i></button>
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-dark" id="clearBF"><i class="ra ra-cancel"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="cache"></div>
+            </div>
+        </div>
+        <div id="battleField" class="mb-2"></div>
+        <div class="row">
+            <!-- Bochaterowie -->
+            <div class="col-12 mb-2">
                 <button
-                    class="btn btn-default action"
-                    data-enemy-type="bandit"
-                    data-attack-type="sword"
+                    class="btn btn-success btn-sm enemy" data-type="hum"
+                    type="button" data-toggle="my-collapse"
                 >
-                    krótki miecz
+                    Hum
                 </button>
                 <button
-                    class="btn btn-default action"
-                    data-enemy-type="bandit"
-                    data-attack-type="short-bow"
+                    class="btn btn-success btn-sm enemy" data-type="omalen"
+                    type="button" data-toggle="my-collapse"
                 >
-                    krótki łuk
+                    Omalen
+                </button>
+                <button
+                    class="btn btn-success btn-sm enemy" data-type="alsariph"
+                    type="button" data-toggle="my-collapse"
+                >
+                    Alsariph
+                </button>
+                <button
+                    class="btn btn-success btn-sm enemy" data-type="kreatura"
+                    type="button" data-toggle="my-collapse"
+                >
+                    Kreatura
                 </button>
             </div>
-
-            <button
-                class="btn btn-danger enemy" data-type="wood-golem"
-                type="button" data-toggle="my-collapse"
-            >
-                Golem Drzewny
-            </button>
-            <div class="my-collapse" id="banditActions">
+            <!-- Przeciwnicy -->
+            <div class="col-12">
                 <button
-                    class="btn btn-default action"
-                    data-enemy-type="wood-golem"
-                    data-attack-type="mele"
+                    class="btn btn-danger btn-sm enemy" data-type="dog"
+                    type="button" data-toggle="my-collapse"
                 >
-                    Atak z bliska
+                    Pies
                 </button>
                 <button
-                    class="btn btn-default action"
-                    data-enemy-type="wood-golem"
-                    data-attack-type="branch-throw"
+                    class="btn btn-danger btn-sm enemy" data-type="wood-golem"
+                    type="button" data-toggle="my-collapse"
                 >
-                    Ciskanie gałęzią
+                    Custom
+                </button>
+                <button
+                    class="btn btn-danger btn-sm enemy" data-type="dwarf"
+                    type="button"
+                >
+                    Krasnolud wojownik
+                </button>
+                <button
+                    class="btn btn-danger btn-sm enemy" data-type="bandit"
+                    type="button" data-toggle="my-collapse"
+                >
+                    Bandyta
+                </button>
+                <button
+                    class="btn btn-danger btn-sm enemy" data-type="scout-bandit"
+                    type="button" data-toggle="my-collapse"
+                >
+                    Bandyta Zwiadowca
+                </button>
+                <button
+                    class="btn btn-danger btn-sm enemy" data-type="wood-golem"
+                    type="button" data-toggle="my-collapse"
+                >
+                    Golem Drzewny
                 </button>
             </div>
         </div>
-        <div id="cache">
-
-        </div>
-        <button class="btn btn-xs btn-warning" id="clearBF">Wyczyść Pole bitwy</button>
     </div>
 
     <!-- Bootstrap -->

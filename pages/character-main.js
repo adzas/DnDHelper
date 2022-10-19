@@ -1,6 +1,3 @@
-import App from './app.js';
-
-const app = new App;
 
 $('.charecter-row').on('click', function(e){
     const target = $(e.target).parent();
