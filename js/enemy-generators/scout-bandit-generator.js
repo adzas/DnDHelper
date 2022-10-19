@@ -19,7 +19,7 @@ export default class ScoutBanditGenerator extends RandomHelper {
                 "wisdom": 13,
                 "charisma": 11,
                 "speed": "30ft (6[ ])",
-                "i": "2x atak mele lub range; ułatwienie w testach opartych na słuchu i wzroku; natura +4; percepcja +5; oszustwo +6 przetrwanie +5"
+                "i": "2x atak mele lub range; advantage w testach opartych na słuchu i wzroku; natura +4; percepcja +5; oszustwo +6 przetrwanie +5"
             }
         }
     };

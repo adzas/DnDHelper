@@ -24,6 +24,8 @@ export default class Enemy extends RandomHelper{
 
     str = null; // modify strength
     dex = null; // modify dexterity
+
+    isCrit = false;
     
     constructor(obj) {
         super(obj);
@@ -46,8 +48,8 @@ export default class Enemy extends RandomHelper{
             this.speed = obj.statistics.speed
             this.i = obj.statistics.i
 
-            this.str = (this.strength - 10) / 2;
-            this.dex = (this.dexterity -10) / 2;
+            this.str = Math.round((this.strength - 10) / 2);
+            this.dex = Math.round((this.dexterity -10) / 2);
         }
     };
     render() {
@@ -91,25 +93,32 @@ export default class Enemy extends RandomHelper{
     };
     renderAction(type){
         return `
-            <button
-                class="btn btn-default action"
-                data-enemy-type="${this.type}"
-                data-attack-type="${type}"
-                data-attack-method="ulatwienie"
-                data-parent-id="${this.getIdBaseElementDom()}"
-            >
-                ${this.getAttackName(type)} ułatwienie
-            </button>
-            
-            <button
-                class="btn btn-default action"
-                data-enemy-type="${this.type}"
-                data-attack-type="${type}"
-                data-attack-method="utrudnienie"
-                data-parent-id="${this.getIdBaseElementDom()}"
-            >
-                ${this.getAttackName(type)} utrudnienie
-            </button>`;
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="action btn btn-secondary"
+                    data-enemy-type="${this.type}"
+                    data-attack-type="${type}"
+                    data-attack-method="disadvantage"
+                    data-parent-id="${this.getIdBaseElementDom()}"
+                >
+                    -
+                </button>
+                <button type="button" class="action btn btn-secondary"
+                    data-enemy-type="${this.type}"
+                    data-attack-type="${type}"
+                    data-attack-method="normal"
+                    data-parent-id="${this.getIdBaseElementDom()}"
+                >
+                    ${this.getAttackName(type)}
+                </button>
+                <button type="button" class="action btn btn-secondary"
+                    data-enemy-type="${this.type}"
+                    data-attack-type="${type}"
+                    data-attack-method="advantage"
+                    data-parent-id="${this.getIdBaseElementDom()}"
+                >
+                    +
+                </button>
+            </div>`;
     };
     setAttackType(type) {
         this.attackType = type;
@@ -121,23 +130,27 @@ export default class Enemy extends RandomHelper{
         let result = '<div class="result-atack">';
         switch (this.attackType) {
             case 'axe':
-                result += this.attackAxe(this.attackMethod);
+                result += this.attackAxe();
                 break;
 
             case 'short-bow':
-                result += this.attackShortBow(this.attackMethod);
+                result += this.attackShortBow();
                 break;
 
             case 'sword':
-                result += this.attackSword(this.attackMethod);
+                result += this.attackSword();
                 break;
 
             case 'smash':
-                result += this.attackSmash(this.attackMethod);
+                result += this.attackSmash();
                 break;
     
             case 'throw-wood':
-                result += this.attackThrowWood(this.attackMethod);
+                result += this.attackThrowWood();
+                break;
+    
+            case 'light-crossbow':
+                result += this.attackLightCrossbow();
                 break;
         
             default:
@@ -168,31 +181,54 @@ export default class Enemy extends RandomHelper{
             case 'throw-wood':
                 return 'Rzut gałęzią';
 
+            case 'light-crossbow':
+                return 'Lekka kusza';
+
         }
     };
-    attackAxe() {
-        const test = this.k(20)+this.str;
-        const dmg =  2*this.k(6)+this.str;
-        return `test: ${test} dmg: ${dmg}`;
+    getTestResult(plus) {
+        const t1 = this.k(20);
+        const t2 = this.k(20);
+        let value = t1;
+        let html = 'test: ';
+        if ('disadvantage' === this.attackMethod) {
+            if (t1 > t2) {
+                html += `${t1}/<b>${t2}</b>`;
+                value = t2;
+            }
+            html += `<b>${t1}</b>/${t2}`;
+            value = t1;
+        } else if ('advantage' === this.attackMethod) {
+            if (t1 > t2) {
+                html += `<b>${t1}</b>/${t2}`;
+                value = t1;
+            }
+            html += `${t1}/<b>${t2}</b>`;
+            value = t2;
+        } else {
+            html += `<b>${t1}</b>`;
+            value = t1;
+        }
+
+        if (20 == value) {
+            this.isCrit = true;
+        }
+        
+        return {
+            "html": html,
+            "value": value+plus
+        };
     };
-    attackShortBow() {
-        const test = this.k(20)+this.dex;
-        const dmg =  this.k(8)+this.dex;
-        return `test: ${test} dmg: ${dmg}`;
-    };
-    attackSword() {
-        const test = this.k(20)+this.str;
-        const dmg =  this.k(6)+this.str;
-        return `test: ${test} dmg: ${dmg}`;
-    };
-    attackSmash() {
-        const test = this.k(20)+this.str;
-        const dmg =  3*this.k(6)+this.str;
-        return `test: ${test} dmg: ${dmg}`;
-    };
-    attackThrowWood() {
-        const test = this.k(20)+this.str;
-        const dmg =  3*this.k(6)+this.str;
-        return `test: ${test} dmg: ${dmg}`;
+    generateDmg(dieResult, plus, name) {
+        let dmg = 0;
+        if (this.isCrit) {
+            dmg = (dieResult * 2) + plus;
+        } else {
+            dmg = dieResult + plus;
+        }
+        return `
+            <button class="show-dmg">${name}</button>
+            <b class="dmg d-none">${dmg} (${name})</b>
+        `;
     }
 }

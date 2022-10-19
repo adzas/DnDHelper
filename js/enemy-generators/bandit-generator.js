@@ -5,7 +5,7 @@ export default class BanditGenerator extends RandomHelper {
         return {
             "type": "bandit",
             "name": "Bandyta",
-            "actions": ["short-bow","sword"],
+            "actions": ["light-crossbow","sword"],
             "statistics": {
                 "xp": 25,
                 "kp": 12,

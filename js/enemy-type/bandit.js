@@ -5,14 +5,18 @@ export default class Bandit extends Enemy {
     constructor(obj) {
         super(obj);
     };
-    attackSword(method) {
-        const test = Math.round(this.k(20)+this.str);
-        const dmg =  Math.round(this.k(6)+this.str);
-        return `test(${method}): ${test} dmg: ${dmg}`;
+    attackSword() {
+        const testResult = this.getTestResult(3); // +3
+        let html = testResult.html;
+        html += this.generateDmg(this.k(6), 1, 'Obrażenia cięte');
+
+        return html;
     };
-    attackShortBow(method) {
-        const test = Math.round(this.k(20)+this.str);
-        const dmg =  Math.round(this.k(6)+this.str);
-        return `test(${method}): ${test} dmg: ${dmg}`;
+    attackLightCrossbow() {
+        const testResult = this.getTestResult(3);
+        let html = testResult.html;
+        html += this.generateDmg(this.k(8), 1, 'Obrażenia kłute');
+
+        return html;
     }
 }
