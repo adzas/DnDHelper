@@ -55,31 +55,31 @@ export default class Enemy extends RandomHelper{
     render() {
         let html = `
         <div class="col-12 mb-1">
-        <div class="btn-group w-100" role="group" aria-label="t2">
-            <div 
-                class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
-                data-collapse-target-id="#actions-${this.id}" 
-                data-collapse-show="false"
-                data-type="${this.type}"
-                data-actions="${this.actions}"
-                data-name="${this.name}"
-                data-xp="${this.xp}"
-                data-kp="${this.kp}"
-                data-hp="${this.hp}"
-                data-initiative="${this.initiative}"
-                data-pp="${this.pp}"
-                data-strength="${this.strength}"
-                data-dexterity="${this.dexterity}"
-                data-condition="${this.condition}"
-                data-intelligence="${this.intelligence}"
-                data-wisdom="${this.wisdom}"
-                data-charisma="${this.charisma}"
-                data-speed="${this.speed}"
-                data-i="${this.i}"
-            > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
-            <div class="btn btn-primary move-up">^</div>
+            <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
+                <div 
+                    class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
+                    data-collapse-target-id="#actions-${this.id}" 
+                    data-collapse-show="false"
+                    data-type="${this.type}"
+                    data-actions="${this.actions}"
+                    data-name="${this.name}"
+                    data-xp="${this.xp}"
+                    data-kp="${this.kp}"
+                    data-hp="${this.hp}"
+                    data-initiative="${this.initiative}"
+                    data-pp="${this.pp}"
+                    data-strength="${this.strength}"
+                    data-dexterity="${this.dexterity}"
+                    data-condition="${this.condition}"
+                    data-intelligence="${this.intelligence}"
+                    data-wisdom="${this.wisdom}"
+                    data-charisma="${this.charisma}"
+                    data-speed="${this.speed}"
+                    data-i="${this.i}"
+                > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
+                <div class="btn btn-primary move-up">^</div>
+            </div>
             ${this.renderActions()}
-        </div>
         </div>
         `;
 
@@ -96,7 +96,7 @@ export default class Enemy extends RandomHelper{
     };
     renderAction(type){
         return `
-            <div class="btn-group" role="group" aria-label="t1">
+            <div class="btn-group mb-1 w-100" role="group" aria-label="t1">
                 <button type="button" class="action btn btn-secondary"
                     data-enemy-type="${this.type}"
                     data-attack-type="${type}"
@@ -224,6 +224,7 @@ export default class Enemy extends RandomHelper{
 
         if (20 == value) {
             this.isCrit = true;
+            html += `*`;
         }
         
         return {
