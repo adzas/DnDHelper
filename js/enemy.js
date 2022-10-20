@@ -152,6 +152,10 @@ export default class Enemy extends RandomHelper{
             case 'light-crossbow':
                 result += this.attackLightCrossbow();
                 break;
+    
+            case 'bite':
+                result += this.attackBite();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -184,6 +188,9 @@ export default class Enemy extends RandomHelper{
             case 'light-crossbow':
                 return 'Lekka kusza';
 
+            case 'bite':
+                return 'Ugryzienie';
+
         }
     };
     getTestResult(plus) {
@@ -195,16 +202,18 @@ export default class Enemy extends RandomHelper{
             if (t1 > t2) {
                 html += `${t1}/<b>${t2}</b>`;
                 value = t2;
+            } else {
+                html += `<b>${t1}</b>/${t2}`;
+                value = t1;
             }
-            html += `<b>${t1}</b>/${t2}`;
-            value = t1;
         } else if ('advantage' === this.attackMethod) {
             if (t1 > t2) {
                 html += `<b>${t1}</b>/${t2}`;
                 value = t1;
+            } else {
+                html += `${t1}/<b>${t2}</b>`;
+                value = t2;
             }
-            html += `${t1}/<b>${t2}</b>`;
-            value = t2;
         } else {
             html += `<b>${t1}</b>`;
             value = t1;
@@ -215,7 +224,7 @@ export default class Enemy extends RandomHelper{
         }
         
         return {
-            "html": html,
+            "html": html+'</br>',
             "value": value+plus
         };
     };
@@ -227,8 +236,11 @@ export default class Enemy extends RandomHelper{
             dmg = dieResult + plus;
         }
         return `
-            <button class="show-dmg">${name}</button>
-            <b class="dmg d-none">${dmg} (${name})</b>
+            <button class="show-dmg btn btn-default" data-target=".dmg-${this.id}">
+                ${name}
+            </button>
+            <b class="d-none dmg-${this.id}">${dmg} (${name})</b>
+            <br/>
         `;
     }
 }

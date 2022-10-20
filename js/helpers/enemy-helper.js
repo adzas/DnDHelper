@@ -3,7 +3,7 @@ import Dog from "../enemy-type/dog.js";
 import Dwarf from "../enemy-type/dwarf.js";
 import Player from "../enemy-type/Player.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
-import { WoodGolem } from "../wood-golem.js";
+import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
     getEnemyObject(obj) {
@@ -35,7 +35,7 @@ export default class EnemyHelper {
     };
     setObjArrayFromTarget(collapseTarget) {
         const target = $('#'+collapseTarget.attr('data-parent-id'));
-        console.log(target);
+
         return {
             'type': target.attr('data-type'),
             'name': target.attr('data-name'),

@@ -1,5 +1,4 @@
 import App from './app.js';
-import Bandit from "./enemy-type/bandit.js";
 import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
@@ -10,7 +9,6 @@ import KreaturaGenerator from './enemy-generators/kreatura-generator.js';
 import OmalenGenerator from './enemy-generators/omalen-generator.js';
 import ScoutBanditGenerator from './enemy-generators/scout-bandit-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
-import { WoodGolem } from './wood-golem.js';
 import EnemyHelper from './helpers/enemy-helper.js';
 
 const app = new App;
@@ -113,4 +111,11 @@ $('.action').on('click', function(e) {
 $('#clearBF').on('click', function(){
     battlefield.clear();
     app.renderBF(battlefield.get());
+});
+
+$(document.body).on('click', '.show-dmg', function(e){
+    const target = $(e.target);
+    const data_target = target.data('target');
+    $(data_target).removeClass('d-none');
+    $(`[data-target="${data_target}"]`).remove();
 });

@@ -5,7 +5,7 @@ export default class DogGenerator extends RandomHelper {
         return {
             "type": "dog",
             "name": "Pies",
-            "actions": ["bit"],
+            "actions": ["bite"],
             "statistics": {
                 "xp": 35,
                 "kp": 10,
