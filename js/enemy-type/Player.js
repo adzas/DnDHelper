@@ -16,7 +16,7 @@ export default class Player extends Enemy
         let html = `
         <div class="col-12 mb-1">
             <div 
-                class="btn btn-success my-collapse"
+                class="btn btn-success my-collapse w-100"
                 data-collapse-target-id="#actions-${this.type}" 
                 data-collapse-show="false"
                 data-type="${this.type}"

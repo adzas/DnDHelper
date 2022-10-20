@@ -119,3 +119,7 @@ $(document.body).on('click', '.show-dmg', function(e){
     $(data_target).removeClass('d-none');
     $(`[data-target="${data_target}"]`).remove();
 });
+
+$(document.body).on('click', '.move-up', function(e){
+    // 
+});

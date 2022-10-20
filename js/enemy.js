@@ -55,8 +55,9 @@ export default class Enemy extends RandomHelper{
     render() {
         let html = `
         <div class="col-12 mb-1">
+        <div class="btn-group w-100" role="group" aria-label="t2">
             <div 
-                class="btn btn-warning my-collapse" id="${this.getIdBaseElementDom()}"
+                class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
                 data-collapse-target-id="#actions-${this.id}" 
                 data-collapse-show="false"
                 data-type="${this.type}"
@@ -76,7 +77,9 @@ export default class Enemy extends RandomHelper{
                 data-speed="${this.speed}"
                 data-i="${this.i}"
             > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
+            <div class="btn btn-primary move-up">^</div>
             ${this.renderActions()}
+        </div>
         </div>
         `;
 
@@ -93,7 +96,7 @@ export default class Enemy extends RandomHelper{
     };
     renderAction(type){
         return `
-            <div class="btn-group" role="group" aria-label="Basic example">
+            <div class="btn-group" role="group" aria-label="t1">
                 <button type="button" class="action btn btn-secondary"
                     data-enemy-type="${this.type}"
                     data-attack-type="${type}"
@@ -200,22 +203,22 @@ export default class Enemy extends RandomHelper{
         let html = 'test: ';
         if ('disadvantage' === this.attackMethod) {
             if (t1 > t2) {
-                html += `${t1}/<b>${t2}</b>`;
+                html += `${t1+plus}/<b>${t2+plus}</b>`;
                 value = t2;
             } else {
-                html += `<b>${t1}</b>/${t2}`;
+                html += `<b>${t1+plus}</b>/${t2+plus}`;
                 value = t1;
             }
         } else if ('advantage' === this.attackMethod) {
             if (t1 > t2) {
-                html += `<b>${t1}</b>/${t2}`;
+                html += `<b>${t1+plus}</b>/${t2+plus}`;
                 value = t1;
             } else {
-                html += `${t1}/<b>${t2}</b>`;
+                html += `${t1+plus}/<b>${t2+plus}</b>`;
                 value = t2;
             }
         } else {
-            html += `<b>${t1}</b>`;
+            html += `<b>${t1+plus}</b>`;
             value = t1;
         }
 
@@ -225,7 +228,7 @@ export default class Enemy extends RandomHelper{
         
         return {
             "html": html+'</br>',
-            "value": value+plus
+            "value": value
         };
     };
     generateDmg(dieResult, plus, name) {
