@@ -56,6 +56,7 @@ export default class Enemy extends RandomHelper{
         let html = `
         <div class="col-12 mb-1">
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
+                <div class="btn btn-danger delete">x</div>
                 <div 
                     class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#actions-${this.id}" 
@@ -79,18 +80,22 @@ export default class Enemy extends RandomHelper{
                 > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
                 <div class="btn btn-primary move-up">^</div>
             </div>
-            ${this.renderActions()}
+            <div class="my-collapse-target" id="actions-${this.id}">
+                ${this.renderActions()}
+                <br/>
+                ${this.i}
+            </div>
         </div>
         `;
 
         return html;
     };
     renderActions() {
-        let html = `<div class="my-collapse-target" id="actions-${this.id}">`;
+        let html = ``;
         for (let key in this.actions) {
             html += this.renderAction(this.actions[key]);
         }
-        html += `</div>`;
+        html += ``;
 
         return html;
     };
