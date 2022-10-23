@@ -159,6 +159,14 @@ export default class Enemy extends RandomHelper{
             case 'bite':
                 result += this.attackBite();
                 break;
+
+            case 'scimitar':
+                result += this.attackScimitar();
+                break;
+
+            case 'longbow':
+                result += this.attackLongbow();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -193,6 +201,16 @@ export default class Enemy extends RandomHelper{
 
             case 'bite':
                 return 'Ugryzienie';
+
+            case 'scimitar':
+                return 'Bułat';
+
+            case 'longbow':
+                return 'Długi łuk';
+        
+            default:
+                console.log(`nieokreślono typeAction: '${typeAction}'`);
+                return 'nieokreślono';
 
         }
     };

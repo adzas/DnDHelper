@@ -4,6 +4,8 @@ import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import DogGenerator from './enemy-generators/dog-generator.js';
 import DwarfGenerator from './enemy-generators/dwarf-generator.js';
+import GoblinGenerator from './enemy-generators/golbin-generator.js';
+import HobgoblinGenerator from './enemy-generators/hobgoblin-generator.js';
 import HumGenerator from './enemy-generators/hum-generator.js';
 import KreaturaGenerator from './enemy-generators/kreatura-generator.js';
 import OmalenGenerator from './enemy-generators/omalen-generator.js';
@@ -58,6 +60,18 @@ $('.enemy').on('click', function(e) {
             message = 'Dodano Golema do listy';
             break;
 
+        case 'goblin':
+            const goblin = new GoblinGenerator;
+            battlefield.store(goblin.getRandomObject());
+            message = 'Dodano Goblina do listy';
+            break;
+
+        case 'hobgoblin':
+            const hobgoblin = new HobgoblinGenerator;
+            battlefield.store(hobgoblin.getRandomObject());
+            message = 'Dodano Hobgoblina do listy';
+            break;
+
         case 'dwarf':
             const dwarf = new DwarfGenerator;
             battlefield.store(dwarf.getRandomObject());
@@ -89,6 +103,7 @@ $('.enemy').on('click', function(e) {
             break;
     
         default:
+            console.log('enemyType: '+enemyType+' is ubdefined');
             break;
     }
     app.renderCache(message);
