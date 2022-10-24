@@ -15,28 +15,36 @@ export default class Player extends Enemy
     render() {
         let html = `
         <div class="col-12 mb-1">
-            <div 
-                class="btn btn-success my-collapse w-100"
-                data-collapse-target-id="#actions-${this.type}" 
-                data-collapse-show="false"
-                data-type="${this.type}"
-                data-actions="${this.actions}"
-                data-name="${this.name}"
-                data-xp="${this.xp}"
-                data-kp="${this.kp}"
-                data-hp="${this.hp}"
-                data-initiative="${this.initiative}"
-                data-pp="${this.pp}"
-                data-strength="${this.strength}"
-                data-dexterity="${this.dexterity}"
-                data-condition="${this.condition}"
-                data-intelligence="${this.intelligence}"
-                data-wisdom="${this.wisdom}"
-                data-charisma="${this.charisma}"
-                data-speed="${this.speed}"
-                data-i="${this.i}"
-            > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
-            ${this.renderActions()}
+            <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
+                <div class="btn btn-danger delete" data-id="${this.id}">x</div>
+                <div 
+                    class="btn btn-success my-collapse w-75" id="${this.getIdBaseElementDom()}"
+                    data-collapse-target-id="#actions-${this.id}" 
+                    data-collapse-show="false"
+                    data-type="${this.type}"
+                    data-actions="${this.actions}"
+                    data-name="${this.name}"
+                    data-xp="${this.xp}"
+                    data-kp="${this.kp}"
+                    data-hp="${this.hp}"
+                    data-initiative="${this.initiative}"
+                    data-pp="${this.pp}"
+                    data-strength="${this.strength}"
+                    data-dexterity="${this.dexterity}"
+                    data-condition="${this.condition}"
+                    data-intelligence="${this.intelligence}"
+                    data-wisdom="${this.wisdom}"
+                    data-charisma="${this.charisma}"
+                    data-speed="${this.speed}"
+                    data-i="${this.i}"
+                > ${this.name} </div>
+                <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
+            </div>
+            <div class="my-collapse-target" id="actions-${this.id}">
+                ${this.renderActions()}
+                <br/>
+                ${this.i}
+            </div>
         </div>
         `;
 

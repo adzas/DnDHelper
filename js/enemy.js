@@ -56,7 +56,7 @@ export default class Enemy extends RandomHelper{
         let html = `
         <div class="col-12 mb-1">
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <div class="btn btn-danger delete">x</div>
+                <div class="btn btn-danger delete" data-id="${this.id}">x</div>
                 <div 
                     class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#actions-${this.id}" 
@@ -78,7 +78,7 @@ export default class Enemy extends RandomHelper{
                     data-speed="${this.speed}"
                     data-i="${this.i}"
                 > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
-                <div class="btn btn-primary move-up">^</div>
+                <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
                 ${this.renderActions()}
@@ -169,8 +169,8 @@ export default class Enemy extends RandomHelper{
                 result += this.attackScimitar();
                 break;
 
-            case 'longbow':
-                result += this.attackLongbow();
+            case 'long-bow':
+                result += this.attackLongBow();
                 break;
         
             default:
@@ -210,7 +210,7 @@ export default class Enemy extends RandomHelper{
             case 'scimitar':
                 return 'Bułat';
 
-            case 'longbow':
+            case 'long-bow':
                 return 'Długi łuk';
         
             default:

@@ -15,6 +15,7 @@ import EnemyHelper from './helpers/enemy-helper.js';
 
 const app = new App;
 const battlefield = new BattlefieldStorage;
+// battlefield.clear();
 
 app.renderBF(battlefield.get());
 $('#refreshBF').on('click', function(){
@@ -136,5 +137,13 @@ $(document.body).on('click', '.show-dmg', function(e){
 });
 
 $(document.body).on('click', '.move-up', function(e){
-    // 
+    const id_element = $(e.target).data('id');
+    battlefield.moveUp(id_element);
+    app.renderBF(battlefield.get());
+});
+
+$(document.body).on('click', '.delete', function(e){
+    const id_element = $(e.target).data('id');
+    battlefield.deleteElement(id_element);
+    app.renderBF(battlefield.get());
 });

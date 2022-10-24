@@ -5,7 +5,7 @@ export default class HobgoblinGenerator extends RandomHelper {
         return {
             "type": "hobgoblin",
             "name": "Hobgoblin",
-            "actions": ["sword","longbow"],
+            "actions": ["sword","long-bow"],
             "statistics": {
                 "xp": 100,
                 "kp": 18,

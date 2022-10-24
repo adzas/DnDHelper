@@ -12,7 +12,7 @@ export default class Hobgoblin extends Enemy {
 
         return html;
     };
-    attackLongbow() {
+    attackLongBow() {
         const testResult = this.getTestResult(3);
         let html = testResult.html;
         html += this.generateDmg(this.k(8), 1, 'Obrażenia kłute');
