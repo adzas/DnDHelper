@@ -4,6 +4,7 @@ import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import DogGenerator from './enemy-generators/dog-generator.js';
 import DwarfGenerator from './enemy-generators/dwarf-generator.js';
+import GnollGenerator from './enemy-generators/gnoll-generator.js';
 import GoblinGenerator from './enemy-generators/golbin-generator.js';
 import HobgoblinGenerator from './enemy-generators/hobgoblin-generator.js';
 import HumGenerator from './enemy-generators/hum-generator.js';
@@ -101,6 +102,12 @@ $('.enemy').on('click', function(e) {
             const alsariph = new AlsariphGenerator;
             battlefield.store(alsariph.getRandomObject());
             message = 'Dodano Alsaripha do pola bitwy!';
+            break;
+
+        case 'gnoll':
+            const gnoll = new GnollGenerator;
+            battlefield.store(gnoll.getRandomObject());
+            message = 'Dodano Gnoll\'a do pola bitwy!';
             break;
     
         default:

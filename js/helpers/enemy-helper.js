@@ -1,6 +1,7 @@
 import Bandit from "../enemy-type/bandit.js";
 import Dog from "../enemy-type/dog.js";
 import Dwarf from "../enemy-type/dwarf.js";
+import Gnoll from "../enemy-type/gnoll.js";
 import Goblin from "../enemy-type/goblin.js";
 import Hobgoblin from "../enemy-type/hobgoblin.js";
 import Player from "../enemy-type/Player.js";
@@ -30,6 +31,9 @@ export default class EnemyHelper {
 
             case 'hobgoblin':
                 return new Hobgoblin(obj);
+
+            case 'gnoll':
+                return new Gnoll(obj);
 
             case 'hum':
             case 'omalen':

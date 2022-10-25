@@ -77,7 +77,8 @@ export default class Enemy extends RandomHelper{
                     data-charisma="${this.charisma}"
                     data-speed="${this.speed}"
                     data-i="${this.i}"
-                > ${this.name} - ${this.hp} hp [${this.initiative}] </div>
+                > ${this.kp}<i style="font-size:0.75em" class="ra ra-eye-shield"></i>
+                ${this.name} - ${this.hp} hp [${this.initiative}] </div>
                 <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
@@ -172,6 +173,10 @@ export default class Enemy extends RandomHelper{
             case 'long-bow':
                 result += this.attackLongBow();
                 break;
+
+            case 'spear':
+                result += this.attackSpear();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -212,6 +217,9 @@ export default class Enemy extends RandomHelper{
 
             case 'long-bow':
                 return 'Długi łuk';
+
+            case 'spear':
+                return 'Włócznia';
         
             default:
                 console.log(`nieokreślono typeAction: '${typeAction}'`);
