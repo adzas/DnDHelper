@@ -77,8 +77,11 @@ export default class Enemy extends RandomHelper{
                     data-charisma="${this.charisma}"
                     data-speed="${this.speed}"
                     data-i="${this.i}"
-                > ${this.kp}<i style="font-size:0.75em" class="ra ra-eye-shield"></i>
-                ${this.name} - ${this.hp} hp [${this.initiative}] </div>
+                >
+                ${this.id+1}. 
+                [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
+                ${this.name} (${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
+                ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i> </div>
                 <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
