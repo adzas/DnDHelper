@@ -11,6 +11,7 @@ import HumGenerator from './enemy-generators/hum-generator.js';
 import KreaturaGenerator from './enemy-generators/kreatura-generator.js';
 import OmalenGenerator from './enemy-generators/omalen-generator.js';
 import ScoutBanditGenerator from './enemy-generators/scout-bandit-generator.js';
+import ShadowGenerator from './enemy-generators/shadow-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
 import EnemyHelper from './helpers/enemy-helper.js';
 
@@ -108,6 +109,12 @@ $('.enemy').on('click', function(e) {
             const gnoll = new GnollGenerator;
             battlefield.store(gnoll.getRandomObject());
             message = 'Dodano Gnoll\'a do pola bitwy!';
+            break;
+
+        case 'shadow':
+            const shadow = new ShadowGenerator;
+            battlefield.store(shadow.getRandomObject());
+            message = 'Dodano Cień do pola bitwy!';
             break;
     
         default:

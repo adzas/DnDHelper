@@ -26,6 +26,7 @@ export default class Enemy extends RandomHelper{
     dex = null; // modify dexterity
 
     isCrit = false;
+    currentHp = null;
     
     constructor(obj) {
         super(obj);
@@ -50,6 +51,8 @@ export default class Enemy extends RandomHelper{
 
             this.str = Math.round((this.strength - 10) / 2);
             this.dex = Math.round((this.dexterity -10) / 2);
+
+            this.currentHp = this.hp;
         }
     };
     render() {
@@ -78,16 +81,14 @@ export default class Enemy extends RandomHelper{
                     data-speed="${this.speed}"
                     data-i="${this.i}"
                 >
-                ${this.id+1}. 
-                [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
-                ${this.name} (${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
-                ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i> </div>
+                    ${this.renderHeader()}
+                </div>
                 <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
                 ${this.renderActions()}
                 <br/>
-                ${this.i}
+                ${this.renderInformation()}
             </div>
         </div>
         `;
@@ -180,6 +181,10 @@ export default class Enemy extends RandomHelper{
             case 'spear':
                 result += this.attackSpear();
                 break;
+
+            case 'strength-drain':
+                result += this.attackStrengthDrain();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -223,6 +228,9 @@ export default class Enemy extends RandomHelper{
 
             case 'spear':
                 return 'Włócznia';
+
+            case 'strength-drain':
+                return 'Wysysanie sił';
         
             default:
                 console.log(`nieokreślono typeAction: '${typeAction}'`);
@@ -280,5 +288,21 @@ export default class Enemy extends RandomHelper{
             <b class="d-none dmg-${this.id}">${dmg} (${name})</b>
             <br/>
         `;
+    };
+    renderInformation() {
+        return this.i;
+    };
+    renderHeader() {
+        if (10 < this.name.length) {
+            return `${this.id+1}. ${this.name} <br/>
+            [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] 
+            (${this.currentHp}/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
+            ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
+        } else {
+            return `${this.id+1}. 
+            [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
+            ${this.name} (${this.currentHp}/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
+            ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
+        }
     }
 }

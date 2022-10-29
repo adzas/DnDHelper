@@ -58,8 +58,6 @@ export class BattlefieldStorage {
         if (0 < new_content.length) {
             this.clear();
             let new_indexint_content = this.reindexContent(new_content);
-            console.log('new_indexint_content: ');
-            console.log(new_indexint_content);
             new_indexint_content.sort(this.sortById);
             this.saveAll(new_indexint_content);
         }
@@ -73,15 +71,15 @@ export class BattlefieldStorage {
         }
         return 0;
     };
-    sortByIdDesc (a, b) {
-        if ( a.id < b.id ){
-            return 1;
-          }
-          if ( a.id > b.id ){
-            return -1;
-          }
-          return 0;
-    };
+    // sortByIdDesc (a, b) {
+    //     if ( a.id < b.id ){
+    //         return 1;
+    //       }
+    //       if ( a.id > b.id ){
+    //         return -1;
+    //       }
+    //       return 0;
+    // };
     saveAll(data) {
         localStorage.setItem('gameStorage', JSON.stringify(data));
     };
@@ -106,13 +104,9 @@ export class BattlefieldStorage {
         return content;
     };
     getElementById(id, from) {
-        console.log('id', id);
-        console.log('from', from);
         const target = from.filter(obj => {
             return obj.id == id;
         });
-        console.log('target', target);
-        console.log('target[0]', target[0]);
         return target[0];
     }
 }

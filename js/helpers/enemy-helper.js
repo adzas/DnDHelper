@@ -6,6 +6,7 @@ import Goblin from "../enemy-type/goblin.js";
 import Hobgoblin from "../enemy-type/hobgoblin.js";
 import Player from "../enemy-type/Player.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
+import Shadow from "../enemy-type/shadow.js";
 import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
@@ -35,6 +36,9 @@ export default class EnemyHelper {
             case 'gnoll':
                 return new Gnoll(obj);
 
+            case 'shadow':
+                return new Shadow(obj);
+
             case 'hum':
             case 'omalen':
             case 'kreatura':
@@ -42,6 +46,7 @@ export default class EnemyHelper {
                 return new Player(obj);
         
             default:
+                alert('Nieznany typ przeciwnika: '+obj.type);
                 break;
         }
     };
