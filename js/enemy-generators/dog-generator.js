@@ -2,6 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class DogGenerator extends RandomHelper {
     getRandomObject(){
+        const hp = (this.k(8)*2)+2;
         return {
             "type": "dog",
             "name": "Pies",
@@ -9,7 +10,8 @@ export default class DogGenerator extends RandomHelper {
             "statistics": {
                 "xp": 35,
                 "kp": 10,
-                "hp": (this.k(8)*2)+2,
+                "currentHp": hp,
+                "hp": hp,
                 "initiative": this.k(20)+2,
                 'pp': 13,
                 "strength": 10,

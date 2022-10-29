@@ -9,6 +9,7 @@ export default class AlsariphGenerator extends RandomHelper {
             "statistics": {
                 "xp": 75,
                 "kp": 10,
+                "currentHp": 12,
                 "hp": 12,
                 "initiative": 20,
                 'pp': 10,

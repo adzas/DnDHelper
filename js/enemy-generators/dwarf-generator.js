@@ -2,6 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class DwarfGenerator extends RandomHelper {
     getRandomObject(){
+        const hp = (this.k(8)*3)+3;
         return {
             "type": "dwarf",
             "name": "Krasnolud Wojownik",
@@ -9,7 +10,8 @@ export default class DwarfGenerator extends RandomHelper {
             "statistics": {
                 "xp": 100,
                 "kp": 13,
-                "hp": (this.k(8)*3)+3,
+                "currentHp": hp,
+                "hp": hp,
                 "initiative": this.k(20)+1,
                 'pp': 15,
                 "strength": 11,
@@ -19,7 +21,7 @@ export default class DwarfGenerator extends RandomHelper {
                 "wisdom": 13,
                 "charisma": 11,
                 "speed": "25ft (5[ ])",
-                "i": "2x atak mele lub range"
+                "i": "2x atak mele lub range; natura +4; Percepcja +5; Siła +6; Przetrwanie +5;"
             }
         }
     };

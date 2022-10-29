@@ -51,15 +51,21 @@ export default class Enemy extends RandomHelper{
 
             this.str = Math.round((this.strength - 10) / 2);
             this.dex = Math.round((this.dexterity -10) / 2);
-
-            this.currentHp = this.hp;
+            
+            if (null === obj.statistics.currentHp) {
+                this.currentHp = this.hp;
+            } else {
+                this.currentHp = obj.statistics.currentHp;
+            }
         }
     };
     render() {
         let html = `
         <div class="col-12 mb-1">
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <div class="btn btn-danger delete" data-id="${this.id}">x</div>
+                <div class="btn btn-danger delete" data-id="${this.id}">
+                    <i class="ra ra-skull"></i>
+                </div>
                 <div 
                     class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#actions-${this.id}" 
@@ -69,6 +75,7 @@ export default class Enemy extends RandomHelper{
                     data-name="${this.name}"
                     data-xp="${this.xp}"
                     data-kp="${this.kp}"
+                    data-currentHp="${this.currentHp}"
                     data-hp="${this.hp}"
                     data-initiative="${this.initiative}"
                     data-pp="${this.pp}"
@@ -293,16 +300,35 @@ export default class Enemy extends RandomHelper{
         return this.i;
     };
     renderHeader() {
-        if (10 < this.name.length) {
+        // if (10 < this.name.length) {
             return `${this.id+1}. ${this.name} <br/>
             [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] 
-            (${this.currentHp}/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
+            ${this.hpChangeButton()} 
             ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
-        } else {
-            return `${this.id+1}. 
-            [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
-            ${this.name} (${this.currentHp}/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>) 
-            ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
-        }
+        // } else {
+        //     return `${this.id+1}. 
+        //     [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
+        //     ${this.name} ${this.hpChangeButton()} 
+        //     ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
+        // }
+    };
+    hpChangeButton() {
+        return `
+        <div class="btn-group" role="group" aria-label="t3">
+            <button class="btn btn-sm btn-default border border-success hp-changed"
+                data-minus-value="-5"
+                data-id="${this.id}"
+            >-5</button>
+            <button class="btn btn-sm btn-default border border-success hp-changed"
+                data-minus-value="-1"
+                data-id="${this.id}"
+            >
+                (<span class="current-hp">${this.currentHp}</span>/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>)
+            </button>
+            <button class="btn btn-sm btn-default border border-success hp-changed"
+                data-minus-value="5"
+                data-id="${this.id}"
+            >+5</button>
+        </div>`;
     }
 }

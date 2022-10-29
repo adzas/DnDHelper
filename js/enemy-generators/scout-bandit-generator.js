@@ -2,6 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class ScoutBanditGenerator extends RandomHelper {
     getRandomObject(){
+        const hp = (this.k(8)*3)+3;
         return {
             "type": "scout-bandit",
             "name": "Bandyta zwiadowca",
@@ -9,7 +10,8 @@ export default class ScoutBanditGenerator extends RandomHelper {
             "statistics": {
                 "xp": 100,
                 "kp": 13,
-                "hp": (this.k(8)*3)+3,
+                "currentHp": hp,
+                "hp": hp,
                 "initiative": this.k(20)+2,
                 'pp': 15,
                 "strength": 11,

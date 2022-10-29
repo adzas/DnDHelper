@@ -2,6 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class GoblinGenerator extends RandomHelper {
     getRandomObject(){
+        const hp = (this.k(6))+5;
         return {
             "type": "goblin",
             "name": "Goblin",
@@ -9,7 +10,8 @@ export default class GoblinGenerator extends RandomHelper {
             "statistics": {
                 "xp": 50,
                 "kp": 15,
-                "hp": (this.k(6))+5,
+                "currentHp": hp,
+                "hp": hp,
                 "initiative": this.k(20)+2,
                 'pp': 9,
                 "strength": 8,

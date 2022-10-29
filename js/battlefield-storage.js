@@ -71,15 +71,6 @@ export class BattlefieldStorage {
         }
         return 0;
     };
-    // sortByIdDesc (a, b) {
-    //     if ( a.id < b.id ){
-    //         return 1;
-    //       }
-    //       if ( a.id > b.id ){
-    //         return -1;
-    //       }
-    //       return 0;
-    // };
     saveAll(data) {
         localStorage.setItem('gameStorage', JSON.stringify(data));
     };
@@ -108,5 +99,22 @@ export class BattlefieldStorage {
             return obj.id == id;
         });
         return target[0];
+    };
+    changeHpElementById(id, value) {
+        let actualValue = 0;
+        let content = this.get();
+        this.clear();
+        for (let k in content) {
+            if (parseInt(id) === parseInt(content[k].id)) {
+                console.log(content[k].statistics.currentHp);
+                console.log(parseInt(content[k].statistics.currentHp));
+                console.log(value);
+                actualValue = parseInt(content[k].statistics.currentHp) + value;
+                content[k].statistics.currentHp = actualValue;
+            }
+        }
+        this.saveAll(this.reindexContent(content));
+
+        return actualValue;
     }
 }

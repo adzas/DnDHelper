@@ -17,6 +17,7 @@ import EnemyHelper from './helpers/enemy-helper.js';
 
 const app = new App;
 const battlefield = new BattlefieldStorage;
+const enemyHelper = new EnemyHelper;
 // battlefield.clear();
 
 app.renderBF(battlefield.get());
@@ -44,7 +45,7 @@ $('.enemy').on('click', function(e) {
             battlefield.store(bandit.getRandomObject());
             message = 'Dodano Bandytę do listy';
             break;
-
+            BattlefieldStorage
         case 'scout-bandit':
             const scoutBandit = new ScoutBanditGenerator;
             battlefield.store(scoutBandit.getRandomObject());
@@ -129,7 +130,6 @@ $('.action').on('click', function(e) {
     const attackType = target.data('attack-type');
     const attackMethod = target.data('attack-method');
     let cache = '';
-    const enemyHelper = new EnemyHelper;
     const obj = enemyHelper.setObjArrayFromTarget(target);
     const enemy = enemyHelper.getEnemyObject(obj);
     enemy.setAttackType(attackType);
@@ -160,4 +160,13 @@ $(document.body).on('click', '.delete', function(e){
     const id_element = $(e.target).data('id');
     battlefield.deleteElement(id_element);
     app.renderBF(battlefield.get());
+});
+
+$(document.body).on('click', '.hp-changed', function(e){
+    const target = $(e.target);
+    const id = parseInt(target.data('id'));
+    const value = parseInt(target.data('minus-value'));
+    const battlefieldContent = battlefield.get();
+    const newHp = battlefield.changeHpElementById(id, value);
+    target.parent().find('.current-hp').html(newHp);
 });
