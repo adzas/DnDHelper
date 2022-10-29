@@ -16,7 +16,9 @@ export default class Player extends Enemy
         let html = `
         <div class="col-12 mb-1">
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <div class="btn btn-danger delete" data-id="${this.id}">x</div>
+                <div class="btn btn-danger delete" data-id="${this.id}">
+                    <i class="ra ra-skull"></i>
+                </div>
                 <div 
                     class="btn btn-success my-collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#actions-${this.id}" 
@@ -38,7 +40,9 @@ export default class Player extends Enemy
                     data-speed="${this.speed}"
                     data-i="${this.i}"
                 > ${this.name} </div>
-                <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
+                <div class="btn btn-primary move-up" data-id="${this.id}">
+                    <i class="ra ra-underhand"></i> 
+                </div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
                 ${this.renderActions()}

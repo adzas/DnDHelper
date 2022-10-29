@@ -90,7 +90,9 @@ export default class Enemy extends RandomHelper{
                 >
                     ${this.renderHeader()}
                 </div>
-                <div class="btn btn-primary move-up" data-id="${this.id}">^</div>
+                <div class="btn btn-primary move-up" data-id="${this.id}">
+                    <i class="ra ra-underhand"></i> 
+                </div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
                 ${this.renderActions()}
@@ -300,17 +302,11 @@ export default class Enemy extends RandomHelper{
         return this.i;
     };
     renderHeader() {
-        // if (10 < this.name.length) {
-            return `${this.id+1}. ${this.name} <br/>
-            [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] 
-            ${this.hpChangeButton()} 
-            ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
-        // } else {
-        //     return `${this.id+1}. 
-        //     [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}]
-        //     ${this.name} ${this.hpChangeButton()} 
-        //     ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
-        // }
+        return `${this.id+1}. ${this.name} <br/>
+        ${this.hpChangeButton()} <br/>
+        [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] - 
+        <i style="font-size:0.75em" class="ra ra-rabbit d-none"></i>${this.speed} - 
+        ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
     };
     hpChangeButton() {
         return `
