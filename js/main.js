@@ -3,6 +3,7 @@ import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import DogGenerator from './enemy-generators/dog-generator.js';
+import DwarfExtraGenerator from './enemy-generators/dwarf-extra-generator.js';
 import DwarfGenerator from './enemy-generators/dwarf-generator.js';
 import GnollGenerator from './enemy-generators/gnoll-generator.js';
 import GoblinGenerator from './enemy-generators/golbin-generator.js';
@@ -12,6 +13,7 @@ import KreaturaGenerator from './enemy-generators/kreatura-generator.js';
 import OmalenGenerator from './enemy-generators/omalen-generator.js';
 import ScoutBanditGenerator from './enemy-generators/scout-bandit-generator.js';
 import ShadowGenerator from './enemy-generators/shadow-generator.js';
+import ThugGenerator from './enemy-generators/thug-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
 import EnemyHelper from './helpers/enemy-helper.js';
 
@@ -117,6 +119,18 @@ $('.enemy').on('click', function(e) {
             battlefield.store(shadow.getRandomObject());
             message = 'Dodano Cień do pola bitwy!';
             break;
+
+        case 'thug':
+            const thug = new ThugGenerator;
+            battlefield.store(thug.getRandomObject());
+            message = 'Dodano Zbira do pola bitwy!';
+            break;
+
+        case 'dwarf-extra':
+            const dwarfExtra = new DwarfExtraGenerator;
+            battlefield.store(dwarfExtra.getRandomObject());
+            message = 'Dodano Krasnoluda wojownika + do pola bitwy!';
+            break;
     
         default:
             console.log('enemyType: '+enemyType+' is ubdefined');
@@ -166,7 +180,15 @@ $(document.body).on('click', '.hp-changed', function(e){
     const target = $(e.target);
     const id = parseInt(target.data('id'));
     const value = parseInt(target.data('minus-value'));
-    const battlefieldContent = battlefield.get();
     const newHp = battlefield.changeHpElementById(id, value);
     target.parent().find('.current-hp').html(newHp);
+});
+
+$(document.body).on('click', '.show-statisticks', function(e){
+    const target = $(e.target);
+    const id = parseInt(target.data('id'));
+    const bfItems = battlefield.get();
+    const obj = battlefield.getElementById(id, bfItems);
+    const enemy = enemyHelper.getEnemyObject(obj);
+    app.renderCache(enemy.renderStatisticks());
 });

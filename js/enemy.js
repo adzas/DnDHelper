@@ -64,7 +64,7 @@ export default class Enemy extends RandomHelper{
         <div class="col-12 mb-1">
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
                 <div class="btn btn-danger delete" data-id="${this.id}">
-                    <i class="ra ra-skull"></i>
+                    <i class="ra ra-skull" data-id="${this.id}"></i>
                 </div>
                 <div 
                     class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
@@ -90,8 +90,14 @@ export default class Enemy extends RandomHelper{
                 >
                     ${this.renderHeader()}
                 </div>
-                <div class="btn btn-primary move-up" data-id="${this.id}">
-                    <i class="ra ra-underhand"></i> 
+                <div class="btn btn-primary">
+                    <button class="btn btn-default move-up" data-id="${this.id}">
+                        <i class="ra ra-underhand" data-id="${this.id}"></i>
+                    </button>
+                    <br/>
+                    <button class="btn btn-default show-statisticks" data-id="${this.id}">
+                        <i class="ra ra-player" data-id="${this.id}"></i>
+                    </button> 
                 </div>
             </div>
             <div class="my-collapse-target" id="actions-${this.id}">
@@ -194,6 +200,18 @@ export default class Enemy extends RandomHelper{
             case 'strength-drain':
                 result += this.attackStrengthDrain();
                 break;
+
+            case 'mace':
+                result += this.attackMace();
+                break;
+
+            case 'heavy-crossbow':
+                result += this.attackHeavyCrossbow();
+                break;
+
+            case 'battleaxe':
+                result += this.attackBattleaxe();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -240,6 +258,15 @@ export default class Enemy extends RandomHelper{
 
             case 'strength-drain':
                 return 'Wysysanie sił';
+
+            case 'mace':
+                return 'Buzdygan';
+
+            case 'heavy-crossbow':
+                return 'Ciężka kusza';
+
+            case 'battleaxe':
+                return 'Topór bojowy';
         
             default:
                 console.log(`nieokreślono typeAction: '${typeAction}'`);
@@ -299,7 +326,12 @@ export default class Enemy extends RandomHelper{
         `;
     };
     renderInformation() {
-        return this.i;
+        let html = '';
+        const informations = this.i.split(';');
+        for (let k in informations) {
+            html += informations[k]+'</br>';
+        }
+        return html;
     };
     renderHeader() {
         return `${this.id+1}. ${this.name} <br/>
@@ -326,5 +358,36 @@ export default class Enemy extends RandomHelper{
                 data-id="${this.id}"
             >+5</button>
         </div>`;
+    };
+    renderStatisticks(){
+        return `
+        <div class="row">
+        <div class="col-12">
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-0pky">str</th>
+                        <th class="tg-0pky">dex</th>
+                        <th class="tg-0pky">con</th>
+                        <th class="tg-0pky">int</th>
+                        <th class="tg-0pky">chr</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-0pky">${this.strength}</td>
+                        <td class="tg-0pky">${this.dexterity}</td>
+                        <td class="tg-0pky">${this.condition}</td>
+                        <td class="tg-0pky">${this.intelligence}</td>
+                        <td class="tg-0pky">${this.charisma}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            ${this.renderInformation()}
+        </div>
+        </div>
+        `;
     }
 }

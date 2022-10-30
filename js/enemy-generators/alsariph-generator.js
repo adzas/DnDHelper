@@ -7,20 +7,20 @@ export default class AlsariphGenerator extends RandomHelper {
             "name": "Alsariph",
             "actions": [],
             "statistics": {
-                "xp": 75,
-                "kp": 10,
-                "currentHp": 12,
-                "hp": 12,
-                "initiative": 20,
-                'pp': 10,
-                "strength": 10,
-                "dexterity": 15,
-                "condition": 12,
-                "intelligence": 3,
+                "xp": 999,
+                "kp": 12,
+                "currentHp": 16,
+                "hp": 16,
+                "initiative": 99,
+                'pp': 11,
+                "strength": 8,
+                "dexterity": 14,
+                "condition": 16,
+                "intelligence": 10,
                 "wisdom": 12,
-                "charisma": 6,
+                "charisma": 16,
                 "speed": "30ft (6[ ])",
-                "i": ""
+                "i": "zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 13;"
             }
         }
     };

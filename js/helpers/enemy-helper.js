@@ -1,5 +1,6 @@
 import Bandit from "../enemy-type/bandit.js";
 import Dog from "../enemy-type/dog.js";
+import DwarfExtra from "../enemy-type/dwarf-extra.js";
 import Dwarf from "../enemy-type/dwarf.js";
 import Gnoll from "../enemy-type/gnoll.js";
 import Goblin from "../enemy-type/goblin.js";
@@ -7,6 +8,7 @@ import Hobgoblin from "../enemy-type/hobgoblin.js";
 import Player from "../enemy-type/Player.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
 import Shadow from "../enemy-type/shadow.js";
+import Thug from "../enemy-type/thug.js";
 import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
@@ -38,6 +40,12 @@ export default class EnemyHelper {
 
             case 'shadow':
                 return new Shadow(obj);
+
+            case 'thug':
+                return new Thug(obj);
+
+            case 'dwarf-extra':
+                return new DwarfExtra(obj);
 
             case 'hum':
             case 'omalen':

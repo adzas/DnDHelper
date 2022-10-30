@@ -1,10 +1,49 @@
 body {
     background-color: #fafafa;
 }
+
 #app {
     background-color: #ddd;
     padding: 5px;
 }
+
 .charecter-row {
     padding: 5px;
+}
+
+/** statistics table style */
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 3px 2px;
+    word-break: normal;
+    text-align: center;
+}
+
+.tg .tg-0pky {
+    border-color: inherit;
+    text-align: center;
+    vertical-align: top
 }

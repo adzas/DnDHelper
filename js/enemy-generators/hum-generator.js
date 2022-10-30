@@ -7,20 +7,20 @@ export default class HumGenerator extends RandomHelper {
             "name": "Hum",
             "actions": [],
             "statistics": {
-                "xp": 75,
-                "kp": 10,
-                "hp": 12,
-                "currentHp": null,
-                "initiative": 20,
-                'pp': 10,
-                "strength": 10,
-                "dexterity": 15,
-                "condition": 12,
-                "intelligence": 3,
-                "wisdom": 12,
-                "charisma": 6,
+                "xp": 999,
+                "kp": 14,
+                "hp": 14,
+                "currentHp": 14,
+                "initiative": 99,
+                'pp': 9,
+                "strength": 8,
+                "dexterity": 17,
+                "condition": 14,
+                "intelligence": 15,
+                "wisdom": 8,
+                "charisma": 12,
                 "speed": "30ft (6[ ])",
-                "i": ""
+                "i": "zasięg widzenia: 18m 60ft 12[ ]; widzenie w ciemności: ; intuicja pasywna: 9;"
             }
         }
     };

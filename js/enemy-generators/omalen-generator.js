@@ -7,20 +7,20 @@ export default class OmalenGenerator extends RandomHelper {
             "name": "Omalen",
             "actions": [],
             "statistics": {
-                "xp": 75,
-                "kp": 10,
-                "currentHp": null,
-                "hp": 12,
-                "initiative": 20,
-                'pp': 10,
-                "strength": 10,
-                "dexterity": 15,
-                "condition": 12,
-                "intelligence": 3,
-                "wisdom": 12,
-                "charisma": 6,
+                "xp": 999,
+                "kp": 16,
+                "currentHp": 16,
+                "hp": 16,
+                "initiative": 99,
+                'pp': 15,
+                "strength": 12,
+                "dexterity": 17,
+                "condition": 13,
+                "intelligence": 8,
+                "wisdom": 16,
+                "charisma": 8,
                 "speed": "30ft (6[ ])",
-                "i": ""
+                "i": "zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 13;"
             }
         }
     };
