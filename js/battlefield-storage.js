@@ -71,6 +71,15 @@ export class BattlefieldStorage {
         }
         return 0;
     };
+    sortByIni(a, b) {
+        if ( a.statistics.initiative < b.statistics.initiative ){
+          return 1;
+        }
+        if ( a.statistics.initiative > b.statistics.initiative ){
+          return -1;
+        }
+        return 0;
+    };
     saveAll(data) {
         localStorage.setItem('gameStorage', JSON.stringify(data));
     };

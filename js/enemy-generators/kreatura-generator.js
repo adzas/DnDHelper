@@ -10,7 +10,7 @@ export default class KreaturaGenerator extends RandomHelper {
                 "xp": 999,
                 "kp": 19,
                 "currentHp": 20,
-                "hp": 20,
+                "hp": 22,
                 "initiative": 99,
                 'pp': 13,
                 "strength": 16,

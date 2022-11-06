@@ -157,6 +157,14 @@ $('#clearBF').on('click', function(){
     app.renderBF(battlefield.get());
 });
 
+$('#sortByIniBF').on('click', function(){
+    let bfContent = battlefield.get();
+    battlefield.clear();
+    let res = bfContent.sort(battlefield.sortByIni);
+    battlefield.saveAll(bfContent);
+    app.renderBF(battlefield.get());
+});
+
 $(document.body).on('click', '.show-dmg', function(e){
     const target = $(e.target);
     const data_target = target.data('target');

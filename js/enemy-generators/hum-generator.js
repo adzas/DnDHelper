@@ -9,7 +9,7 @@ export default class HumGenerator extends RandomHelper {
             "statistics": {
                 "xp": 999,
                 "kp": 14,
-                "hp": 14,
+                "hp": 17,
                 "currentHp": 14,
                 "initiative": 99,
                 'pp': 9,

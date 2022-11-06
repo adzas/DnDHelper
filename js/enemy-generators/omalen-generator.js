@@ -8,7 +8,7 @@ export default class OmalenGenerator extends RandomHelper {
             "actions": [],
             "statistics": {
                 "xp": 999,
-                "kp": 16,
+                "kp": 15,
                 "currentHp": 16,
                 "hp": 16,
                 "initiative": 99,
