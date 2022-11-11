@@ -2,6 +2,7 @@ import App from './app.js';
 import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
+import DarklingGenerator from './enemy-generators/darkling-generator.js';
 import DogGenerator from './enemy-generators/dog-generator.js';
 import DwarfExtraGenerator from './enemy-generators/dwarf-extra-generator.js';
 import DwarfGenerator from './enemy-generators/dwarf-generator.js';
@@ -130,6 +131,12 @@ $('.enemy').on('click', function(e) {
             const dwarfExtra = new DwarfExtraGenerator;
             battlefield.store(dwarfExtra.getRandomObject());
             message = 'Dodano Krasnoluda wojownika + do pola bitwy!';
+            break;
+
+        case 'darkling':
+            const darkling = new DarklingGenerator;
+            battlefield.store(darkling.getRandomObject());
+            message = 'Dodano Darklinga do pola bitwy!';
             break;
     
         default:

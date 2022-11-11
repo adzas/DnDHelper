@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class WoodGolemGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = (this.k(8)*6)+12;
+        const hp = (this.k(8)*3)+25;
         return {
             "type": "wood-golem",
             "name": "Golem drzewny",
@@ -11,7 +11,7 @@ export default class WoodGolemGenerator extends RandomHelper {
                 "xp": 500,
                 "kp": 8,
                 "currentHp": hp,
-                "hp": hp,
+                "hp": hp, // 38
                 "initiative": this.k(20)-1,
                 'pp': 8,
                 "strength": 15,

@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class HobgoblinGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = (this.k(8)*2)+2;
+        const hp = (this.k(8))+10;
         return {
             "type": "hobgoblin",
             "name": "Hobgoblin",
@@ -10,7 +10,7 @@ export default class HobgoblinGenerator extends RandomHelper {
             "statistics": {
                 "xp": 100,
                 "kp": 18,
-                "currentHp": hp,
+                "currentHp": hp, // 11
                 "hp": hp,
                 "initiative": this.k(20),
                 'pp': 10,

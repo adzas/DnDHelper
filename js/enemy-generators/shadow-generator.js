@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class ShadowGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = (this.k(8)*3)+3;
+        const hp = (this.k(8))+12;
         return {
             "type": "shadow",
             "name": "Cień",
@@ -11,7 +11,7 @@ export default class ShadowGenerator extends RandomHelper {
                 "xp": 100,
                 "kp": 12,
                 "currentHp": hp,
-                "hp": hp,
+                "hp": hp, // 16
                 "initiative": this.k(20)+2,
                 'pp': 10,
                 "strength": 6,

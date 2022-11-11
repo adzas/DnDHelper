@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class ThugGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = (this.k(8)*5)+10;
+        const hp = (this.k(8)*3)+20;
         return {
             "type": "thug",
             "name": "Zbir",
@@ -11,7 +11,7 @@ export default class ThugGenerator extends RandomHelper {
                 "xp": 100,
                 "kp": 11,
                 "currentHp": hp,
-                "hp": hp,
+                "hp": hp, // 32
                 "initiative": this.k(20),
                 'pp': 10,
                 "strength": 15,

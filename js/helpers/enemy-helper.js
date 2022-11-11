@@ -1,4 +1,5 @@
 import Bandit from "../enemy-type/bandit.js";
+import Darkling from "../enemy-type/darkling.js";
 import Dog from "../enemy-type/dog.js";
 import DwarfExtra from "../enemy-type/dwarf-extra.js";
 import Dwarf from "../enemy-type/dwarf.js";
@@ -46,6 +47,9 @@ export default class EnemyHelper {
 
             case 'dwarf-extra':
                 return new DwarfExtra(obj);
+
+            case 'darkling':
+                return new Darkling(obj);
 
             case 'hum':
             case 'omalen':

@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class GnollGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = this.k(8)*5;
+        const hp = (this.k(8)*2)+12;
         return {
             "type": "gnoll",
             "name": "Gnoll",
@@ -10,7 +10,7 @@ export default class GnollGenerator extends RandomHelper {
             "statistics": {
                 "xp": 100,
                 "kp": 15,
-                "currentHp": hp,
+                "currentHp": hp, // 22
                 "hp": hp,
                 "initiative": this.k(20)+2,
                 'pp': 10,

@@ -2,7 +2,7 @@ import RandomHelper from "../helpers/random-helper.js";
 
 export default class DwarfGenerator extends RandomHelper {
     getRandomObject(){
-        const hp = (this.k(8)*3)+3;
+        const hp = (this.k(8)*2)+8;
         return {
             "type": "dwarf",
             "name": "Krasnolud Wojownik",
@@ -10,7 +10,7 @@ export default class DwarfGenerator extends RandomHelper {
             "statistics": {
                 "xp": 100,
                 "kp": 13,
-                "currentHp": hp,
+                "currentHp": hp, // 16
                 "hp": hp,
                 "initiative": this.k(20)+1,
                 'pp': 15,

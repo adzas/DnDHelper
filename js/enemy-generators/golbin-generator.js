@@ -10,7 +10,7 @@ export default class GoblinGenerator extends RandomHelper {
             "statistics": {
                 "xp": 50,
                 "kp": 15,
-                "currentHp": hp,
+                "currentHp": hp, // 7
                 "hp": hp,
                 "initiative": this.k(20)+2,
                 'pp': 9,
