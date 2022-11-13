@@ -42,6 +42,12 @@ $('#randomCharacteristics').on('click', function(){
     app.renderCache(characteristics);
 });
 
+$('#randomAttackDesc').on('click', function(){
+    const random = new Random;
+    const description = random.getRandomAttackDescription();
+    app.renderCache(description);
+});
+
 $(document.body).on('click', '.my-collapse' ,function(e, t){
     const target = $(e.target);
     if ("false" === target.attr('data-collapse-show')) {

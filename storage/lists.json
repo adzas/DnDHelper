@@ -115,12 +115,15 @@
             "jest bardzo przekonujący",
             "ostre rysy twarzy",
             "ma nieprzeciętnie dużą głowę"
-        ],
-        "dwarf": [
-            ""
-        ],
-        "elf":[
-
+        ]
+    },
+    "attackdescription": {
+        "sword": [
+            "Szybcie cięcie w nadgarstek",
+            "Prosty atak w rzebra",
+            "Cios wyprowadzony na wprost w szyję",
+            "Szybki atak od góry w skroń",
+            "Ostrze prowadzone po łuku w biodro"
         ]
     }
 }

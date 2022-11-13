@@ -4,7 +4,11 @@ export default class Random {
     lists = "./storage/lists.json";
     resultData = null;
     constructor() {
-        this.getDataFromListFile();
+        let status = JSON.parse(localStorage.getItem('randomData'));
+        console.log('status', status);
+        if (null === status) {
+            this.getDataFromListFile();
+        }
     };
     getDataFromListFile() {
         $.getJSON(this.lists, function(data){
@@ -17,9 +21,6 @@ export default class Random {
         const resultData = JSON.parse(localStorage.getItem('randomData'));
 
         return resultData.appearance.general;
-        // console.log(data.character.positive);
-        // console.log(data.character.negative);
-        // console.log(data.appearance.general);
     };
     getRandomAppearance() {
         const appearanceData = this.getAppearance();
@@ -43,5 +44,18 @@ export default class Random {
             "positive": positive,
             "negative": negative
         };
+    };
+    getAttackDescription () {
+        const resultData = JSON.parse(localStorage.getItem('randomData'));
+        console.log('resultData', resultData);
+        console.log('resultData.attackDescription', resultData.attackdescription);
+
+        return resultData.attackdescription;
+    }
+    getRandomAttackDescription() {
+        const attackDesc = this.getAttackDescription();
+        const randomHelper = new RandomHelper();
+        
+        return randomHelper.getRandomValueFromData(attackDesc.sword);
     }
 }
