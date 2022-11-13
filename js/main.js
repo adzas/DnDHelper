@@ -17,6 +17,7 @@ import ShadowGenerator from './enemy-generators/shadow-generator.js';
 import ThugGenerator from './enemy-generators/thug-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
 import EnemyHelper from './helpers/enemy-helper.js';
+import Random from './random.js';
 
 const app = new App;
 const battlefield = new BattlefieldStorage;
@@ -26,6 +27,19 @@ const enemyHelper = new EnemyHelper;
 app.renderBF(battlefield.get());
 $('#refreshBF').on('click', function(){
     app.renderBF(battlefield.get());
+});
+
+$('#randomCharacteristics').on('click', function(){
+    let characteristics = '';
+    const random = new Random;
+    const appearance = random.getRandomAppearance();
+    const character = random.getRandomCharacterAttr();
+    characteristics += `wygląd: ${appearance}<br>
+    cechy charakteru: <ul>
+        <li>${character.negative}</li>
+        <li>${character.positive}</li>
+    </ul>`;
+    app.renderCache(characteristics);
 });
 
 $(document.body).on('click', '.my-collapse' ,function(e, t){

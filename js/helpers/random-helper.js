@@ -1,5 +1,4 @@
 export default class RandomHelper {
-
     getRandom(min, max) {
         let results = [];
         let k = 0;
@@ -12,5 +11,16 @@ export default class RandomHelper {
     };
     k(die) {
         return this.getRandom(1, die);
+    };
+    getRandomValueFromData(data) {
+        console.log('data', data);
+        let results = [];
+        let k = 0;
+        for (let i=0; i<=data.length; i++) {
+            results[k++] = data[i];
+        }
+        results.sort();
+
+        return results[Math.floor(Math.random() * results.length)];
     }
 }
