@@ -377,6 +377,7 @@ export default class Enemy extends RandomHelper{
                         <th class="tg-0pky">dex</th>
                         <th class="tg-0pky">con</th>
                         <th class="tg-0pky">int</th>
+                        <th class="tg-0pky">wis</th>
                         <th class="tg-0pky">chr</th>
                     </tr>
                 </thead>
@@ -386,6 +387,7 @@ export default class Enemy extends RandomHelper{
                         <td class="tg-0pky">${this.dexterity}</td>
                         <td class="tg-0pky">${this.condition}</td>
                         <td class="tg-0pky">${this.intelligence}</td>
+                        <td class="tg-0pky">${this.wisdom}</td>
                         <td class="tg-0pky">${this.charisma}</td>
                     </tr>
                 </tbody>
