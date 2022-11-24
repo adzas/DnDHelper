@@ -338,6 +338,9 @@ export default class Enemy extends RandomHelper{
         for (let k in informations) {
             html += informations[k]+'</br>';
         }
+        html += `pasywna percepcja: ${this.pp}</br>`;
+        html += `szybkość: ${this.speed}</br>`;
+
         return html;
     };
     renderHeader() {
