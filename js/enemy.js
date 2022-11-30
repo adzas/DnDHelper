@@ -59,15 +59,29 @@ export default class Enemy extends RandomHelper{
             }
         }
     };
+    style() {
+        if (0 < this.currentHp) {
+            return '';
+        }
+
+        return 'style="opacity: 0.5"';
+    };
+    getMyCssClass() {
+        if (0 < this.currentHp) {
+            return 'btn-warning';
+        }
+
+        return 'btn-danger';
+    };
     render() {
         let html = `
-        <div class="col-12 mb-1">
+        <div class="col-12 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
                 <div class="btn btn-danger delete" data-id="${this.id}">
                     <i class="ra ra-skull" data-id="${this.id}"></i>
                 </div>
                 <div 
-                    class="btn btn-warning my-collapse w-75" id="${this.getIdBaseElementDom()}"
+                    class="btn ${this.getMyCssClass()} my-collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#actions-${this.id}" 
                     data-collapse-show="false"
                     data-type="${this.type}"
