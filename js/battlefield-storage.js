@@ -1,7 +1,13 @@
+import App from "./app.js";
+
 export class BattlefieldStorage {
     store(obj) {
         let bfStorage = [];
         const currentBfStorage = this.get();
+        const app = new App;
+        const players = app.getPlayersName();
+        const isPlayer = players.includes(obj.type);
+        obj.lp = 0;
         if (null === currentBfStorage) {
             obj.id = 1;
             bfStorage[0] = obj;
@@ -10,7 +16,12 @@ export class BattlefieldStorage {
             bfStorage = currentBfStorage;
             bfStorage[currentBfStorage.length] = obj;
         }
-        this.saveAll(this.reindexContent(bfStorage));
+        const newBfStorage = this.reindexContent(bfStorage);
+        const counterLpEnemys = this.getEnemyCounter(newBfStorage);
+        if (!isPlayer) {
+            obj.lp = counterLpEnemys;
+        }
+        this.saveAll(newBfStorage);
     };
     get() {
         const getStorageFB = JSON.parse(localStorage.getItem('gameStorage'));
@@ -125,5 +136,16 @@ export class BattlefieldStorage {
         this.saveAll(this.reindexContent(content));
 
         return actualValue;
+    };
+    getEnemyCounter(data) {
+        let counter = 0;
+        const app = new App;
+        const players = app.getPlayersName();
+        for (let i in data) {
+            if (!players.includes(data[i].type)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 }

@@ -1,7 +1,9 @@
+import App from "./app.js";
 import RandomHelper from "./helpers/random-helper.js";
 
 export default class Enemy extends RandomHelper{
     id = null;
+    lp = null;
     type = null;
     name = null;
     actions = null;
@@ -31,23 +33,24 @@ export default class Enemy extends RandomHelper{
     constructor(obj) {
         super(obj);
         if (obj !== typeof "undefined") {
-            this.id = obj.id
-            this.type = obj.type
-            this.name = obj.name
-            this.actions = obj.actions
-            this.xp = obj.statistics.xp
-            this.kp = obj.statistics.kp
-            this.hp = obj.statistics.hp
-            this.initiative = obj.statistics.initiative
-            this.pp = obj.statistics.pp
-            this.strength = obj.statistics.strength
-            this.dexterity = obj.statistics.dexterity
-            this.condition = obj.statistics.condition
-            this.intelligence = obj.statistics.intelligence
-            this.wisdom = obj.statistics.wisdom
-            this.charisma = obj.statistics.charisma
-            this.speed = obj.statistics.speed
-            this.i = obj.statistics.i
+            this.id = obj.id;
+            this.lp = obj.lp;
+            this.type = obj.type;
+            this.name = obj.name;
+            this.actions = obj.actions;
+            this.xp = obj.statistics.xp;
+            this.kp = obj.statistics.kp;
+            this.hp = obj.statistics.hp;
+            this.initiative = obj.statistics.initiative;
+            this.pp = obj.statistics.pp;
+            this.strength = obj.statistics.strength;
+            this.dexterity = obj.statistics.dexterity;
+            this.condition = obj.statistics.condition;
+            this.intelligence = obj.statistics.intelligence;
+            this.wisdom = obj.statistics.wisdom;
+            this.charisma = obj.statistics.charisma;
+            this.speed = obj.statistics.speed;
+            this.i = obj.statistics.i;
 
             this.str = Math.round((this.strength - 10) / 2);
             this.dex = Math.round((this.dexterity -10) / 2);
@@ -358,7 +361,15 @@ export default class Enemy extends RandomHelper{
         return html;
     };
     renderHeader() {
-        return `${this.id+1}. ${this.name} <br/>
+        let title = '';
+        const app = new App;
+        if (app.getPlayersName().includes(this.type)) {
+            title = `${this.name}`;
+        } else {
+            title = `${this.lp}. ${this.name} `;
+        }
+        
+        return `${title} <br/>
         ${this.hpChangeButton()} <br/>
         [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] - 
         <i style="font-size:0.75em" class="ra ra-rabbit d-none"></i>${this.speed} - 

@@ -44,5 +44,8 @@ export default class App {
     };
     clearCache() {
         $('#cache').html('');
+    };
+    getPlayersName() {
+        return ['alsariph', 'hum', 'kreatura', 'omalen']
     }
 }
