@@ -23,8 +23,11 @@ const app = new App;
 const battlefield = new BattlefieldStorage;
 const enemyHelper = new EnemyHelper;
 // battlefield.clear();
-
-app.renderBF(battlefield.get());
+const contentBF = battlefield.get();
+if (null === contentBF || 0 == contentBF.length) {
+    $('#settingsBF').click();
+}
+app.renderBF(contentBF);
 $('#refreshBF').on('click', function(){
     app.renderBF(battlefield.get());
 });
@@ -61,6 +64,7 @@ $(document.body).on('click', '.my-collapse' ,function(e, t){
 
 $('.enemy').on('click', function(e) {
     const enemyType = $(e.target).data('type');
+    const customInitiative = $('#initiative').val();
     let message = '';
     switch (enemyType) {
         case 'bandit':
@@ -107,25 +111,25 @@ $('.enemy').on('click', function(e) {
 
         case 'hum':
             const hum = new HumGenerator;
-            battlefield.store(hum.getRandomObject());
+            battlefield.store(hum.getRandomObject(customInitiative));
             message = 'Dodano Huma do pola bitwy!';
             break;
 
         case 'kreatura':
             const kreatura = new KreaturaGenerator;
-            battlefield.store(kreatura.getRandomObject());
+            battlefield.store(kreatura.getRandomObject(customInitiative));
             message = 'Dodano kreaturę do pola bitwy!';
             break;
 
         case 'omalen':
             const omalen = new OmalenGenerator;
-            battlefield.store(omalen.getRandomObject());
+            battlefield.store(omalen.getRandomObject(customInitiative));
             message = 'Dodano omalena do pola bitwy!';
             break;
 
         case 'alsariph':
             const alsariph = new AlsariphGenerator;
-            battlefield.store(alsariph.getRandomObject());
+            battlefield.store(alsariph.getRandomObject(customInitiative));
             message = 'Dodano Alsaripha do pola bitwy!';
             break;
 

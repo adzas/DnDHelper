@@ -1,7 +1,11 @@
 import RandomHelper from "../helpers/random-helper.js";
 
 export default class HumGenerator extends RandomHelper {
-    getRandomObject(){
+    getRandomObject(customInitiative){
+        let initiative = 99;
+        if (0 < customInitiative.length) {
+            initiative = customInitiative;
+        }
         return {
             "type": "hum",
             "name": "Hum",
@@ -11,7 +15,7 @@ export default class HumGenerator extends RandomHelper {
                 "kp": 14,
                 "hp": 17,
                 "currentHp": 14,
-                "initiative": 99,
+                "initiative": initiative,
                 'pp': 9,
                 "strength": 8,
                 "dexterity": 17,

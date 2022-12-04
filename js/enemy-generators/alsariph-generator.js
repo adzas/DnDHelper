@@ -1,7 +1,11 @@
 import RandomHelper from "../helpers/random-helper.js";
 
 export default class AlsariphGenerator extends RandomHelper {
-    getRandomObject(){
+    getRandomObject(customInitiative){
+        let initiative = 99;
+        if (0 < customInitiative.length) {
+            initiative = customInitiative;
+        }
         return {
             "type": "alsariph",
             "name": "Alsariph",
@@ -11,7 +15,7 @@ export default class AlsariphGenerator extends RandomHelper {
                 "kp": 12,
                 "currentHp": 16,
                 "hp": 16,
-                "initiative": 99,
+                "initiative": initiative,
                 'pp': 11,
                 "strength": 8,
                 "dexterity": 14,

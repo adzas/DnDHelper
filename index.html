@@ -65,102 +65,108 @@
             </div>
         </div>
         <div id="battleField" class="mb-2"></div>
-        <div class="row">
-            <!-- Bochaterowie -->
-            <div class="col-12 mb-2">
-                <button
-                    class="btn btn-success btn-sm enemy" data-type="hum"
-                    type="button"
-                >
-                    Hum
-                </button>
-                <button
-                    class="btn btn-success btn-sm enemy" data-type="omalen"
-                    type="button"
-                >
-                    Omalen
-                </button>
-                <button
-                    class="btn btn-success btn-sm enemy" data-type="alsariph"
-                    type="button"
-                >
-                    Alsariph
-                </button>
-                <button
-                    class="btn btn-success btn-sm enemy" data-type="kreatura"
-                    type="button"
-                >
-                    Kreatura
-                </button>
+        <details>
+            <summary id="settingsBF">Ustawienia pola bitwy</summary>
+            <p>
+            <div class="row mb-2">
+                <div class="col-12">
+                    <input class="btn btn-default w-100 border-info" type="number" placeholder="inicjatywa" name="initiative" id="initiative">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Bochaterowie -->
+                <div class="col-6 mb-2">
+                    <button class="w-100 btn btn-success btn-sm enemy" data-type="hum" type="button">
+                        Hum
+                    </button>
+                </div>
+                <div class="col-6 mb-2">
+                    <button class="w-100 btn btn-success btn-sm enemy" data-type="omalen" type="button">
+                        Omalen
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="w-100 btn btn-success btn-sm enemy" data-type="alsariph" type="button">
+                        Alsariph
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="w-100 btn btn-success btn-sm enemy" data-type="kreatura" type="button">
+                        Kreatura
+                    </button>
+                </div>
             </div>
             <!-- Przeciwnicy -->
-            <div class="col-12">
-                <details>
-                    <summary>Bandyci</summary>
-                    <p>
-                        <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
-                            Pies - 35
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="bandit" type="button">
-                            Bandyta - 25
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="scout-bandit" type="button">
-                            Bandyta Zwiadowca - 100
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="thug" type="button">
-                            Zbir - 100
-                        </button>
-                    </p>
-                </details>
-                <details>
-                    <summary>Gobliny</summary>
-                    <p>
-                        <button class="btn btn-danger btn-sm enemy" data-type="goblin" type="button">
-                            Goblin - 50
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="hobgoblin" type="button">
-                            Hoboblin - 100
-                        </button>
-                    </p>
-                </details>
-                <details>
-                    <summary>Krasnoludy</summary>
-                    <p>
-                        <button class="btn btn-danger btn-sm enemy" data-type="dwarf" type="button">
-                            Krasnolud wojownik - 100
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="dwarf-extra" type="button">
-                            Krasnolud wojownik+ - 150
-                        </button>
-                    </p>
-                </details>
-                <details>
-                    <summary>Gnolle</summary>
-                    <p>
-                        <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
-                            Pies - 35
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="gnoll" type="button">
-                            Gnoll - 100
-                        </button>
-                    </p>
-                </details>
-                <details>
-                    <summary>Inne</summary>
-                    <p>
-                        <button class="btn btn-danger btn-sm enemy" data-type="wood-golem" type="button">
-                            Golem Drzewny - 500
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="shadow" type="button">
-                            Cień - 100
-                        </button>
-                        <button class="btn btn-danger btn-sm enemy" data-type="darkling" type="button">
-                            Darkling - 100
-                        </button>
-                    </p>
-                </details>
+            <div class="row">
+                <div class="col-12">
+                    <details>
+                        <summary>Bandyci</summary>
+                        <p>
+                            <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
+                                Pies - 35
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="bandit" type="button">
+                                Bandyta - 25
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="scout-bandit" type="button">
+                                Bandyta Zwiadowca - 100
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="thug" type="button">
+                                Zbir - 100
+                            </button>
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Gobliny</summary>
+                        <p>
+                            <button class="btn btn-danger btn-sm enemy" data-type="goblin" type="button">
+                                Goblin - 50
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="hobgoblin" type="button">
+                                Hoboblin - 100
+                            </button>
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Krasnoludy</summary>
+                        <p>
+                            <button class="btn btn-danger btn-sm enemy" data-type="dwarf" type="button">
+                                Krasnolud wojownik - 100
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="dwarf-extra" type="button">
+                                Krasnolud wojownik+ - 150
+                            </button>
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Gnolle</summary>
+                        <p>
+                            <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
+                                Pies - 35
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="gnoll" type="button">
+                                Gnoll - 100
+                            </button>
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Inne</summary>
+                        <p>
+                            <button class="btn btn-danger btn-sm enemy" data-type="wood-golem" type="button">
+                                Golem Drzewny - 500
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="shadow" type="button">
+                                Cień - 100
+                            </button>
+                            <button class="btn btn-danger btn-sm enemy" data-type="darkling" type="button">
+                                Darkling - 100
+                            </button>
+                        </p>
+                    </details>
+                </div>
             </div>
-        </div>
+            </p>
+        </details>
     </div>
 
     <!-- Bootstrap -->

@@ -1,7 +1,11 @@
 import RandomHelper from "../helpers/random-helper.js";
 
 export default class KreaturaGenerator extends RandomHelper {
-    getRandomObject(){
+    getRandomObject(customInitiative){
+        let initiative = 99;
+        if (0 < customInitiative.length) {
+            initiative = customInitiative;
+        }
         return {
             "type": "kreatura",
             "name": "Kreatura",
@@ -11,7 +15,7 @@ export default class KreaturaGenerator extends RandomHelper {
                 "kp": 19,
                 "currentHp": 20,
                 "hp": 22,
-                "initiative": 99,
+                "initiative": initiative,
                 'pp': 13,
                 "strength": 16,
                 "dexterity": 12,

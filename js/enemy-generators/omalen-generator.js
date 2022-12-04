@@ -1,7 +1,11 @@
 import RandomHelper from "../helpers/random-helper.js";
 
 export default class OmalenGenerator extends RandomHelper {
-    getRandomObject(){
+    getRandomObject(customInitiative){
+        let initiative = 99;
+        if (0 < customInitiative.length) {
+            initiative = customInitiative;
+        }
         return {
             "type": "omalen",
             "name": "Omalen",
@@ -11,7 +15,7 @@ export default class OmalenGenerator extends RandomHelper {
                 "kp": 15,
                 "currentHp": 16,
                 "hp": 15,
-                "initiative": 99,
+                "initiative": initiative,
                 'pp': 15,
                 "strength": 12,
                 "dexterity": 17,
