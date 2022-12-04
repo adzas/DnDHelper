@@ -7,20 +7,25 @@ export default class RandomHelper {
         }
         results.sort();
 
-        return results[Math.floor(Math.random() * results.length)];
+        return results[Math.floor(Math.random() * (results.length-1))];
     };
     k(die) {
-        return this.getRandom(1, die);
+        let results = [];
+        for (let i = 0; i < 10; i++) {
+            results[i] = this.getRandom(1, die);    
+        }
+        const result = this.getRandomValueFromData(results);
+
+        return result;
     };
     getRandomValueFromData(data) {
-        console.log('data', data);
         let results = [];
         let k = 0;
-        for (let i=0; i<=data.length; i++) {
+        for (let i=0; i <= data.length; i++) {
             results[k++] = data[i];
         }
         results.sort();
 
-        return results[Math.floor(Math.random() * results.length)];
+        return results[Math.floor(Math.random() * (results.length-1))];
     }
 }
