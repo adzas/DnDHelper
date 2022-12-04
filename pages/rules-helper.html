@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-12 input-group">
                 <a href="../index.html" class="text-decoration-none btn"><i class="ra ra-book"></i></a>
-                <input type="search" name="search" class="form-control search" id="search_rules_by_name" placeholder="lokacja">
+                <input type="search" name="search" class="form-control search" id="search_rules_by_name" placeholder="wyszukaj">
             </div>
         </div>
         <div class="row">
@@ -35,38 +35,67 @@
                         Kalkulator odległości
                     </div>
                     <div class="col-12 description"> <!-- d-none -->
-                        <label>
-                            Stopy
-                            <input min="0" type="number" name="feet" class="convert-to">
-                            Metry
-                            <input min="0" type="number" name="meters" class="convert-to">
-                            Kratki
-                            <input min="0" type="number" name="boxes" class="convert-to">
-                        </label>
-                        <div class="btn-group">
-                            <button class="range-ewapon btn btn-default border-warning">długi łuk</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="45">45</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="180">180</button>
+                        <div class="calc border-success border-bottom pb-2 mb-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="feetInput">Stopy</label>
+                                </div>
+                                <div class="col-9">
+                                    <input id="feetInput" min="0" type="number" name="feet" class="convert-to">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="metersInput">Metry</label>
+                                </div>
+                                <div class="col-9">
+                                    <input id="metersInput" min="0" type="number" name="meters" class="convert-to">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="boxesInput">Kratki</label>
+                                </div>
+                                <div class="col-9">
+                                    <input id="boxesInput" min="0" type="number" name="boxes" class="convert-to">
+                                </div>
+                            </div>
                         </div>
-                        <div class="btn-group">
-                            <button class="range-ewapon btn btn-default border-warning">kusza ciężka</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="30">30</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="120">120</button>
+                        <!-- Typy broni i zasięgi-->
+                        <div class="row col-12">
+                            <div class="btn-group">
+                                <button class="range-ewapon btn btn-default border-warning">długi łuk</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="45">45</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="180">180</button>
+                            </div>
                         </div>
-                        <div class="btn-group">
-                            <button class="range-ewapon btn btn-default border-warning">krótki łuk, kusza lekka</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="24">24</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="96">96</button>
+                        <div class="row col-12">
+                            <div class="btn-group">
+                                <button class="range-ewapon btn btn-default border-warning">kusza ciężka</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="30">30</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="120">120</button>
+                            </div>
                         </div>
-                        <div class="btn-group">
-                            <button class="range-ewapon btn btn-default border-warning">oszczep, kusza ręczna</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="9">9</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="36">36</button>
+                        <div class="row col-12">
+                            <div class="btn-group">
+                                <button class="range-ewapon btn btn-default border-warning">krótki łuk, kusza lekka</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="24">24</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="96">96</button>
+                            </div>
                         </div>
-                        <div class="btn-group">
-                            <button class="range-ewapon btn btn-default border-warning">sztylet, strzałka</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="6">6</button>
-                            <button class="range-ewapon btn btn-default border-warning" data-range="18">18</button>
+                        <div class="row col-12">
+                            <div class="btn-group">
+                                <button class="range-ewapon btn btn-default border-warning">oszczep, kusza ręczna</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="9">9</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="36">36</button>
+                            </div>
+                        </div>
+                        <div class="row col-12">
+                            <div class="btn-group">
+                                <button class="range-ewapon btn btn-default border-warning">sztylet, strzałka</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="6">6</button>
+                                <button class="range-ewapon btn btn-default border-warning" data-range="18">18</button>
+                            </div>
                         </div>
                     </div>
                 </div>

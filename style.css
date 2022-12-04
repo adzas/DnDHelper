@@ -14,6 +14,10 @@ body {
     padding-bottom: 5px;
 }
 
+.rules-row > .name {
+    cursor: pointer;
+}
+
 /** statistics table style */
 .tg {
     border-collapse: collapse;
