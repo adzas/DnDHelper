@@ -233,6 +233,10 @@ export default class Enemy extends RandomHelper{
             case 'dagger':
                 result += this.attackDagger();
                 break;
+
+            case 'greataxe':
+                result += this.attackGreataxe();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -291,6 +295,9 @@ export default class Enemy extends RandomHelper{
 
             case 'dagger':
                 return 'Sztylet';
+
+            case 'greataxe':
+                return 'Topór bojowy'
         
             default:
                 console.log(`nieokreślono typeAction: '${typeAction}'`);
