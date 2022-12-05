@@ -3,7 +3,7 @@ import RandomHelper from "../helpers/random-helper.js";
 export default class OmalenGenerator extends RandomHelper {
     getRandomObject(customInitiative){
         let initiative = 99;
-        if (0 < customInitiative.length) {
+        if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
         return {

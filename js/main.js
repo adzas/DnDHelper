@@ -64,7 +64,7 @@ $(document.body).on('click', '.my-collapse' ,function(e, t){
 
 $('.enemy').on('click', function(e) {
     const enemyType = $(e.target).data('type');
-    const customInitiative = $('#initiative').val();
+    const customInitiative = parseInt($('#initiative').val());
     let message = '';
     switch (enemyType) {
         case 'bandit':
@@ -191,8 +191,8 @@ $('#clearBF').on('click', function(){
 $('#sortByIniBF').on('click', function(){
     let bfContent = battlefield.get();
     battlefield.clear();
-    let res = bfContent.sort(battlefield.sortByIni);
-    battlefield.saveAll(bfContent);
+    let newBfContent = bfContent.sort(battlefield.sortByIni);
+    battlefield.saveAll(newBfContent);
     app.renderBF(battlefield.get());
 });
 
