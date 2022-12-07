@@ -1,6 +1,7 @@
 import App from './app.js';
 import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
+import AnyoneGenerator from './enemy-generators/anyone-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import BarbarianGenerator from './enemy-generators/barbarian-generator.js';
 import DarklingGenerator from './enemy-generators/darkling-generator.js';
@@ -77,105 +78,111 @@ $('.enemy').on('click', function(e) {
     let message = '';
     switch (enemyType) {
         case 'bandit':
-            const bandit = new BanditGenerator;
+            const bandit = new BanditGenerator(app);
             battlefield.store(bandit.getRandomObject());
             message = 'Dodano Bandytę do listy';
             break;
             BattlefieldStorage
         case 'scout-bandit':
-            const scoutBandit = new ScoutBanditGenerator;
+            const scoutBandit = new ScoutBanditGenerator(app);
             battlefield.store(scoutBandit.getRandomObject());
             message = 'Dodano Bandytę Zwiadowcę do listy';
             break;
 
         case 'dog':
-            const dog = new DogGenerator;
+            const dog = new DogGenerator(app);
             battlefield.store(dog.getRandomObject());
             message = 'Dodano Psa do listy';
             break;
 
         case 'wood-golem':
-            const wg = new WoodGolemGenerator;
+            const wg = new WoodGolemGenerator(app);
             battlefield.store(wg.getRandomObject());
             message = 'Dodano Golema do listy';
             break;
 
         case 'goblin':
-            const goblin = new GoblinGenerator;
+            const goblin = new GoblinGenerator(app);
             battlefield.store(goblin.getRandomObject());
             message = 'Dodano Goblina do listy';
             break;
 
         case 'hobgoblin':
-            const hobgoblin = new HobgoblinGenerator;
+            const hobgoblin = new HobgoblinGenerator(app);
             battlefield.store(hobgoblin.getRandomObject());
             message = 'Dodano Hobgoblina do listy';
             break;
 
         case 'dwarf':
-            const dwarf = new DwarfGenerator;
+            const dwarf = new DwarfGenerator(app);
             battlefield.store(dwarf.getRandomObject());
             message = 'Dodano Krasnoluda wojownika do pola bitwy!';
             break;
 
         case 'hum':
-            const hum = new HumGenerator;
+            const hum = new HumGenerator(app);
             battlefield.store(hum.getRandomObject(customInitiative));
             message = 'Dodano Huma do pola bitwy!';
             break;
 
         case 'kreatura':
-            const kreatura = new KreaturaGenerator;
+            const kreatura = new KreaturaGenerator(app);
             battlefield.store(kreatura.getRandomObject(customInitiative));
             message = 'Dodano kreaturę do pola bitwy!';
             break;
 
         case 'omalen':
-            const omalen = new OmalenGenerator;
+            const omalen = new OmalenGenerator(app);
             battlefield.store(omalen.getRandomObject(customInitiative));
             message = 'Dodano omalena do pola bitwy!';
             break;
 
         case 'alsariph':
-            const alsariph = new AlsariphGenerator;
+            const alsariph = new AlsariphGenerator(app);
             battlefield.store(alsariph.getRandomObject(customInitiative));
             message = 'Dodano Alsaripha do pola bitwy!';
             break;
 
         case 'gnoll':
-            const gnoll = new GnollGenerator;
+            const gnoll = new GnollGenerator(app);
             battlefield.store(gnoll.getRandomObject());
             message = 'Dodano Gnoll\'a do pola bitwy!';
             break;
 
         case 'shadow':
-            const shadow = new ShadowGenerator;
+            const shadow = new ShadowGenerator(app);
             battlefield.store(shadow.getRandomObject());
             message = 'Dodano Cień do pola bitwy!';
             break;
 
         case 'thug':
-            const thug = new ThugGenerator;
+            const thug = new ThugGenerator(app);
             battlefield.store(thug.getRandomObject());
             message = 'Dodano Zbira do pola bitwy!';
             break;
 
         case 'dwarf-extra':
-            const dwarfExtra = new DwarfExtraGenerator;
+            const dwarfExtra = new DwarfExtraGenerator(app);
             battlefield.store(dwarfExtra.getRandomObject());
             message = 'Dodano Krasnoluda wojownika + do pola bitwy!';
             break;
 
         case 'darkling':
-            const darkling = new DarklingGenerator;
+            const darkling = new DarklingGenerator(app);
             battlefield.store(darkling.getRandomObject());
             message = 'Dodano Darklinga do pola bitwy!';
             break;
 
         case 'barbarian':
-            const barbarian = new BarbarianGenerator;
+            const barbarian = new BarbarianGenerator(app);
             battlefield.store(barbarian.getRandomObject());
             message = 'Dodano Barbarzyńcę do pola bitwy!';
+            break;
+
+        case 'anyone':
+            const anyone = new AnyoneGenerator(app);
+            battlefield.store(anyone.getRandomObject());
+            message = 'Dodano Przeciwnika typu "ktokolwiek" do pola bitwy!';
             break;
     
         default:

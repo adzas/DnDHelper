@@ -16,7 +16,7 @@ export default class Player extends Enemy
                     <ul>
                         <li>zasięg widzenia: 36m 120ft 24[ ];</li>
                         <li>intuicja pasywna: 13 (18 z runy);</li>
-                        <li>pasywna percepcja: ?</li>
+                        <li>pasywna percepcja: ${this.pp}</li>
                         <li>Zwiększenie rozmiaru (duży rozmiar) trwa minutę dwa razy na długi odpoczynek,</li>
                     </ul>
                     info:<br>
