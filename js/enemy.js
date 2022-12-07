@@ -29,9 +29,14 @@ export default class Enemy extends RandomHelper{
 
     isCrit = false;
     currentHp = null;
+
+    appClass = null;
     
-    constructor(obj) {
+    constructor(obj, app) {
         super(obj);
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in Enemy class constructor');
         if (obj !== typeof "undefined") {
             this.id = obj.id;
             this.lp = obj.lp;
@@ -369,8 +374,7 @@ export default class Enemy extends RandomHelper{
     };
     renderHeader() {
         let title = '';
-        const app = new App;
-        if (app.getPlayersName().includes(this.type)) {
+        if (this.appClass.getPlayersName().includes(this.type)) {
             title = `${this.name}`;
         } else {
             title = `${this.lp}. ${this.name} `;
