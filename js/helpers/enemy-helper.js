@@ -1,4 +1,5 @@
 import App from "../app.js";
+import Anyone from "../enemy-type/anyone.js";
 import Bandit from "../enemy-type/bandit.js";
 import Barbarian from "../enemy-type/barbarian.js";
 import Darkling from "../enemy-type/darkling.js";
@@ -61,6 +62,9 @@ export default class EnemyHelper {
 
             case 'barbarian':
                 return new Barbarian(obj, this.appClass);
+
+            case 'anyone':
+                return new Anyone(obj, this.appClass);
 
             case 'hum':
             case 'omalen':

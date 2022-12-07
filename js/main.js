@@ -1,6 +1,7 @@
 import App from './app.js';
 import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
+import AnyoneGenerator from './enemy-generators/anyone-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import BarbarianGenerator from './enemy-generators/barbarian-generator.js';
 import DarklingGenerator from './enemy-generators/darkling-generator.js';
@@ -176,6 +177,12 @@ $('.enemy').on('click', function(e) {
             const barbarian = new BarbarianGenerator;
             battlefield.store(barbarian.getRandomObject());
             message = 'Dodano Barbarzyńcę do pola bitwy!';
+            break;
+
+        case 'anyone':
+            const anyone = new AnyoneGenerator;
+            battlefield.store(anyone.getRandomObject());
+            message = 'Dodano Przeciwnika typu "ktokolwiek" do pola bitwy!';
             break;
     
         default:

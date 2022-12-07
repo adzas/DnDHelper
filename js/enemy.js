@@ -421,5 +421,13 @@ export default class Enemy extends RandomHelper{
         </div>
         </div>
         `;
-    }
+    };
+    /** return better bonus */
+    bonus() {
+        if (this.str > this.dex) {
+            return this.str;
+        }
+
+        return this.dex;
+    };
 }
