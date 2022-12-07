@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Gnoll extends Enemy {
     // "actions": ["bite","spear", "long-bow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackBite() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;

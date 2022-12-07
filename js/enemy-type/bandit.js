@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Bandit extends Enemy {
     // "actions": ["short-bow","sword"],
-    constructor(obj) {
-        super(obj);
-    };
     attackSword() {
         const testResult = this.getTestResult(3); // +3
         let html = testResult.html;

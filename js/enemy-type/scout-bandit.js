@@ -3,9 +3,6 @@ import Enemy from "../enemy.js";
 export default class ScoutBandit extends Enemy
 {   
     // "actions": ["sword","long-bow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackLongBow() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;

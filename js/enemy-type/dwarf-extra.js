@@ -3,9 +3,6 @@ import Enemy from "../enemy.js";
 export default class DwarfExtra extends Enemy
 {   
     // "actions": ["battleaxe","heavy-crossbow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackBattleaxe() {
         const testResult = this.getTestResult(5);
         let html = testResult.html;
