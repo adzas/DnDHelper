@@ -24,7 +24,7 @@ export default class OmalenGenerator extends RandomHelper {
                 "wisdom": 16,
                 "charisma": 8,
                 "speed": "30ft (6[ ])",
-                "i": "zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 13;"
+                "i": "zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 13; pasywana percepcja: 16"
             }
         }
     };

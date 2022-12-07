@@ -9,7 +9,7 @@ export default class KreaturaGenerator extends RandomHelper {
         return {
             "type": "kreatura",
             "name": "Kreatura",
-            "actions": [],
+            "actions": ['runs'],
             "statistics": {
                 "xp": 999,
                 "kp": 19,
@@ -24,7 +24,7 @@ export default class KreaturaGenerator extends RandomHelper {
                 "wisdom": 13,
                 "charisma": 8,
                 "speed": "30ft (6[ ])",
-                "i": "zasięg widzenia: 36m 120ft 24[ ]; intuicja pasywna: 13;"
+                "i": "zasięg widzenia: 36m 120ft 24[ ]; intuicja pasywna: 13 (18 z runy); pasywna percepcja: ? Rona miecza i kamienia (podwójna biegłość czyli ekspertyza w narzędziach, które zna oraz widzenie w czemności na 120ft i stałe ułatwienie w rzutach na intuicję; Zwiększenie rozmiaru (duży rozmiar) (trwa minutę dwa razy na długi odpoczynek, przewaga w testach na siłę i rzutach obronnych na siłę +1k6 do obrażeń raz na turę; "
             }
         }
     };
