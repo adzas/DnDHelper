@@ -76,5 +76,8 @@ export default class App {
     setManualMode(value) {
         // TODO: Change a idea in future
         localStorage.setItem('config', JSON.stringify({'manualMode': value}));
+    };
+    isManualMode() {
+        return this.manualMode;
     }
 }

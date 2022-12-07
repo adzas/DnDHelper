@@ -1,4 +1,12 @@
+import App from "../app.js";
+
 export default class RandomHelper {
+    appClass = null;
+    constructor(app) {
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in RandomHelper class constructor');
+    };
     getRandom(min, max) {
         let results = [];
         let k = 0;
@@ -7,12 +15,15 @@ export default class RandomHelper {
         }
         results.sort();
 
-        return results[Math.floor(Math.random() * (results.length-1))];
+        return results[Math.floor(Math.random() * (results.length))];
     };
     k(die) {
+        if (this.appClass.isManualMode()) {
+            return `k${die}`;
+        }
         let results = [];
         for (let i = 0; i < 10; i++) {
-            results[i] = this.getRandom(1, die);    
+            results[i] = this.getRandom(1, die);
         }
         const result = this.getRandomValueFromData(results);
 
