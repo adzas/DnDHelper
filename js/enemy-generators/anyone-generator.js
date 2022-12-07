@@ -1,5 +1,5 @@
 import RandomHelper from "../helpers/random-helper.js";
-import Random from "../random.js";
+// import Random from "../random.js";
 
 export default class AnyoneGenerator extends RandomHelper {
     getRandomObject(customInitiative){
@@ -8,9 +8,9 @@ export default class AnyoneGenerator extends RandomHelper {
             initiative = customInitiative;
         }
         const hp = this.getRandom(30, 60);
-        const random = new Random();
-        const appearance = random.getRandomAppearance();
-        const character = random.getRandomCharacterAttr();
+        // const random = new Random();
+        // const appearance = random.getRandomAppearance();
+        // const character = random.getRandomCharacterAttr();
 
         return {
             "type": "anyone",
@@ -30,7 +30,7 @@ export default class AnyoneGenerator extends RandomHelper {
                 "wisdom": this.getRandom(8, 18),
                 "charisma": this.getRandom(8, 18),
                 "speed": "30ft (6[ ])",
-                "i": `wygląd: ${appearance}; cechy: ${character.positive} lub ${character.negative}`
+                "i": ''//`wygląd: ${appearance}; cechy: ${character.positive} lub ${character.negative}`
             }
         }
     };
