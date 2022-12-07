@@ -3,9 +3,6 @@ import Enemy from "../enemy.js";
 export default class WoodGolem extends Enemy
 {   
     // "actions": ["smash","throw-wood"],
-    constructor(obj) {
-        super(obj);
-    };
     attackSmash() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;

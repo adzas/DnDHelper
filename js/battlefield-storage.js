@@ -1,11 +1,16 @@
 import App from "./app.js";
 
 export class BattlefieldStorage {
+    appClass = null;
+    constructor (app) {
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in BattlefieldStorage class constructor');
+    }
     store(obj) {
         let bfStorage = [];
         const currentBfStorage = this.get();
-        const app = new App;
-        const players = app.getPlayersName();
+        const players = this.appClass.getPlayersName();
         const isPlayer = players.includes(obj.type);
         obj.lp = 0;
         if (null === currentBfStorage) {
@@ -139,8 +144,7 @@ export class BattlefieldStorage {
     };
     getEnemyCounter(data) {
         let counter = 0;
-        const app = new App;
-        const players = app.getPlayersName();
+        const players = this.appClass.getPlayersName();
         for (let i in data) {
             if (!players.includes(data[i].type)) {
                 counter++;

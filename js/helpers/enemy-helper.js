@@ -1,3 +1,4 @@
+import App from "../app.js";
 import Bandit from "../enemy-type/bandit.js";
 import Barbarian from "../enemy-type/barbarian.js";
 import Darkling from "../enemy-type/darkling.js";
@@ -14,52 +15,58 @@ import Thug from "../enemy-type/thug.js";
 import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
+    appClass = null;
+    constructor (app) {
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in EnemyHelper class constructor');
+    }
     getEnemyObject(obj) {
         switch (obj.type) {
             case 'bandit':
-                return new Bandit(obj);
+                return new Bandit(obj, this.appClass);
 
             case 'dwarf':
-                return new Dwarf(obj);
+                return new Dwarf(obj, this.appClass);
 
             case 'scout-bandit':
-                return new ScoutBandit(obj);
+                return new ScoutBandit(obj, this.appClass);
 
             case 'wood-golem':
-                return new WoodGolem(obj);
+                return new WoodGolem(obj, this.appClass);
 
             case 'dog':
-                return new Dog(obj);
+                return new Dog(obj, this.appClass);
 
             case 'goblin':
-                return new Goblin(obj);
+                return new Goblin(obj, this.appClass);
 
             case 'hobgoblin':
-                return new Hobgoblin(obj);
+                return new Hobgoblin(obj, this.appClass);
 
             case 'gnoll':
-                return new Gnoll(obj);
+                return new Gnoll(obj, this.appClass);
 
             case 'shadow':
-                return new Shadow(obj);
+                return new Shadow(obj, this.appClass);
 
             case 'thug':
-                return new Thug(obj);
+                return new Thug(obj, this.appClass);
 
             case 'dwarf-extra':
-                return new DwarfExtra(obj);
+                return new DwarfExtra(obj, this.appClass);
 
             case 'darkling':
-                return new Darkling(obj);
+                return new Darkling(obj, this.appClass);
 
             case 'barbarian':
-                return new Barbarian(obj);
+                return new Barbarian(obj, this.appClass);
 
             case 'hum':
             case 'omalen':
             case 'kreatura':
             case 'alsariph':
-                return new Player(obj);
+                return new Player(obj, this.appClass);
         
             default:
                 alert('Nieznany typ przeciwnika: '+obj.type);

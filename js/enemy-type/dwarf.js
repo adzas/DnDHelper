@@ -3,9 +3,6 @@ import Enemy from "../enemy.js";
 export default class Dwarf extends Enemy
 {   
     // "actions": ["axe","short-bow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackAxe() {
         const testResult = this.getTestResult(2);
         let html = testResult.html;

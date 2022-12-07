@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Goblin extends Enemy {
     // "actions": ["short-bow","scimitar"],
-    constructor(obj) {
-        super(obj);
-    };
     attackShortBow() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;

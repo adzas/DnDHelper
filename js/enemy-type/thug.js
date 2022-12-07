@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Thug extends Enemy {
     // "actions": ["mace","heavy-crossbow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackMace() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;

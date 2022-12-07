@@ -21,8 +21,8 @@ import EnemyHelper from './helpers/enemy-helper.js';
 import Random from './random.js';
 
 const app = new App;
-const battlefield = new BattlefieldStorage;
-const enemyHelper = new EnemyHelper;
+const battlefield = new BattlefieldStorage(app);
+const enemyHelper = new EnemyHelper(app);
 // battlefield.clear();
 const contentBF = battlefield.get();
 if (null === contentBF || 0 == contentBF.length) {
@@ -50,6 +50,14 @@ $('#randomAttackDesc').on('click', function(){
     const random = new Random;
     const description = random.getRandomAttackDescription();
     app.renderCache(description);
+});
+
+$('#manualMode').on('click', function(){
+    if (true === app.manualMode) {
+        app.setManualMode(false);
+    } else {
+        app.setManualMode(true);
+    }
 });
 
 $(document.body).on('click', '.my-collapse' ,function(e, t){

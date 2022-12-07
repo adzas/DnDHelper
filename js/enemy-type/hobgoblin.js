@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Hobgoblin extends Enemy {
     // "actions": ["sword","longbow"],
-    constructor(obj) {
-        super(obj);
-    };
     attackSword() {
         const testResult = this.getTestResult(3);
         let html = testResult.html;

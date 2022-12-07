@@ -1,4 +1,5 @@
 import App from "./app.js";
+import DieRoll from "./die-roll.js";
 import RandomHelper from "./helpers/random-helper.js";
 
 export default class Enemy extends RandomHelper{
@@ -29,9 +30,14 @@ export default class Enemy extends RandomHelper{
 
     isCrit = false;
     currentHp = null;
+
+    appClass = null;
     
-    constructor(obj) {
-        super(obj);
+    constructor(obj, app) {
+        super(app);
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in Enemy class constructor');
         if (obj !== typeof "undefined") {
             this.id = obj.id;
             this.lp = obj.lp;
@@ -306,30 +312,10 @@ export default class Enemy extends RandomHelper{
         }
     };
     getTestResult(plus) {
-        const t1 = this.k(20);
-        const t2 = this.k(20);
-        let value = t1;
-        let html = 'test: ';
-        if ('disadvantage' === this.attackMethod) {
-            if (t1 > t2) {
-                html += `${t1+plus}/<b>${t2+plus}</b>`;
-                value = t2;
-            } else {
-                html += `<b>${t1+plus}</b>/${t2+plus}`;
-                value = t1;
-            }
-        } else if ('advantage' === this.attackMethod) {
-            if (t1 > t2) {
-                html += `<b>${t1+plus}</b>/${t2+plus}`;
-                value = t1;
-            } else {
-                html += `${t1+plus}/<b>${t2+plus}</b>`;
-                value = t2;
-            }
-        } else {
-            html += `<b>${t1+plus}</b>`;
-            value = t1;
-        }
+        const dieRollHelper = new DieRoll(this.appClass);
+        const result = dieRollHelper.test(plus, this.attackMethod);
+        let value = result.value;
+        let html = result.html;
 
         if (20 == value) {
             this.isCrit = true;
@@ -337,12 +323,15 @@ export default class Enemy extends RandomHelper{
         }
         
         return {
-            "html": html+'</br>',
+            "html": html,
             "value": value
         };
     };
     generateDmg(dieResult, plus, name) {
         let dmg = 0;
+        if (this.appClass.isManualMode()) {
+            return `${dieResult}+${plus} (${name})`;            
+        }
         if (this.isCrit) {
             dmg = (dieResult * 2) + plus;
         } else {
@@ -369,8 +358,7 @@ export default class Enemy extends RandomHelper{
     };
     renderHeader() {
         let title = '';
-        const app = new App;
-        if (app.getPlayersName().includes(this.type)) {
+        if (this.appClass.getPlayersName().includes(this.type)) {
             title = `${this.name}`;
         } else {
             title = `${this.lp}. ${this.name} `;

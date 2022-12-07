@@ -23,8 +23,7 @@
     <title>DnD-MP-Helper</title>
 </head>
 <body>
-
-    <h1>DnD-MP-Helper</h1>
+    <h1 id="title-app">Pomocnik Mistrza Podziemi</h1>
     <div id="app">
         <div class="row">
             <div class="col-12">
@@ -56,6 +55,8 @@
                 </button>
             </div>
             <div class="col-6 text-end">
+                <input type="checkbox" name="manualMode" id="manualMode">
+                <label class="pt-2 ml-2" for="manualMode">ręczny-tryb</label>
                 <button class="btn btn-dark" id="clearBF"><i class="ra ra-cancel"></i></button>
             </div>
         </div>
@@ -70,7 +71,7 @@
             <p>
             <div class="row mb-2">
                 <div class="col-12">
-                    <input class="btn btn-default w-100 border-info" type="number" placeholder="inicjatywa" name="initiative" id="initiative">
+                    <input class="btn btn-default w-100 border-info" type="number" autocomplete="off" placeholder="inicjatywa" name="initiative" id="initiative">
                 </div>
             </div>
             <div class="row">

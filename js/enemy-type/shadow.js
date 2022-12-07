@@ -2,9 +2,6 @@ import Enemy from "../enemy.js";
 
 export default class Shadow extends Enemy {
     // "actions": ["strength-drain"],
-    constructor(obj) {
-        super(obj);
-    };
     attackStrengthDrain() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;
