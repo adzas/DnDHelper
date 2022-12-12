@@ -253,3 +253,7 @@ $(document.body).on('click', '.show-statisticks', function(e){
     const enemy = enemyHelper.getEnemyObject(obj);
     app.renderCache(enemy.renderStatisticks());
 });
+
+$('.click-to-clear-value').on('click', function(e) {
+    $(e.target).val('');
+});
