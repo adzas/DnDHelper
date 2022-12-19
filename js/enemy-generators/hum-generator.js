@@ -24,7 +24,7 @@ export default class HumGenerator extends RandomHelper {
                 "wisdom": 8,
                 "charisma": 12,
                 "speed": "30ft (6[ ])",
-                "i": "zasięg widzenia: 18m 60ft 12[ ]; widzenie w ciemności: ; intuicja pasywna: 9;"
+                "i": "16kg; 62cm wzrostu; 16 lat; zasięg widzenia: 18m 60ft 12[ ]; widzenie w ciemności: ; intuicja pasywna: 9;"
             }
         }
     };
