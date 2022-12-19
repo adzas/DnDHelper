@@ -1,13 +1,16 @@
 import App from "../app.js";
 import Anyone from "../enemy-type/anyone.js";
+import BanditCaptain from "../enemy-type/bandit-captain.js";
 import Bandit from "../enemy-type/bandit.js";
 import Barbarian from "../enemy-type/barbarian.js";
 import Darkling from "../enemy-type/darkling.js";
+import DireWolf from "../enemy-type/dire-wolf.js";
 import Dog from "../enemy-type/dog.js";
 import DwarfExtra from "../enemy-type/dwarf-extra.js";
 import Dwarf from "../enemy-type/dwarf.js";
 import Gnoll from "../enemy-type/gnoll.js";
 import Goblin from "../enemy-type/goblin.js";
+import HobgoblinCaptain from "../enemy-type/hobgoblin-captain.js";
 import Hobgoblin from "../enemy-type/hobgoblin.js";
 import Player from "../enemy-type/Player.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
@@ -65,6 +68,15 @@ export default class EnemyHelper {
 
             case 'anyone':
                 return new Anyone(obj, this.appClass);
+
+            case 'bandit-captain':
+                return new BanditCaptain(obj, this.appClass);
+
+            case 'dire-wolf':
+                return new DireWolf(obj, this.appClass);
+
+            case 'hobgoblin-captain':
+                return new HobgoblinCaptain(obj, this.appClass);
 
             case 'hum':
             case 'omalen':

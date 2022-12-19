@@ -41,19 +41,46 @@ export default class Player extends Enemy
 
             case 'hum':
                 returnHtmlActions = `
-                ma cztery kości k6
+                ma cztery kości k6 <br>
                 jeśli nie uda mu się test w jakiejś umiejętności w której ma biegłość
-                może dorzucić wynik z kości k6
-                jeśli będzie sukces to kość się marnuje, jeśli nie to nie.
-                * magiczne ostrza (18m zasięgu) pojawiające się w ręku
-                1k6 obrażeń psyhicznych obrażeń + bonusowe obrażenia i nie zostawiają śladów ataku
-                ostrze znika zaraz po rzucie bez znaczenia czy trafi czy nie trafi
-                jeśli atakujesz takim sztyletem w akcji dodatkowej, wtedy obrażeń jest 1k4 + bonusowe obrażenia
-                nie można zrobić ataku okazyjnego bo nie ma broni w ręce
+                może dorzucić wynik z kości k6 <br>
+                jeśli będzie sukces to kość się marnuje, jeśli nie to nie.<br>
+                * magiczne ostrza (18m zasięgu) pojawiające się w ręku<br>
+                1k6 obrażeń psyhicznych obrażeń + bonusowe obrażenia <br>
+                nie zostawiają śladów ataku <br>
+                ostrze znika zaraz po rzucie bez znaczenia czy trafi czy nie trafi <br>
+                jeśli atakujesz takim sztyletem w akcji dodatkowej, <br>
+                wtedy obrażeń jest 1k4 + bonusowe obrażenia <br>
+                Hum raz na krótki odpoczynek może odzyskać jedna kość <br>
+                nie można zrobić ataku okazyjnego bo nie ma broni w ręce <br>
+                <br>
 
-                telepatia z dwoma osobami w drużynie i mogą odpowiedać (1 mila odległości)
-                Hum musi widzień cel aby nawiązać ten kontakt 
-                Raz można tego użyć na długi odpoczynek chyba, że odrzuci kostki, które ma do obrażeń
+                telepatia z dwoma osobami w drużynie i mogą odpowiadać (1 mila odległości) <br>
+                Hum musi widzień cel aby nawiązać ten kontakt <br>
+                Raz można tego użyć na długi odpoczynek chyba, że odrzuci kostki, <br>
+                które ma do obrażeń
+                `;
+                break;
+
+            case 'omalen':
+                returnHtmlActions += `
+                Rozpoznawanie ziół jest automatyczne <br>
+                Może rozpoznawać rośliny ale nie koniecznie ich właściwości <br>
+                <details>
+                    <summary>Pijany mistrz:</summary>
+                    <p>
+                        <ul>
+                            <li>Ma więcej ki </li>
+                            <li>+10 ft ruchu po skorzystaniu z dodatkowego ataku pięścią oraz 
+                                nie może dostać z ataku okazyjnego (wyjątek sentinel - atut)</li>
+                            <li>+ruchu czyli nie 45 a 55ft ruchu</li>
+                            <li>+latające w Omalena przedmioty mogą mieć odjęte obrażenia, 
+                                a jeśli obrażeń nie dostanie to może odrzucić ten pocisk jeśli,
+                                mieści mu się w ręce (test ataku) (1k6 obrażeń)
+                            </li>
+                        </ul>
+                    </p>
+                </details>
                 `;
                 break;
         
