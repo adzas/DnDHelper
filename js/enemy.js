@@ -243,6 +243,22 @@ export default class Enemy extends RandomHelper{
             case 'greataxe':
                 result += this.attackGreataxe();
                 break;
+
+            case 'reaction':
+                result += this.attackReaction();
+                break;
+
+            case 'leadership':
+                result += this.attackLeadership();
+                break;
+
+            case 'javelin':
+                result += this.attackJavelin();
+                break;
+
+            case 'greatsword':
+                result += this.attackGreatsword();
+                break;
         
             default:
                 console.log(`undefined attack '${this.attackType}' in Enemy class`);
@@ -303,7 +319,19 @@ export default class Enemy extends RandomHelper{
                 return 'Sztylet';
 
             case 'greataxe':
-                return 'Topór bojowy'
+                return 'Topór bojowy';
+
+            case 'reaction':
+                return 'Reakcja';
+
+            case 'leadership':
+                return 'Przywództwo';
+
+            case 'javelin':
+                return 'Oszczep';
+
+            case 'greatsword':
+                return 'Wilki miecz';
         
             default:
                 console.log(`nieokreślono typeAction: '${typeAction}'`);

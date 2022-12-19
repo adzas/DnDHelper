@@ -2,14 +2,17 @@ import App from './app.js';
 import { BattlefieldStorage } from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import AnyoneGenerator from './enemy-generators/anyone-generator.js';
+import BanditCaptainGenerator from './enemy-generators/bandit-captain-generator.js';
 import BanditGenerator from './enemy-generators/bandit-generator.js';
 import BarbarianGenerator from './enemy-generators/barbarian-generator.js';
 import DarklingGenerator from './enemy-generators/darkling-generator.js';
+import DireWolfGenerator from './enemy-generators/dire-wolf-generator.js';
 import DogGenerator from './enemy-generators/dog-generator.js';
 import DwarfExtraGenerator from './enemy-generators/dwarf-extra-generator.js';
 import DwarfGenerator from './enemy-generators/dwarf-generator.js';
 import GnollGenerator from './enemy-generators/gnoll-generator.js';
 import GoblinGenerator from './enemy-generators/golbin-generator.js';
+import HobgoblinCaptainGenerator from './enemy-generators/hobgoblin-captain-generator.js';
 import HobgoblinGenerator from './enemy-generators/hobgoblin-generator.js';
 import HumGenerator from './enemy-generators/hum-generator.js';
 import KreaturaGenerator from './enemy-generators/kreatura-generator.js';
@@ -18,6 +21,7 @@ import ScoutBanditGenerator from './enemy-generators/scout-bandit-generator.js';
 import ShadowGenerator from './enemy-generators/shadow-generator.js';
 import ThugGenerator from './enemy-generators/thug-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
+import BanditCaptain from './enemy-type/bandit-captain.js';
 import EnemyHelper from './helpers/enemy-helper.js';
 import Random from './random.js';
 
@@ -183,6 +187,24 @@ $('.enemy').on('click', function(e) {
             const anyone = new AnyoneGenerator(app);
             battlefield.store(anyone.getRandomObject());
             message = 'Dodano Przeciwnika typu "ktokolwiek" do pola bitwy!';
+            break;
+
+        case 'bandit-captain':
+            const banditCaptain = new BanditCaptainGenerator(app);
+            battlefield.store(banditCaptain.getRandomObject());
+            message = 'Dodano Kapitana bandytów do pola bitwy!';
+            break;
+
+        case 'dire-wolf':
+            const direWolf = new DireWolfGenerator(app);
+            battlefield.store(direWolf.getRandomObject());
+            message = 'Dodano Strasznego wilka do pola bitwy!';
+            break;
+
+        case 'hobgoblin-captain':
+            const hobgoblinCaptainGenerator = new HobgoblinCaptainGenerator(app);
+            battlefield.store(hobgoblinCaptainGenerator.getRandomObject());
+            message = 'Dodano Hobgoblina Przywódcę do pola bitwy!';
             break;
     
         default:
