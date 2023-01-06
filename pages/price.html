@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cennik</title>
+    <!-- fix favicon.ico error -->
+    <link rel="shortcut icon" href="#">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- my JS -->
+    <script src="./price-main.js" type="module"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-12">
+            kalkulator cen:
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="gold-input">sz:</label>
+        </div>
+        <div class="col-10">
+            <input id="gold-input" type="number" name="gold" class="convert-to" placeholder="złoto">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="silver-input">ss:</label>
+        </div>
+        <div class="col-10">
+            <input id="silver-input" type="number" name="silver" class="convert-to" placeholder="srebro">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="copper-input">sm:</label>
+        </div>
+        <div class="col-10">
+            <input id="copper-input" type="number" name="copper" class="convert-to" placeholder="miedź">
+        </div>
+    </div>
+    <details>
+        <summary>
+            Gospoda:
+        </summary>
+        <p>
+            za dzień:
+            <ul>
+                <li>biednie - 2ss</li>
+                <li>normalnie - 5ss</li>
+                <li>bogato - 2sz</li>
+            </ul>
+            posiłki:
+            <ul>
+                <li>biednie - 1ss</li>
+                <li>normalnie - 3ss</li>
+                <li>bogato - 5ss</li>
+            </ul>
+        </p>
+    </details>
+</body>
+</html>
