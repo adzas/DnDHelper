@@ -297,7 +297,7 @@ $('#showPlayersStatistics').on('click', function(e) {
 
     let pp = '<th class="tg-0pky">pp</th>';
     let pi = '<th class="tg-0pky">pi</th>';
-    let passiveIntuition = null;
+    let passiveIntuition = 10;
 
     players.forEach(player => {
         if ('kreatura' === player) {
