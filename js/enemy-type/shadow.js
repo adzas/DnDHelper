@@ -5,7 +5,7 @@ export default class Shadow extends Enemy {
     attackStrengthDrain() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;
-        html += this.generateDmg(2*this.k(6), 2, 'Obrażenia nekrotyczne');
+        html += this.generateDmg(this.roll(6,2), 2, 'Obrażenia nekrotyczne');
         html += '<br/>dodatkowo cel zmniejsza o +1k4 swoją cechę siły';
 
         return html;

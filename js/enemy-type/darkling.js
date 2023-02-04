@@ -6,7 +6,7 @@ export default class Darkling extends Enemy {
         const testResult = this.getTestResult(5);
         let html = testResult.html;
         html += this.generateDmg(this.k(4), 3, 'Obrażenia kłute');
-        html += this.generateDmg(this.k(6)*2, 0, 'Obrażenia nekrotyczne');
+        html += this.generateDmg(this.roll(6,2), 0, 'Obrażenia nekrotyczne');
         html += '<br> mele lub 20/60 ft';
 
         return html;

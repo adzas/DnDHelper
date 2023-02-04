@@ -13,7 +13,7 @@ export default class HobgoblinCaptain extends Enemy {
     attackGreatsword() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;
-        html += this.generateDmg(this.k(6)*2, 2, 'Obrażenia cięte');
+        html += this.generateDmg(this.roll(6,2), 2, 'Obrażenia cięte');
         // html += '<br/>zasięg 150/600 ft (30[ ]/120[ ])';
 
         return html;

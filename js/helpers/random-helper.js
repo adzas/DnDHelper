@@ -38,5 +38,12 @@ export default class RandomHelper {
         results.sort();
 
         return results[Math.floor(Math.random() * (results.length-1))];
+    };
+    roll(k, x) {
+        if (this.appClass.isManualMode()) {
+            return `${this.k(k)}x${x}`;
+        }
+
+        return this.k(k)*x;
     }
 }
