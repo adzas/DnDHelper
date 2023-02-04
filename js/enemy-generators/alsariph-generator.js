@@ -24,7 +24,7 @@ export default class AlsariphGenerator extends RandomHelper {
                 "wisdom": 12,
                 "charisma": 16,
                 "speed": "30ft (6[ ])",
-                "i": "76kg; 185cm; 22lata; zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 13;"
+                "i": "76kg; 185cm; 22lata; zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 11"
             }
         }
     };

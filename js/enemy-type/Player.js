@@ -41,29 +41,43 @@ export default class Player extends Enemy
 
             case 'hum':
                 returnHtmlActions = `
-                ma cztery kości k6 <br>
-                jeśli nie uda mu się test w jakiejś umiejętności w której ma biegłość
-                może dorzucić wynik z kości k6 <br>
-                jeśli będzie sukces to kość się marnuje, jeśli nie to nie.<br>
-                * magiczne ostrza (18m zasięgu) pojawiające się w ręku<br>
-                1k6 obrażeń psyhicznych obrażeń + bonusowe obrażenia <br>
-                nie zostawiają śladów ataku <br>
-                ostrze znika zaraz po rzucie bez znaczenia czy trafi czy nie trafi <br>
-                jeśli atakujesz takim sztyletem w akcji dodatkowej, <br>
-                wtedy obrażeń jest 1k4 + bonusowe obrażenia <br>
-                Hum raz na krótki odpoczynek może odzyskać jedna kość <br>
-                nie można zrobić ataku okazyjnego bo nie ma broni w ręce <br>
-                <br>
-
-                telepatia z dwoma osobami w drużynie i mogą odpowiadać (1 mila odległości) <br>
-                Hum musi widzień cel aby nawiązać ten kontakt <br>
-                Raz można tego użyć na długi odpoczynek chyba, że odrzuci kostki, <br>
-                które ma do obrażeń
+                <details>
+                    <summary>ma cztery kości k6</summary>
+                    <p>
+                        jeśli nie uda mu się test w jakiejś umiejętności w której ma biegłość
+                        może dorzucić wynik z kości k6
+                        jeśli będzie sukces to kość się marnuje, jeśli nie to kość się nie marnuje.
+                    </p>
+                </details>
+                <details>
+                    <summary>magiczne ostrza (18m zasięgu) pojawiające się w ręku</summary>
+                    <p>
+                        1k6 obrażeń psyhicznych obrażeń + bonusowe obrażenia
+                        nie zostawiają śladów ataku
+                        ostrze znika zaraz po rzucie bez znaczenia czy trafi czy nie trafi
+                        <br><br>
+                        jeśli atakujesz takim sztyletem w akcji dodatkowej,
+                        wtedy obrażeń jest 1k4 + bonusowe obrażenia
+                        <br><br>
+                        Hum raz na krótki odpoczynek może odzyskać jedna kość
+                        <minus> nie można zrobić ataku okazyjnego bo nie ma broni w ręce
+                    </p>
+                </details>
+                <details>
+                    <summary>telepatia</summary>
+                    <p>
+                        telepatia z dwoma osobami w drużynie i mogą odpowiadać (1 mila odległości)
+                        Hum musi widzień cel aby nawiązać ten kontakt
+                        Raz można tego użyć na długi odpoczynek chyba, że odrzuci kostki,
+                        które ma do obrażeń
+                    </p>
+                </details>
+                
                 `;
                 break;
 
             case 'omalen':
-                returnHtmlActions += `
+                returnHtmlActions = `
                 Rozpoznawanie ziół jest automatyczne <br>
                 Może rozpoznawać rośliny ale nie koniecznie ich właściwości <br>
                 <details>
@@ -81,6 +95,13 @@ export default class Player extends Enemy
                         </ul>
                     </p>
                 </details>
+                `;
+                break;
+
+            case 'alsariph':
+                returnHtmlActions = `
+                nie krwawi; ma czarny tatuaż na ciele wychodzący od serca na wszystkie strony
+                widać go na szyi.
                 `;
                 break;
         
