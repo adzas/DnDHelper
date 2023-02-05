@@ -114,16 +114,22 @@ export default class Enemy extends RandomHelper{
                     ${this.renderHeader()}
                 </div>
                 <div class="btn btn-primary">
-                    <button class="btn btn-default js-battlefield__enemy--actions__move-up" data-id="${this.id}">
+                    <!-- <button class="btn btn-default js-battlefield__enemy--actions__move-up" data-id="${this.id}">
                         <i class="ra ra-underhand" data-id="${this.id}"></i>
                     </button>
-                    <br/>
+                    <br/> -->
                     <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
                         <i class="ra ra-player" data-id="${this.id}"></i>
                     </button> 
                 </div>
             </div>
             <div class="js-actions__collapse-target" id="js-battlefield__enemy--show-actions-${this.id}">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        ${this.hpChangeButton()}
+                    </div>
+                </div>
+                <br/>    
                 ${this.renderActions()}
                 <br/>
                 ${this.renderInformation()}
@@ -389,13 +395,13 @@ export default class Enemy extends RandomHelper{
         if (this.appClass.getPlayersName().includes(this.type)) {
             title = `${this.name}`;
         } else {
-            title = `${this.lp}. ${this.name} `;
+            title = `(${this.lp}.) ${this.name} `;
         }
         
-        return `${title} <br/>
-        ${this.hpChangeButton()} <br/>
-        [<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}] - 
-        <i style="font-size:0.75em" class="ra ra-rabbit d-none"></i>${this.speed} - 
+        return `<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp} 
+        ${title} 
+        <span class="current-hp">${this.currentHp}</span><i style="font-size:0.75em" class="ra ra-hearts"></i> <br/>
+        <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed} - 
         ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
     };
     hpChangeButton() {
