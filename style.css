@@ -72,3 +72,29 @@ body {
     margin-bottom: 3px;
     margin-top: 3px;
 }
+
+#cache {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 90%; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #eea;
+    border-radius: 2%;
+    padding: 2.5%;
+    margin: 5%;
+}
+
+#gray-panel {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 80%;
+}

@@ -1,9 +1,11 @@
+import AppCache from "./app-cache.js";
 import EnemyHelper from "./helpers/enemy-helper.js";
 
 export default class App {
     name = null;
     mainElementDomID = null;
     manualMode = false;
+    cache = new AppCache;
     configDefault = {
         'manualMode': false
     };
@@ -47,10 +49,10 @@ export default class App {
         this.getMyDom().html(oldContent+html);
     };
     renderCache(content) {
-        $('#cache').html(content);
+        this.cache.render(content);
     };
     clearCache() {
-        $('#cache').html('');
+        this.cache.clearContent(content);
     };
     getPlayersName() {
         return ['alsariph', 'hum', 'kreatura', 'omalen']

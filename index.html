@@ -55,6 +55,9 @@
                 </button>
             </div>
             <div class="col-6 text-end">
+                <button class="btn btn-default border-info" id="showCache">
+                    <i class="ra ra-recycle"></i>
+                </button>
                 <button class="btn btn-default border-primary" id="showPlayersStatistics">
                     <i class="ra ra-double-team"></i>
                 </button>
@@ -67,7 +70,34 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div id="cache"></div>
+                <div class="d-none" id="cache-last-hisotry-page"></div>
+                <div class="d-none" id="cache-old-history-page"></div>
+                <div class="d-none" id="cache-actual-content"></div>
+                <div id="gray-panel" class="hiddenCache"></div>
+                <div id="cache">
+                    <div class="row">
+                        <div class="col-10">
+                            <button id="show-old-cache-history-page" class="btn border-primary">
+                                old
+                            </button>
+                            <button id="show-last-cache-history-page" class="btn border-primary">
+                                last
+                            </button>
+                            <button id="show-actual-cache-history-page" class="btn border-primary">
+                                actual
+                            </button>
+                        </div>
+                        <div class="col-2 text-end">
+                            <button class="hiddenCache btn btn-danger border-danger">
+                                <i class="ra ra-cancel"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="cache-content" class="col-12 mt-2">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="battleField" class="mb-2"></div>
