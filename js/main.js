@@ -401,7 +401,7 @@ $('#show-old-cache-history-page').on('click',function() {
 $('#show-actual-cache-history-page').on('click',function() {
     app.cache.setActualContent();
 });
-$('#hidden-cache').on('click',function() {
+$('.hiddenCache').on('click',function() {
     app.cache.hidden();
 });
 $('#showCache').on('click',function() {

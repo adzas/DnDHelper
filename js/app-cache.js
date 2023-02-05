@@ -26,8 +26,10 @@ export default class AppCache {
     };
     hidden(){
         $('#cache').css('display', 'none');
+        $('#gray-panel').css('z-index', '-1');
     };
     show(){
         $('#cache').css('display', 'block');
+        $('#gray-panel').css('z-index', '1');
     };
 }
