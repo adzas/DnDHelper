@@ -391,3 +391,19 @@ $('#showPlayersStatistics').on('click', function(e) {
     `;
     app.renderCache(html);
 });
+
+$('#show-last-cache-history-page').on('click',function() {
+    app.cache.setLastContent();
+});
+$('#show-old-cache-history-page').on('click',function() {
+    app.cache.setOldContent();
+});
+$('#show-actual-cache-history-page').on('click',function() {
+    app.cache.setActualContent();
+});
+$('#hidden-cache').on('click',function() {
+    app.cache.hidden();
+});
+$('#showCache').on('click',function() {
+    app.cache.show();
+});

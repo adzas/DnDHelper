@@ -72,3 +72,18 @@ body {
     margin-bottom: 3px;
     margin-top: 3px;
 }
+
+#cache {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 90%; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #eea;
+    border-radius: 2%;
+    padding: 2.5%;
+    margin: 5%;
+}

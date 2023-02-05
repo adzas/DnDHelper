@@ -72,7 +72,12 @@ export default class Player extends Enemy
                         które ma do obrażeń
                     </p>
                 </details>
-                
+                <details>
+                    <summary>Wie gdzie szukać informacji</summary>
+                    <p>
+                        Kiedy Hum chce się dowiedzieć jakiejś informacji, często wie skąd ją uzyskać.
+                    </p>
+                </details>
                 `;
                 break;
 
