@@ -35,6 +35,7 @@ if (null === contentBF || 0 == contentBF.length) {
 app.renderBF(contentBF);
 $('#js-battlefield--refresh').on('click', function(){
     app.renderBF(battlefield.get());
+    location.reload();
 });
 
 $('#js-random-helper--characteristics').on('click', function(e){
@@ -64,6 +65,7 @@ $('#js-settings__manual-mode').on('click', function(){
     } else {
         app.setManualMode(true);
     }
+    location.reload();
 });
 
 $(document.body).on('click', '.js-actions__collapse' ,function(e, t){
@@ -78,7 +80,12 @@ $(document.body).on('click', '.js-actions__collapse' ,function(e, t){
 });
 
 $('.js-enemy').on('click', function(e) {
-    // app.clickedElement(e.target);
+    if (app.isManualMode()) {
+        app.clickedElement(e.target);
+        app.renderCache('Wyłącz tryb ręczny aby edytować listę przeciwników!');
+
+        return false;
+    }
     const enemyType = $(e.target).data('type');
     const customInitiative = parseInt($('#js-attributes__initiative--custom-value').val());
     let message = '';
@@ -212,7 +219,7 @@ $('.js-enemy').on('click', function(e) {
             console.log('enemyType: '+enemyType+' is ubdefined');
             break;
     }
-    // app.renderCache(message);
+    console.log(message);
 });
 
 $('.js-actions__attack').on('click', function(e) {
