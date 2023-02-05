@@ -9,6 +9,7 @@ export default class App {
     configDefault = {
         'manualMode': false
     };
+    element = null;
     constructor() {
         this.name = 'DnDMpHepler';
         this.mainElementDomID = 'app';
@@ -20,6 +21,9 @@ export default class App {
     render(html) {
         this.getMyDom().html(html);
     };
+    clickedElement(target) {
+        this.element = target;
+    };
     renderBF(BFObjects) {
         let html = '';
         const enemyHelper = new EnemyHelper(this);
@@ -29,9 +33,9 @@ export default class App {
             html += enemyObj.render();
         });
         html += '</div>';
-        $('#battleField').html(html);
-        $('.my-collapse-target').slideUp();
-        $('.my-collapse').each(function(i, obj) {
+        $('#js-battlefield').html(html);
+        $('.js-actions__collapse-target').slideUp();
+        $('.js-actions__collapse').each(function(i, obj) {
             const target = $(obj);
             if ("true" === target.attr('data-collapse-show')) {
                 $(target.attr('data-collapse-target-id')).slideDown();
@@ -49,7 +53,18 @@ export default class App {
         this.getMyDom().html(oldContent+html);
     };
     renderCache(content) {
-        this.cache.render(content);
+        const minTopPositionValue = 30;
+        const position = $(this.element).offset(); // position = { left: 42, top: 567 }
+        let topPositionValue = minTopPositionValue;
+        if (100 < position.top) {
+            topPositionValue = position.top - minTopPositionValue;
+        }
+        this.cache.setCssProperty({"top": topPositionValue});
+        if (typeof content === "undefined") {
+            this.cache.show();
+        } else {
+            this.cache.render(content);
+        }
     };
     clearCache() {
         this.cache.clearContent(content);
@@ -61,9 +76,9 @@ export default class App {
         const config = this.getConfig();
         this.manualMode = config.manualMode; 
         if (true === this.manualMode) {
-            $('#manualMode').prop('checked', true);
+            $('#js-settings__manual-mode').prop('checked', true);
         } else {
-            $('#manualMode').prop('checked', false);
+            $('#js-settings__manual-mode').prop('checked', false);
         }
     };
     getConfig() {

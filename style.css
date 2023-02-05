@@ -73,9 +73,9 @@ body {
     margin-top: 3px;
 }
 
-#cache {
+.cache {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
