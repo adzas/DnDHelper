@@ -1,35 +1,37 @@
 export default class AppCache {
     setLastContent() {
-        const content = $('#cache-last-hisotry-page').html();
-        $('#cache').find('#cache-content').html(content);
+        const content = $('#js-cache__hisotry-page--show-last').html();
+        $('#js-cache').find('#js-cache__content').html(content);
     };
     setOldContent() {
-        const content = $('#cache-old-history-page').html();
-        $('#cache').find('#cache-content').html(content);
+        const content = $('#js-cache__hisotry-page--show-old').html();
+        $('#js-cache').find('#js-cache__content').html(content);
     };
     setActualContent() {
-        const content = $('#cache-actual-content').html();
-        $('#cache').find('#cache-content').html(content);
+        const content = $('#js-cache__hisotry-page--show-actual').html();
+        $('#js-cache').find('#js-cache__content').html(content);
     };
     render(content) {
-        const last2old = $('#cache-last-hisotry-page').html();
-        console.log('last2old', last2old);
-        $('#cache-old-history-page').html(last2old);
-        const actual2last = $('#cache-actual-content').html();
-        $('#cache-last-hisotry-page').html(actual2last);
-        $('#cache-actual-content').html(content);
-        $('#cache').find('#cache-content').html(content);
+        const last2old = $('#js-cache__hisotry-page--show-last').html();
+        $('#js-cache__hisotry-page--show-old').html(last2old);
+        const actual2last = $('#js-cache__hisotry-page--show-actual').html();
+        $('#js-cache__hisotry-page--show-last').html(actual2last);
+        $('#js-cache__hisotry-page--show-actual').html(content);
+        $('#js-cache').find('#js-cache__content').html(content);
         this.show();
     };
     clearContent() {
-        $('#cache').find('#cache-content').html('');
+        $('#js-cache').find('#js-cache__content').html('');
     };
     hidden(){
-        $('#cache').css('display', 'none');
+        $('#js-cache').css('display', 'none');
         $('#gray-panel').css('z-index', '-1');
     };
     show(){
-        $('#cache').css('display', 'block');
+        $('#js-cache').css('display', 'block');
         $('#gray-panel').css('z-index', '1');
+    };
+    setCssProperty (property) {
+        $('#js-cache').css(property);
     };
 }

@@ -86,12 +86,12 @@ export default class Enemy extends RandomHelper{
         let html = `
         <div class="col-12 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <div class="btn btn-danger delete" data-id="${this.id}">
+                <div class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
                     <i class="ra ra-skull" data-id="${this.id}"></i>
                 </div>
                 <div 
-                    class="btn ${this.getMyCssClass()} my-collapse w-75" id="${this.getIdBaseElementDom()}"
-                    data-collapse-target-id="#actions-${this.id}" 
+                    class="btn ${this.getMyCssClass()} js-actions__collapse w-75" id="${this.getIdBaseElementDom()}"
+                    data-collapse-target-id="#js-battlefield__enemy--show-actions-${this.id}" 
                     data-collapse-show="false"
                     data-type="${this.type}"
                     data-actions="${this.actions}"
@@ -114,16 +114,16 @@ export default class Enemy extends RandomHelper{
                     ${this.renderHeader()}
                 </div>
                 <div class="btn btn-primary">
-                    <button class="btn btn-default move-up" data-id="${this.id}">
+                    <button class="btn btn-default js-battlefield__enemy--actions__move-up" data-id="${this.id}">
                         <i class="ra ra-underhand" data-id="${this.id}"></i>
                     </button>
                     <br/>
-                    <button class="btn btn-default show-statisticks" data-id="${this.id}">
+                    <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
                         <i class="ra ra-player" data-id="${this.id}"></i>
                     </button> 
                 </div>
             </div>
-            <div class="my-collapse-target" id="actions-${this.id}">
+            <div class="js-actions__collapse-target" id="js-battlefield__enemy--show-actions-${this.id}">
                 ${this.renderActions()}
                 <br/>
                 ${this.renderInformation()}
@@ -145,7 +145,7 @@ export default class Enemy extends RandomHelper{
     renderAction(type){
         return `
             <div class="btn-group mb-1 w-100" role="group" aria-label="t1">
-                <button type="button" class="action btn btn-secondary"
+                <button type="button" class="js-actions__attack btn btn-secondary"
                     data-enemy-type="${this.type}"
                     data-attack-type="${type}"
                     data-attack-method="disadvantage"
@@ -153,7 +153,7 @@ export default class Enemy extends RandomHelper{
                 >
                     -
                 </button>
-                <button type="button" class="action btn btn-secondary"
+                <button type="button" class="js-actions__attack btn btn-secondary"
                     data-enemy-type="${this.type}"
                     data-attack-type="${type}"
                     data-attack-method="normal"
@@ -161,7 +161,7 @@ export default class Enemy extends RandomHelper{
                 >
                     ${this.getAttackName(type)}
                 </button>
-                <button type="button" class="action btn btn-secondary"
+                <button type="button" class="js-actions__attack btn btn-secondary"
                     data-enemy-type="${this.type}"
                     data-attack-type="${type}"
                     data-attack-method="advantage"
@@ -366,10 +366,10 @@ export default class Enemy extends RandomHelper{
             dmg = dieResult + plus;
         }
         return `
-            <button class="show-dmg btn btn-default" data-target=".dmg-${this.id}">
+            <button class="js-dmg--show btn btn-default" data-target=".js-dmg-${this.id}">
                 ${name}
             </button>
-            <b class="d-none dmg-${this.id}">${dmg} (${name})</b>
+            <b class="d-none js-dmg-${this.id}">${dmg} (${name})</b>
             <br/>
         `;
     };
@@ -401,17 +401,17 @@ export default class Enemy extends RandomHelper{
     hpChangeButton() {
         return `
         <div class="btn-group" role="group" aria-label="t3">
-            <button class="btn btn-sm btn-default border border-success hp-changed"
+            <button class="btn btn-sm btn-default border border-success js-actions__hp-changed"
                 data-minus-value="-5"
                 data-id="${this.id}"
             >-5</button>
-            <button class="btn btn-sm btn-default border border-success hp-changed"
+            <button class="btn btn-sm btn-default border border-success js-actions__hp-changed"
                 data-minus-value="-1"
                 data-id="${this.id}"
             >
                 (<span class="current-hp">${this.currentHp}</span>/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>)
             </button>
-            <button class="btn btn-sm btn-default border border-success hp-changed"
+            <button class="btn btn-sm btn-default border border-success js-actions__hp-changed"
                 data-minus-value="5"
                 data-id="${this.id}"
             >+5</button>

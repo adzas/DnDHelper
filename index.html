@@ -41,95 +41,95 @@
         </div>
         <div class="row mb-4">
             <div class="col-6 btn-group text-left" role="group" aria-label="t4">
-                <button class="btn btn-success" id="refreshBF">
+                <button class="btn btn-success" id="js-battlefield--refresh">
                     <i class="ra ra-stopwatch"></i>
                 </button>
-                <button class="btn btn-warning" id="sortByIniBF">
+                <button class="btn btn-warning" id="js-battlefield--sort-by-initiative">
                     <i class="ra ra-player-dodge"></i>
                 </button>
-                <button class="btn btn-info" id="randomCharacteristics">
+                <button class="btn btn-info" id="js-random-helper--characteristics">
                     <i class="ra ra-player-thunder-struck"></i>
                 </button>
-                <button class="btn btn-default" id="randomAttackDesc">
+                <button class="btn btn-default" id="js-random-helper--attack-description">
                     <i class="ra ra-axe-swing"></i>
                 </button>
             </div>
             <div class="col-6 text-end">
-                <button class="btn btn-default border-info" id="showCache">
+                <button class="btn btn-default border-info" id="js-cache--show">
                     <i class="ra ra-recycle"></i>
                 </button>
-                <button class="btn btn-default border-primary" id="showPlayersStatistics">
+                <button class="btn btn-default border-primary" id="js-players__statistics--show">
                     <i class="ra ra-double-team"></i>
                 </button>
-                <input type="checkbox" name="manualMode" id="manualMode">
-                <label class="pt-2 ml-2" for="manualMode" title="ręczny-tryb">TR</label>
-                <button class="btn btn-dark" id="clearBF">
+                <input type="checkbox" name="manualMode" id="js-settings__manual-mode">
+                <label class="pt-2 ml-2" for="js-settings__manual-mode" title="ręczny-tryb">TR</label>
+                <button class="btn btn-dark" id="js-battlefield--clear">
                     <i class="ra ra-cancel"></i>
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="d-none" id="cache-last-hisotry-page"></div>
-                <div class="d-none" id="cache-old-history-page"></div>
-                <div class="d-none" id="cache-actual-content"></div>
-                <div id="gray-panel" class="hiddenCache"></div>
-                <div id="cache">
+                <div class="d-none" id="js-cache__hisotry-page--show-last"></div>
+                <div class="d-none" id="js-cache__hisotry-page--show-old"></div>
+                <div class="d-none" id="js-cache__hisotry-page--show-actual"></div>
+                <div id="gray-panel" class="js-cache--hidden"></div>
+                <div id="js-cache" class="cache">
                     <div class="row">
                         <div class="col-10">
-                            <button id="show-old-cache-history-page" class="btn border-primary">
+                            <button id="js-cache__actions--show-old-cache-history-page" class="btn border-primary">
                                 old
                             </button>
-                            <button id="show-last-cache-history-page" class="btn border-primary">
+                            <button id="js-cache__actions--show-last-cache-history-page" class="btn border-primary">
                                 last
                             </button>
-                            <button id="show-actual-cache-history-page" class="btn border-primary">
+                            <button id="js-cache__actions--show-actual-cache-history-page" class="btn border-primary">
                                 actual
                             </button>
                         </div>
                         <div class="col-2 text-end">
-                            <button class="hiddenCache btn btn-danger border-danger">
+                            <button class="js-cache--hidden btn btn-danger border-danger">
                                 <i class="ra ra-cancel"></i>
                             </button>
                         </div>
                     </div>
                     <div class="row">
-                        <div id="cache-content" class="col-12 mt-2">
+                        <div id="js-cache__content" class="col-12 mt-2">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="battleField" class="mb-2"></div>
+        <div id="js-battlefield" class="mb-2"></div>
         <details>
-            <summary id="settingsBF">Ustawienia pola bitwy</summary>
+            <summary id="js-battlefield__settings">Ustawienia pola bitwy</summary>
             <p>
             <div class="row mb-2">
                 <div class="col-12">
-                    <input class="click-to-clear-value btn btn-default w-100 border-info"
+                    <input class="js-actions__click--clear-value btn btn-default w-100 border-info"
                     type="number" autocomplete="off" placeholder="inicjatywa" name="initiative" 
-                    id="initiative">
+                    id="js-attributes__initiative--custom-value">
                 </div>
             </div>
             <div class="row">
                 <!-- Bochaterowie -->
                 <div class="col-6 mb-2">
-                    <button class="w-100 btn btn-success btn-sm enemy" data-type="hum" type="button">
+                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="hum" type="button">
                         Hum
                     </button>
                 </div>
                 <div class="col-6 mb-2">
-                    <button class="w-100 btn btn-success btn-sm enemy" data-type="omalen" type="button">
+                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="omalen" type="button">
                         Omalen
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="w-100 btn btn-success btn-sm enemy" data-type="alsariph" type="button">
+                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="alsariph" type="button">
                         Alsariph
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="w-100 btn btn-success btn-sm enemy" data-type="kreatura" type="button">
+                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="kreatura" type="button">
                         Kreatura
                     </button>
                 </div>
@@ -140,19 +140,19 @@
                     <details>
                         <summary>Bandyci</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
                                 Pies - 35
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="bandit" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="bandit" type="button">
                                 Bandyta - 25
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="scout-bandit" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="scout-bandit" type="button">
                                 Bandyta Zwiadowca - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="thug" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="thug" type="button">
                                 Zbir - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="bandit-captain" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="bandit-captain" type="button">
                                 Przywódca bandytów - 450
                             </button>
                         </p>
@@ -160,13 +160,13 @@
                     <details>
                         <summary>Gobliny</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="goblin" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="goblin" type="button">
                                 Goblin - 50
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="hobgoblin" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="hobgoblin" type="button">
                                 Hoboblin - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="hobgoblin-captain" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="hobgoblin-captain" type="button">
                                 Hoboblin przywódca - 700
                             </button>
                         </p>
@@ -174,10 +174,10 @@
                     <details>
                         <summary>Krasnoludy</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="dwarf" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="dwarf" type="button">
                                 Krasnolud wojownik - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="dwarf-extra" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="dwarf-extra" type="button">
                                 Krasnolud wojownik+ - 150
                             </button>
                         </p>
@@ -185,10 +185,10 @@
                     <details>
                         <summary>Gnolle</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="dog" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
                                 Pies - 35
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="gnoll" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="gnoll" type="button">
                                 Gnoll - 100
                             </button>
                         </p>
@@ -196,7 +196,7 @@
                     <details>
                         <summary>Poszukiwacze przygód</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="barbarian" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="barbarian" type="button">
                                 Barbarzyńca - 450
                             </button>
                         </p>
@@ -204,7 +204,7 @@
                     <details>
                         <summary>Dzikie zwierzęta</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="dire-wolf" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="dire-wolf" type="button">
                                 Straszny Wilk - 200
                             </button>
                         </p>
@@ -212,16 +212,16 @@
                     <details>
                         <summary>Inne</summary>
                         <p>
-                            <button class="btn btn-danger btn-sm enemy" data-type="wood-golem" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="wood-golem" type="button">
                                 Golem Drzewny - 500
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="shadow" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="shadow" type="button">
                                 Cień - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="darkling" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="darkling" type="button">
                                 Darkling - 100
                             </button>
-                            <button class="btn btn-danger btn-sm enemy" data-type="anyone" type="button">
+                            <button class="btn btn-danger btn-sm js-enemy" data-type="anyone" type="button">
                                 Ktokolwiek - X
                             </button>
                         </p>

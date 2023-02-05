@@ -21,7 +21,6 @@ import ScoutBanditGenerator from './enemy-generators/scout-bandit-generator.js';
 import ShadowGenerator from './enemy-generators/shadow-generator.js';
 import ThugGenerator from './enemy-generators/thug-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
-import BanditCaptain from './enemy-type/bandit-captain.js';
 import EnemyHelper from './helpers/enemy-helper.js';
 import Random from './random.js';
 
@@ -31,14 +30,15 @@ const enemyHelper = new EnemyHelper(app);
 // battlefield.clear();
 const contentBF = battlefield.get();
 if (null === contentBF || 0 == contentBF.length) {
-    $('#settingsBF').click();
+    $('#js-battlefield__settings').click();
 }
 app.renderBF(contentBF);
-$('#refreshBF').on('click', function(){
+$('#js-battlefield--refresh').on('click', function(){
     app.renderBF(battlefield.get());
 });
 
-$('#randomCharacteristics').on('click', function(){
+$('#js-random-helper--characteristics').on('click', function(e){
+    app.clickedElement(e.target);
     let characteristics = '';
     const random = new Random;
     const appearance = random.getRandomAppearance();
@@ -51,13 +51,14 @@ $('#randomCharacteristics').on('click', function(){
     app.renderCache(characteristics);
 });
 
-$('#randomAttackDesc').on('click', function(){
+$('#js-random-helper--attack-description').on('click', function(e){
+    app.clickedElement(e.target);
     const random = new Random;
     const description = random.getRandomAttackDescription();
     app.renderCache(description);
 });
 
-$('#manualMode').on('click', function(){
+$('#js-settings__manual-mode').on('click', function(){
     if (true === app.manualMode) {
         app.setManualMode(false);
     } else {
@@ -65,7 +66,7 @@ $('#manualMode').on('click', function(){
     }
 });
 
-$(document.body).on('click', '.my-collapse' ,function(e, t){
+$(document.body).on('click', '.js-actions__collapse' ,function(e, t){
     const target = $(e.target);
     if ("false" === target.attr('data-collapse-show')) {
         target.attr('data-collapse-show', "true");
@@ -76,9 +77,10 @@ $(document.body).on('click', '.my-collapse' ,function(e, t){
     }
 });
 
-$('.enemy').on('click', function(e) {
+$('.js-enemy').on('click', function(e) {
+    // app.clickedElement(e.target);
     const enemyType = $(e.target).data('type');
-    const customInitiative = parseInt($('#initiative').val());
+    const customInitiative = parseInt($('#js-attributes__initiative--custom-value').val());
     let message = '';
     switch (enemyType) {
         case 'bandit':
@@ -210,11 +212,12 @@ $('.enemy').on('click', function(e) {
             console.log('enemyType: '+enemyType+' is ubdefined');
             break;
     }
-    app.renderCache(message);
+    // app.renderCache(message);
 });
 
-$('.action').on('click', function(e) {
+$('.js-actions__attack').on('click', function(e) {
     const target = $(e.target);
+    app.clickedElement(target);
     const attackType = target.data('attack-type');
     const attackMethod = target.data('attack-method');
     let cache = '';
@@ -226,12 +229,12 @@ $('.action').on('click', function(e) {
     app.renderCache(cache);
 });
 
-$('#clearBF').on('click', function(){
+$('#js-battlefield--clear').on('click', function(){
     battlefield.clear();
     app.renderBF(battlefield.get());
 });
 
-$('#sortByIniBF').on('click', function(){
+$('#js-battlefield--sort-by-initiative').on('click', function(){
     let bfContent = battlefield.get();
     battlefield.clear();
     let newBfContent = bfContent.sort(battlefield.sortByIni);
@@ -239,26 +242,26 @@ $('#sortByIniBF').on('click', function(){
     app.renderBF(battlefield.get());
 });
 
-$(document.body).on('click', '.show-dmg', function(e){
+$(document.body).on('click', '.js-dmg--show', function(e){
     const target = $(e.target);
     const data_target = target.data('target');
     $(data_target).removeClass('d-none');
     $(`[data-target="${data_target}"]`).remove();
 });
 
-$(document.body).on('click', '.move-up', function(e){
+$(document.body).on('click', '.js-battlefield__enemy--actions__move-up', function(e){
     const id_element = $(e.target).data('id');
     battlefield.moveUp(id_element);
     app.renderBF(battlefield.get());
 });
 
-$(document.body).on('click', '.delete', function(e){
+$(document.body).on('click', '.js-battlefield__enemy--delete', function(e){
     const id_element = $(e.target).data('id');
     battlefield.deleteElement(id_element);
     app.renderBF(battlefield.get());
 });
 
-$(document.body).on('click', '.hp-changed', function(e){
+$(document.body).on('click', '.js-actions__hp-changed', function(e){
     const target = $(e.target);
     const id = parseInt(target.data('id'));
     const value = parseInt(target.data('minus-value'));
@@ -266,7 +269,8 @@ $(document.body).on('click', '.hp-changed', function(e){
     target.parent().find('.current-hp').html(newHp);
 });
 
-$(document.body).on('click', '.show-statisticks', function(e){
+$(document.body).on('click', '.js-battlefield__enemy--actions__show-statisticks', function(e){
+    app.clickedElement(e.target);
     const target = $(e.target);
     const id = parseInt(target.data('id'));
     const bfItems = battlefield.get();
@@ -275,11 +279,13 @@ $(document.body).on('click', '.show-statisticks', function(e){
     app.renderCache(enemy.renderStatisticks());
 });
 
-$('.click-to-clear-value').on('click', function(e) {
+$('.js-actions__click--clear-value').on('click', function(e) {
     $(e.target).val('');
 });
 
-$('#showPlayersStatistics').on('click', function(e) {
+$('#js-players__statistics--show').on('click', function(e) {
+    app.clickedElement(e.target);
+
     const players = app.getPlayersName();
 
     let html = '';
@@ -392,18 +398,19 @@ $('#showPlayersStatistics').on('click', function(e) {
     app.renderCache(html);
 });
 
-$('#show-last-cache-history-page').on('click',function() {
+$('#js-cache__actions--show-last-cache-history-page').on('click',function() {
     app.cache.setLastContent();
 });
-$('#show-old-cache-history-page').on('click',function() {
+$('#js-cache__actions--show-old-cache-history-page').on('click',function() {
     app.cache.setOldContent();
 });
-$('#show-actual-cache-history-page').on('click',function() {
+$('#js-cache__actions--show-actual-cache-history-page').on('click',function() {
     app.cache.setActualContent();
 });
-$('.hiddenCache').on('click',function() {
+$('.js-cache--hidden').on('click',function() {
     app.cache.hidden();
 });
-$('#showCache').on('click',function() {
-    app.cache.show();
+$('#js-cache--show').on('click',function(e) {
+    app.clickedElement(e.target);
+    app.renderCache();
 });
