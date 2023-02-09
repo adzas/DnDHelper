@@ -20,6 +20,7 @@
     <!-- w3schools for progress bar -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
+    
     <title>DnD-MP-Helper</title>
 </head>
 <body>
@@ -37,15 +38,21 @@
             </div>
         </div>
         <div class="row mb-4">
-            <div class="col-4 btn-group text-left" role="group" aria-label="t4">
+            <div class="col-6 btn-group text-left" role="group" aria-label="t4">
                 <button class="btn btn-success" id="js-battlefield--refresh">
                     <i class="ra ra-stopwatch"></i>
                 </button>
                 <button class="btn btn-warning" id="js-battlefield--sort-by-initiative">
                     <i class="ra ra-player-dodge"></i>
                 </button>
+                <button class="btn btn-info" id="js-random-helper--characteristics">
+                    <i class="ra ra-player-thunder-struck"></i>
+                </button>
+                <button class="btn btn-default" id="js-random-helper--attack-description">
+                    <i class="ra ra-axe-swing"></i>
+                </button>
             </div>
-            <div class="col-8 text-end">
+            <div class="col-6 text-end">
                 <button class="btn btn-default border-info" id="js-cache--show">
                     <i class="ra ra-recycle"></i>
                 </button>
@@ -94,7 +101,7 @@
         <div id="js-battlefield" class="mb-2"></div>
         <details>
             <summary id="js-battlefield__settings">Ustawienia pola bitwy</summary>
-            <p>
+            <p class="details__p">
             <div class="row mb-2">
                 <div class="col-12">
                     <input class="js-actions__click--clear-value btn btn-default w-100 border-info"
@@ -130,7 +137,7 @@
                 <div class="col-12">
                     <details>
                         <summary>Bandyci</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
                                 Pies - 35
                             </button>
@@ -150,7 +157,7 @@
                     </details>
                     <details>
                         <summary>Gobliny</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="goblin" type="button">
                                 Goblin - 50
                             </button>
@@ -164,7 +171,7 @@
                     </details>
                     <details>
                         <summary>Krasnoludy</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dwarf" type="button">
                                 Krasnolud wojownik - 100
                             </button>
@@ -175,7 +182,7 @@
                     </details>
                     <details>
                         <summary>Gnolle</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
                                 Pies - 35
                             </button>
@@ -186,7 +193,7 @@
                     </details>
                     <details>
                         <summary>Poszukiwacze przygód</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="barbarian" type="button">
                                 Barbarzyńca - 450
                             </button>
@@ -194,7 +201,7 @@
                     </details>
                     <details>
                         <summary>Dzikie zwierzęta</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dire-wolf" type="button">
                                 Straszny Wilk - 200
                             </button>
@@ -202,7 +209,7 @@
                     </details>
                     <details>
                         <summary>Inne</summary>
-                        <p>
+                        <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="wood-golem" type="button">
                                 Golem Drzewny - 500
                             </button>
