@@ -117,13 +117,47 @@
             "ma nieprzeciętnie dużą głowę"
         ]
     },
-    "attackdescription": {
+    "attackDescription": {
         "sword": [
             "Szybcie cięcie w nadgarstek",
             "Prosty atak w rzebra",
             "Cios wyprowadzony na wprost w szyję",
             "Szybki atak od góry w skroń",
-            "Ostrze prowadzone po łuku w biodro"
+            "Ostrze prowadzone po łuku w biodro",
+            "Cięcie od z piruetu cięte w brzuch",
+            "proste pchnięcie w serce"
+        ],
+        "axe": [
+            "Rąbnięcie od góry",
+            "Siekł od boku w biudro",
+            "Prosty cios w głowę",
+            "Machnięcie na wskroś",
+            "Próba trafienia w bark"
+        ]
+    },
+    "characteristicsAttribute": {
+        "humanoid": [
+            "brodaty",
+            "rudy",
+            "brzydki",
+            "długowłosy",
+            "łysy",
+            "wytatuowany",
+            "wysoki",
+            "niski"
+        ],
+        "global": [
+            "najgrożniejszy",
+            "niegroźny",
+            "karłowaty"
+        ],
+        "beast": [
+            "białowłosy",
+            "płomniennowłosy",
+            "siwowłosy",
+            "wyliniały",
+            "brązowowłosy",
+            "tygrysi"
         ]
     }
 }

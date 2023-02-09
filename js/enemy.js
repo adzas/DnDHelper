@@ -38,7 +38,7 @@ export default class Enemy extends RandomHelper{
         if (app instanceof App) {
             this.appClass = app;
         } else console.log('Not Defined appClass in Enemy class constructor');
-        if (obj !== typeof "undefined") {
+        if (typeof obj !== "undefined") {
             this.id = obj.id;
             this.lp = obj.lp;
             this.type = obj.type;
@@ -57,6 +57,11 @@ export default class Enemy extends RandomHelper{
             this.charisma = obj.statistics.charisma;
             this.speed = obj.statistics.speed;
             this.i = obj.statistics.i;
+            if (typeof obj.label === "undefined") {
+                this.label = '---';
+            } else {
+                this.label = obj.label;
+            }
 
             this.str = Math.round((this.strength - 10) / 2);
             this.dex = Math.round((this.dexterity -10) / 2);
@@ -82,17 +87,54 @@ export default class Enemy extends RandomHelper{
 
         return 'btn-danger';
     };
+    renderHeader() {
+        let label = '<br>';
+        if (this.appClass.getPlayersName().includes(this.type)) {
+            label += ``;
+        } else {
+            // label += `${this.label}`;
+        }
+        
+        return `
+            ${this.name}
+            ${label}
+            <div class="js-battlefield__enemy--hp-bar-by-id-${this.id}">
+                ${this.renderHpBar()}
+            </div>
+        `;
+    };
+    renderHpBar() {
+        const percentHP = Math.round(100*(this.currentHp/this.hp));
+        let w3color = 'w3-green';
+        if (15 > percentHP) {
+            w3color = 'w3-red';
+        } else if (35 > percentHP) {
+            w3color = 'w3-orange';
+        }
+        
+        return `<div class="w3-light-gray w3-round w3-tiny">
+            <div class="w3-container w3-round w3-left ${w3color}" style="width:${percentHP}%">${this.currentHp}/${this.hp}</div>
+        </div>`;
+    }
+    getLP() {
+        if (this.appClass.getPlayersName().includes(this.type)) {
+            return '';
+        } else {
+            return `${this.lp}.`;
+        }
+    }
     render() {
         let html = `
         <div class="col-12 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <div class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
+                <button class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
                     <i class="ra ra-skull" data-id="${this.id}"></i>
-                </div>
+                    <br>
+                    ${this.getLP()}
+                </button>
                 <div 
                     class="btn ${this.getMyCssClass()} js-actions__collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#js-battlefield__enemy--show-actions-${this.id}" 
-                    data-collapse-show="false"
                     data-type="${this.type}"
                     data-actions="${this.actions}"
                     data-name="${this.name}"
@@ -110,23 +152,34 @@ export default class Enemy extends RandomHelper{
                     data-charisma="${this.charisma}"
                     data-speed="${this.speed}"
                     data-i="${this.i}"
+                    data-label="${this.label}"
                 >
                     ${this.renderHeader()}
                 </div>
                 <div class="btn btn-primary">
-                    <!-- <button class="btn btn-default js-battlefield__enemy--actions__move-up" data-id="${this.id}">
-                        <i class="ra ra-underhand" data-id="${this.id}"></i>
-                    </button>
-                    <br/> -->
                     <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
                         <i class="ra ra-player" data-id="${this.id}"></i>
+                        <br>
+                        ${this.initiative}<sup><i class="ra ra-clockwork"></i></sup>
                     </button> 
                 </div>
             </div>
             <div class="js-actions__collapse-target" id="js-battlefield__enemy--show-actions-${this.id}">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        ${this.hpChangeButton()}
+                    <div class="col-12">
+                        <div class="w-100 btn btn-default border-default">
+                            <div class="row">
+                                <div class="col-4">
+                                    <i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}
+                                </div>
+                                <div class="col-4 text-center">
+                                    ${this.hpChangeButton()}
+                                </div>
+                                <div class="col-4 text-end">
+                                    <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <br/>    
@@ -390,20 +443,6 @@ export default class Enemy extends RandomHelper{
 
         return html;
     };
-    renderHeader() {
-        let title = '';
-        if (this.appClass.getPlayersName().includes(this.type)) {
-            title = `${this.name}`;
-        } else {
-            title = `(${this.lp}.) ${this.name} `;
-        }
-        
-        return `<i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp} 
-        ${title} 
-        <span class="current-hp">${this.currentHp}</span><i style="font-size:0.75em" class="ra ra-hearts"></i> <br/>
-        <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed} - 
-        ${this.initiative} <i style="font-size:0.75em" class="ra ra-bottom-right"></i>`;
-    };
     hpChangeButton() {
         return `
         <div class="btn-group" role="group" aria-label="t3">
@@ -414,9 +453,7 @@ export default class Enemy extends RandomHelper{
             <button class="btn btn-sm btn-default border border-success js-actions__hp-changed"
                 data-minus-value="-1"
                 data-id="${this.id}"
-            >
-                (<span class="current-hp">${this.currentHp}</span>/${this.hp}<i style="font-size:0.75em" class="ra ra-hearts"></i>)
-            </button>
+            >-1</button>
             <button class="btn btn-sm btn-default border border-success js-actions__hp-changed"
                 data-minus-value="5"
                 data-id="${this.id}"
