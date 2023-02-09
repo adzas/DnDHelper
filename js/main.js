@@ -38,10 +38,11 @@ $('#js-battlefield--refresh').on('click', function(){
     location.reload();
 });
 
+// actual not use:
 $('#js-random-helper--characteristics').on('click', function(e){
     app.clickedElement(e.target);
     let characteristics = '';
-    const random = new Random;
+    const random = new Random(app);
     const appearance = random.getRandomAppearance();
     const character = random.getRandomCharacterAttr();
     characteristics += `wygląd: ${appearance}<br>
@@ -52,11 +53,21 @@ $('#js-random-helper--characteristics').on('click', function(e){
     app.renderCache(characteristics);
 });
 
+// actual not use:
 $('#js-random-helper--attack-description').on('click', function(e){
     app.clickedElement(e.target);
-    const random = new Random;
-    const description = random.getRandomAttackDescription();
+    const random = new Random(app);
+    // random.resetRandomData();
+    const description = random.getRandomAttackDescription('axe');
     app.renderCache(description);
+});
+
+// actual not use:
+$('#js-battlefield--generate-a-characteristic-attribute').on('click', function(e){
+    app.clickedElement(e.target);
+    battlefield.enterTheLabel();
+    const description = random.getRandomAttackDescription('axe');
+    
 });
 
 $('#js-settings__manual-mode').on('click', function(){
@@ -68,14 +79,15 @@ $('#js-settings__manual-mode').on('click', function(){
     location.reload();
 });
 
-$(document.body).on('click', '.js-actions__collapse' ,function(e, t){
+$(document.body).on('click', '.js-actions__collapse' ,function(e){
     const target = $(e.target);
-    if ("false" === target.attr('data-collapse-show')) {
-        target.attr('data-collapse-show', "true");
-        $(target.attr('data-collapse-target-id')).slideDown();
-    } else {
-        target.attr('data-collapse-show', "false");
+    if ($(target.attr('data-collapse-target-id')).hasClass('js-actions__collapsed')) {
         $(target.attr('data-collapse-target-id')).slideUp();
+        $(target.attr('data-collapse-target-id')).removeClass('js-actions__collapsed');
+    } else {
+        $(target.attr('data-collapse-target-id')).slideDown();
+        $('.js-actions__collapsed').slideUp().removeClass('js-actions__collapsed');
+        $(target.attr('data-collapse-target-id')).addClass('js-actions__collapsed');
     }
 });
 
@@ -247,6 +259,7 @@ $('#js-battlefield--sort-by-initiative').on('click', function(){
     let newBfContent = bfContent.sort(battlefield.sortByIni);
     battlefield.saveAll(newBfContent);
     app.renderBF(battlefield.get());
+    // battlefield.enterTheLabel();
 });
 
 $(document.body).on('click', '.js-dmg--show', function(e){
@@ -256,11 +269,11 @@ $(document.body).on('click', '.js-dmg--show', function(e){
     $(`[data-target="${data_target}"]`).remove();
 });
 
-$(document.body).on('click', '.js-battlefield__enemy--actions__move-up', function(e){
+/* $(document.body).on('click', '.js-battlefield__enemy--actions__move-up', function(e){
     const id_element = $(e.target).data('id');
     battlefield.moveUp(id_element);
     app.renderBF(battlefield.get());
-});
+}); */
 
 $(document.body).on('click', '.js-battlefield__enemy--delete', function(e){
     const id_element = $(e.target).data('id');

@@ -1,4 +1,6 @@
 import App from "./app.js";
+import EnemyHelper from "./helpers/enemy-helper.js";
+import Random from "./random.js";
 
 export class BattlefieldStorage {
     appClass = null;
@@ -129,13 +131,16 @@ export class BattlefieldStorage {
         let actualValue = 0;
         let content = this.get();
         this.clear();
+        let hpBar = '';
+        let object = {};
+        const enemyHelper = new EnemyHelper(this.appClass);
         for (let k in content) {
             if (parseInt(id) === parseInt(content[k].id)) {
-                console.log(content[k].statistics.currentHp);
-                console.log(parseInt(content[k].statistics.currentHp));
-                console.log(value);
                 actualValue = parseInt(content[k].statistics.currentHp) + value;
                 content[k].statistics.currentHp = actualValue;
+                object = enemyHelper.getEnemyObject(content[k]);
+                hpBar = object.renderHpBar();
+                $('.js-battlefield__enemy--hp-bar-by-id-'+object.id).html(hpBar);
             }
         }
         this.saveAll(this.reindexContent(content));
@@ -151,5 +156,30 @@ export class BattlefieldStorage {
             }
         }
         return counter;
+    };
+    enterTheLabel() {
+        const random = new Random(this.appClass);
+        // random.resetRandomData();
+        let bfContent = this.get();
+        // this.clear();
+        console.log('bfContent', bfContent);
+        let minHpValueId = 0;
+        let maxHpValueId = 0;
+        for (let k in bfContent) {
+            if (parseInt(id) === parseInt(content[k].id)) {
+                actualValue = parseInt(content[k].statistics.currentHp) + value;
+                content[k].statistics.currentHp = actualValue;
+                object = enemyHelper.getEnemyObject(content[k]);
+                hpBar = object.renderHpBar();
+                $('.js-battlefield__enemy--hp-bar-by-id-'+object.id).html(hpBar);
+            }
+        }
+        let newBfContent = bfContent.sort(this.sortByHpDesc);
+        newBfContent[0].label = random.getCharacteristicsAttribute('danger');
+        console.log('newBfContent', newBfContent);
+        // newBfContent = newBfContent.sort(this.sortByHpAsc);
+        // newBfContent[0].label = random.getCharacteristicsAttribute('easy');
+        // this.saveAll(newBfContent);
+        
     }
 }

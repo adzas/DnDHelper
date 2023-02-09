@@ -1,4 +1,7 @@
 # Ignore everything in this directory
-*
+storage/*
+
 # Except this file
 !.gitignore
+!storage/config/
+!storage/config/*

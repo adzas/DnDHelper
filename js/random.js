@@ -1,15 +1,24 @@
+import App from "./app.js";
 import RandomHelper from "./helpers/random-helper.js";
 
 export default class Random {
-    lists = "./storage/lists.json";
+    lists = "./storage/lists2302091513.json";
     resultData = null;
-    constructor() {
+    appClass = null;
+    constructor(app) {
         let status = JSON.parse(localStorage.getItem('randomData'));
         console.log('status', status);
         if (null === status) {
             this.getDataFromListFile();
         }
+        if (app instanceof App) {
+            this.appClass = app;
+        } else console.log('Not Defined appClass in Random class constructor');
     };
+    resetRandomData() {
+        localStorage.setItem('randomData', null);
+        this.getDataFromListFile();
+    }
     getDataFromListFile() {
         $.getJSON(this.lists, function(data){
             localStorage.setItem('randomData', JSON.stringify(data));
@@ -24,7 +33,7 @@ export default class Random {
     };
     getRandomAppearance() {
         const appearanceData = this.getAppearance();
-        const randomHelper = new RandomHelper();
+        const randomHelper = new RandomHelper(this.appClass);
         const appearance = randomHelper.getRandomValueFromData(appearanceData);
 
         return appearance;
@@ -36,7 +45,7 @@ export default class Random {
     }
     getRandomCharacterAttr() {
         const characterData = this.getCharacter();
-        const randomHelper = new RandomHelper();
+        const randomHelper = new RandomHelper(this.appClass);
         const negative = randomHelper.getRandomValueFromData(characterData.negative);
         const positive = randomHelper.getRandomValueFromData(characterData.positive);
 
@@ -45,17 +54,39 @@ export default class Random {
             "negative": negative
         };
     };
-    getAttackDescription () {
+    getAttackDescription() {
+        const resultData = JSON.parse(localStorage.getItem('randomData'));
+
+        return resultData.attackDescription;
+    }
+    getRandomAttackDescription(type = 'sword') {
+        const attackDesc = this.getAttackDescription();
+        const randomHelper = new RandomHelper(this.appClass);
+        
+        return randomHelper.getRandomValueFromData(attackDesc[type]);
+    }
+    getCharacteristicsAttribute(type = 'general') {
+        let result = '';
         const resultData = JSON.parse(localStorage.getItem('randomData'));
         console.log('resultData', resultData);
-        console.log('resultData.attackDescription', resultData.attackdescription);
+        switch (type) {
+            case 'danger':
+                result = resultData.characteristicsAttribute['general'][0];
+                break;
 
-        return resultData.attackdescription;
-    }
-    getRandomAttackDescription() {
-        const attackDesc = this.getAttackDescription();
-        const randomHelper = new RandomHelper();
+            case 'easy':
+                result = resultData.characteristicsAttribute['general'][1];
+                break;
+
+            case 'strange':
+                result = resultData.characteristicsAttribute['general'][2];
+                break;
         
-        return randomHelper.getRandomValueFromData(attackDesc.sword);
+            default:
+                result = resultData.characteristicsAttribute[type];
+                break;
+        }
+
+        return result;
     }
 }

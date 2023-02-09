@@ -37,7 +37,7 @@ export default class App {
         $('.js-actions__collapse-target').slideUp();
         $('.js-actions__collapse').each(function(i, obj) {
             const target = $(obj);
-            if ("true" === target.attr('data-collapse-show')) {
+            if ($(target.attr('data-collapse-target-id')).hasClass('js-actions__collapsed')) {
                 $(target.attr('data-collapse-target-id')).slideDown();
             }
         });
