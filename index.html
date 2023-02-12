@@ -26,7 +26,7 @@
 <body>
     <h1 id="title-app">Pomocnik Mistrza Podziemi</h1>
     <div id="app">
-        <div class="row">
+        <div class="row b-s">
             <div class="col-12">
                 <a href="./pages/rules-helper.html" class="link-success">Skrót zasad</a>
                 <a href="./pages/price.html" class="link-info" rel="noopener noreferrer">
@@ -37,8 +37,8 @@
                 </a>
             </div>
         </div>
-        <div class="row mb-4">
-            <div class="col-6 btn-group text-left" role="group" aria-label="t4">
+        <div class="row b-s mb-4">
+            <div class="col-4 btn-group text-left" role="group" aria-label="t4">
                 <button class="btn btn-success" id="js-battlefield--refresh">
                     <i class="ra ra-stopwatch"></i>
                 </button>
@@ -66,14 +66,14 @@
                 </button>
             </div>
         </div>
-        <div class="row">
+        <div class="row b-s">
             <div class="col-12">
                 <div class="d-none" id="js-cache__hisotry-page--show-last"></div>
                 <div class="d-none" id="js-cache__hisotry-page--show-old"></div>
                 <div class="d-none" id="js-cache__hisotry-page--show-actual"></div>
                 <div id="gray-panel" class="js-cache--hidden"></div>
                 <div id="js-cache" class="cache">
-                    <div class="row">
+                    <div class="row b-s">
                         <div class="col-10">
                             <button id="js-cache__actions--show-old-cache-history-page" class="btn border-primary">
                                 old
@@ -91,7 +91,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row b-s">
                         <div id="js-cache__content" class="col-12 mt-2">
                         </div>
                     </div>
@@ -101,41 +101,41 @@
         <div id="js-battlefield" class="mb-2"></div>
         <details>
             <summary id="js-battlefield__settings">Ustawienia pola bitwy</summary>
-            <p class="details__p">
-            <div class="row mb-2">
+            <p>
+            <div class="row b-s mb-2">
                 <div class="col-12">
-                    <input class="js-actions__click--clear-value btn btn-default w-100 border-info"
+                    <input class="js-actions__click--clear-value btn btn-default form-control border-info"
                     type="number" autocomplete="off" placeholder="inicjatywa" name="initiative" 
                     id="js-attributes__initiative--custom-value">
                 </div>
             </div>
-            <div class="row">
+            <div class="row b-s">
                 <!-- Bochaterowie -->
-                <div class="col-4 mb-2">
-                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="hum" type="button">
+                <div class="col-6 mb-2">
+                    <button class="form-control btn btn-success btn-sm js-enemy" data-type="hum" type="button">
                         Hum
                     </button>
                 </div>
-                <div class="col-4 mb-2">
-                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="omalen" type="button">
+                <div class="col-6 mb-2">
+                    <button class="form-control btn btn-success btn-sm js-enemy" data-type="omalen" type="button">
                         Omalen
                     </button>
                 </div>
-                <div class="col-4 mb-2">
-                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="alsariph" type="button">
+                <div class="col-6 mb-2">
+                    <button class="form-control btn btn-success btn-sm js-enemy" data-type="alsariph" type="button">
                         Alsariph
                     </button>
                 </div>
-                <div class="col-4 mb-2">
-                    <button class="w-100 btn btn-success btn-sm js-enemy" data-type="kreatura" type="button">
+                <div class="col-6">
+                    <button class="form-control btn btn-success btn-sm js-enemy" data-type="kreatura" type="button">
                         Kreatura
                     </button>
                 </div>
             </div>
             <!-- Przeciwnicy -->
-            <div class="row">
+            <div class="row b-s">
                 <div class="col-12">
-                    <details>
+                    <details class="details">
                         <summary>Bandyci</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
@@ -155,7 +155,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Gobliny</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="goblin" type="button">
@@ -169,7 +169,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Krasnoludy</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dwarf" type="button">
@@ -180,7 +180,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Gnolle</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dog" type="button">
@@ -191,7 +191,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Poszukiwacze przygód</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="barbarian" type="button">
@@ -199,7 +199,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Dzikie zwierzęta</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="dire-wolf" type="button">
@@ -207,7 +207,7 @@
                             </button>
                         </p>
                     </details>
-                    <details>
+                    <details class="details">
                         <summary>Inne</summary>
                         <p class="details__p">
                             <button class="btn btn-danger btn-sm js-enemy" data-type="wood-golem" type="button">

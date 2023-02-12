@@ -18,8 +18,9 @@ body {
     padding: 5px;
 }
 
-.details__p {
-    width: auto;
+.details {
+    display: block;
+    width: 100%;  
 }
 
 .rules-row {
@@ -105,4 +106,8 @@ body {
     opacity: 80%;
     margin: 0px !important;
     padding: 0px !important;
+}
+
+.b-s {
+    box-sizing: border-box;
 }
