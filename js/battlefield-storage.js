@@ -28,6 +28,7 @@ export class BattlefieldStorage {
         if (!isPlayer) {
             obj.lp = counterLpEnemys;
         }
+        obj.label = '---';
         this.saveAll(newBfStorage);
     };
     get() {
@@ -146,6 +147,16 @@ export class BattlefieldStorage {
         this.saveAll(this.reindexContent(content));
 
         return actualValue;
+    };
+    storeLabelElementValue(id, value) {
+        let content = this.get();
+        this.clear();
+        for (let k in content) {
+            if (parseInt(id) === parseInt(content[k].id)) {
+                content[k].label = value;
+            }
+        }
+        this.saveAll(this.reindexContent(content));
     };
     getEnemyCounter(data) {
         let counter = 0;

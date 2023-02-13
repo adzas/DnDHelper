@@ -92,14 +92,14 @@ export default class Enemy extends RandomHelper{
         if (this.appClass.getPlayersName().includes(this.type)) {
             label += ``;
         } else {
-            // label += `${this.label}`;
+            label += `${this.label}`;
         }
         
         return `
             ${this.name}
-            ${label}
+            <i style="font-size: 0.7em">${label}</i>
             <div class="js-battlefield__enemy--hp-bar-by-id-${this.id}">
-                ${this.renderHpBar()}
+            ${this.renderHpBar()}
             </div>
         `;
     };
@@ -128,7 +128,7 @@ export default class Enemy extends RandomHelper{
         <div class="col-12 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
                 <button class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
-                    <i class="ra ra-skull" data-id="${this.id}"></i>
+                    -<i class="ra ra-skull" data-id="${this.id}"></i>-
                     <br>
                     ${this.getLP()}
                 </button>
@@ -158,9 +158,9 @@ export default class Enemy extends RandomHelper{
                 </div>
                 <div class="btn btn-primary">
                     <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
-                        <i class="ra ra-player" data-id="${this.id}"></i>
+                        -<i class="ra ra-player" data-id="${this.id}"></i>-
                         <br>
-                        ${this.initiative}<sup><i class="ra ra-clockwork"></i></sup>
+                        ${this.initiative}
                     </button> 
                 </div>
             </div>
@@ -169,20 +169,33 @@ export default class Enemy extends RandomHelper{
                     <div class="col-12">
                         <div class="w-100 btn btn-default border-default">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-3">
                                     <i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}
                                 </div>
                                 <div class="col-4 text-center">
                                     ${this.hpChangeButton()}
                                 </div>
-                                <div class="col-4 text-end">
+                                <div class="col-5 text-end">
                                     <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br/>    
+                <div class="row mb-2">
+                    <div class="col-8">
+                        <input type="text" placeholder="note" id="js-battlefield__enemy--label-${this.id}" 
+                            class="btn btn-default border-info form-control" />
+                    </div>
+                    <div class="col-4">
+                        <button 
+                            data-target="#js-battlefield__enemy--label-${this.id}"
+                            data-base-id="${this.id}"
+                            class="btn btn-default btn-success
+                            form-control js-battlefield__enemy--store-label"
+                        >Zapisz</button>
+                    </div>
+                </div>
                 ${this.renderActions()}
                 <br/>
                 ${this.renderInformation()}

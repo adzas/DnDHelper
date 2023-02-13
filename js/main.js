@@ -434,3 +434,14 @@ $('#js-cache--show').on('click',function(e) {
     app.clickedElement(e.target);
     app.renderCache();
 });
+
+$('.js-battlefield__enemy--store-label').on('click', function(e) {
+    const target = $(e.target);
+    const destination_target = $(target.data('target'));
+    const label = destination_target.val();
+    console.log('label', label);
+    const enemy_id = target.data('base-id');
+    console.log('enemy_id', enemy_id);
+    battlefield.storeLabelElementValue(enemy_id, label);
+    console.log(`stored "${label}" value in ${enemy_id} element`);
+})
