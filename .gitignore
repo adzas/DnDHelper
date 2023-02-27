@@ -5,3 +5,4 @@ storage/*
 !.gitignore
 !storage/config/
 !storage/config/*
+.DS_Store
