@@ -437,11 +437,19 @@ $('#js-cache--show').on('click',function(e) {
 
 $('.js-battlefield__enemy--store-label').on('click', function(e) {
     const target = $(e.target);
+    app.clickedElement(target);
     const destination_target = $(target.data('target'));
     const label = destination_target.val();
-    console.log('label', label);
     const enemy_id = target.data('base-id');
-    console.log('enemy_id', enemy_id);
-    battlefield.storeLabelElementValue(enemy_id, label);
-    console.log(`stored "${label}" value in ${enemy_id} element`);
+    const result = battlefield.storeLabelElementValue(enemy_id, label);
+    let info = "";
+    if (result) {
+        info = `stored "${label}" value in ${enemy_id} element`;
+        const obj = battlefield.getElementById(enemy_id, battlefield.get());
+        const enemy = enemyHelper.getEnemyObject(obj);
+        enemy.changeLabel(label);
+    } else {
+        info = `WARNING: label: "${label}", id's element ${enemy_id}`;
+    }
+    app.showInfo(info);
 })

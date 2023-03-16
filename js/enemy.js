@@ -97,7 +97,7 @@ export default class Enemy extends RandomHelper{
         
         return `
             ${this.name}
-            <i style="font-size: 0.7em">${label}</i>
+            <i style="font-size: 0.7em" id="${this.getIdBaseElementDom()}--label">${label}</i>
             <div class="js-battlefield__enemy--hp-bar-by-id-${this.id}">
             ${this.renderHpBar()}
             </div>
@@ -514,4 +514,7 @@ export default class Enemy extends RandomHelper{
 
         return this.dex;
     };
+    changeLabel(text) {
+        $(`#${this.getIdBaseElementDom()}--label`).html(text);
+    }
 }

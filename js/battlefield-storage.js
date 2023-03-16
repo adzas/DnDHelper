@@ -149,14 +149,18 @@ export class BattlefieldStorage {
         return actualValue;
     };
     storeLabelElementValue(id, value) {
+        let stored = false;
         let content = this.get();
         this.clear();
         for (let k in content) {
             if (parseInt(id) === parseInt(content[k].id)) {
                 content[k].label = value;
+                stored = true;
             }
         }
         this.saveAll(this.reindexContent(content));
+
+        return stored;
     };
     getEnemyCounter(data) {
         let counter = 0;
@@ -174,15 +178,10 @@ export class BattlefieldStorage {
         let bfContent = this.get();
         // this.clear();
         console.log('bfContent', bfContent);
-        let minHpValueId = 0;
-        let maxHpValueId = 0;
         for (let k in bfContent) {
-            if (parseInt(id) === parseInt(content[k].id)) {
-                actualValue = parseInt(content[k].statistics.currentHp) + value;
-                content[k].statistics.currentHp = actualValue;
-                object = enemyHelper.getEnemyObject(content[k]);
-                hpBar = object.renderHpBar();
-                $('.js-battlefield__enemy--hp-bar-by-id-'+object.id).html(hpBar);
+            if (parseInt(id) === parseInt(bfContent[k].id)) {
+                actualValue = parseInt(bfContent[k].statistics.currentHp) + value;
+                bfContent[k].statistics.currentHp = actualValue;
             }
         }
         let newBfContent = bfContent.sort(this.sortByHpDesc);

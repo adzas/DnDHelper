@@ -53,12 +53,7 @@ export default class App {
         this.getMyDom().html(oldContent+html);
     };
     renderCache(content) {
-        const minTopPositionValue = 30;
-        const position = $(this.element).offset(); // position = { left: 42, top: 567 }
-        let topPositionValue = minTopPositionValue;
-        if (100 < position.top) {
-            topPositionValue = position.top - minTopPositionValue;
-        }
+        const topPositionValue = this.getTopPositionValueFromCurrentElement();
         this.cache.setCssProperty({"top": topPositionValue});
         if (typeof content === "undefined") {
             this.cache.show();
@@ -96,5 +91,27 @@ export default class App {
     };
     isManualMode() {
         return this.manualMode;
+    };
+    getTopPositionValueFromCurrentElement() {
+        const minTopPositionValue = 37;
+        const position = $(this.element).offset();
+        let topPositionValue = minTopPositionValue;
+        if (100 < position.top) {
+            topPositionValue = position.top - minTopPositionValue;
+        }
+
+        return topPositionValue;
+    };
+    async showInfo(text) {
+        const topPositionValue = this.getTopPositionValueFromCurrentElement();
+        const informationsPopup = $('#js-informations-popup');
+        informationsPopup.css({"top": topPositionValue});
+        informationsPopup.html(text);
+        informationsPopup.slideDown();
+        await this.sleep(2000);
+        informationsPopup.slideUp();
+    };
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
