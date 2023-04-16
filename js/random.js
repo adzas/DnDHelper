@@ -2,7 +2,7 @@ import App from "./app.js";
 import RandomHelper from "./helpers/random-helper.js";
 
 export default class Random {
-    lists = "./storage/lists2302091513.json";
+    lists = "./storage/config/lists2302091513.json";
     resultData = null;
     appClass = null;
     constructor(app) {

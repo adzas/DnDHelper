@@ -20,6 +20,7 @@ import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
     appClass = null;
+    pathToConfigFile = './storage/config/enemies-config-2304151427.json';
     constructor (app) {
         if (app instanceof App) {
             this.appClass = app;
@@ -112,5 +113,35 @@ export default class EnemyHelper {
                 'i': target.attr('data-i')
             }
         };
+    };
+    renderEnemyListTo(DOMelementToRender) {
+        $.getJSON(this.pathToConfigFile, function(data){
+            let enemiesGroups = '';
+            $.each(data.group, function(k, group){
+                let elementList = ``;
+                $.each(group.content, function(k2, enemyElement) {
+                    elementList += `
+                        <button class="btn ${enemyElement.btnClass} btn-sm js-enemy" 
+                            data-type="${enemyElement.type}" type="button">
+                            ${enemyElement.name} - ${enemyElement.EXP}
+                        </button>
+                    `;
+                });
+                enemiesGroups += `
+                <details class="details">
+                    <summary>${group.name}</summary>    
+                    <p class="details__p">
+                        ${elementList}
+                    </p>
+                </details>`;
+            });
+            const content = `<div class="col-12">
+                ${enemiesGroups}
+            </div>`;
+            $(DOMelementToRender).html(content);
+        }).fail(function(){
+            $(DOMelementToRender).html('Loaded failed.');
+            console.log("cant load: "+this.pathToConfigFile);
+        });
     }
 }

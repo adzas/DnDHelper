@@ -1,5 +1,5 @@
 import App from './app.js';
-import { BattlefieldStorage } from './battlefield-storage.js';
+import BattlefieldStorage from './battlefield-storage.js';
 import AlsariphGenerator from './enemy-generators/alsariph-generator.js';
 import AnyoneGenerator from './enemy-generators/anyone-generator.js';
 import BanditCaptainGenerator from './enemy-generators/bandit-captain-generator.js';
@@ -22,6 +22,7 @@ import ShadowGenerator from './enemy-generators/shadow-generator.js';
 import ThugGenerator from './enemy-generators/thug-generator.js';
 import WoodGolemGenerator from './enemy-generators/wood-golem-generator.js';
 import EnemyHelper from './helpers/enemy-helper.js';
+import HtmlHelper from './helpers/html-helper.js';
 import Random from './random.js';
 
 const app = new App;
@@ -29,9 +30,12 @@ const battlefield = new BattlefieldStorage(app);
 const enemyHelper = new EnemyHelper(app);
 // battlefield.clear();
 const contentBF = battlefield.get();
+// renf=dering enemies list
+$('.js-battlefield__enemies-list').html('Loading ...');
+enemyHelper.renderEnemyListTo('.js-battlefield__enemies-list');
 if (null === contentBF || 0 == contentBF.length) {
     $('#js-battlefield__settings').click();
-}
+};
 app.renderBF(contentBF);
 $('#js-battlefield--refresh').on('click', function(){
     app.renderBF(battlefield.get());
@@ -65,9 +69,7 @@ $('#js-random-helper--attack-description').on('click', function(e){
 // actual not use:
 $('#js-battlefield--generate-a-characteristic-attribute').on('click', function(e){
     app.clickedElement(e.target);
-    battlefield.enterTheLabel();
-    const description = random.getRandomAttackDescription('axe');
-    
+    // battlefield.enterTheLabel();
 });
 
 $('#js-settings__manual-mode').on('click', function(){
@@ -91,7 +93,7 @@ $(document.body).on('click', '.js-actions__collapse' ,function(e){
     }
 });
 
-$('.js-enemy').on('click', function(e) {
+$(document.body).on('click', '.js-enemy', function(e) {
     if (app.isManualMode()) {
         app.clickedElement(e.target);
         app.renderCache('Wyłącz tryb ręczny aby edytować listę przeciwników!');
@@ -305,116 +307,8 @@ $('.js-actions__click--clear-value').on('click', function(e) {
 
 $('#js-players__statistics--show').on('click', function(e) {
     app.clickedElement(e.target);
-
-    const players = app.getPlayersName();
-
-    let html = '';
-    let head = '';
-    let body = '';
-    let body_2 = '';
-    let playerObj = {};
-    let generator = {};
-    let strength = '<th class="tg-0pky">str</th>';
-    let dexterity = '<th class="tg-0pky">dex</th>';
-    let condition = '<th class="tg-0pky">con</th>';
-    let intelligence = '<th class="tg-0pky">int</th>';
-    let wisdom = '<th class="tg-0pky">wis</th>';
-    let charisma = '<th class="tg-0pky">chr</th>';
-
-    let pp = '<th class="tg-0pky">pp</th>';
-    let pi = '<th class="tg-0pky">pi</th>';
-    let passiveIntuition = 10;
-
-    players.forEach(player => {
-        if ('kreatura' === player) {
-            generator = new KreaturaGenerator(app);
-            passiveIntuition = 18;
-        } else if ('omalen' === player) {
-            generator = new OmalenGenerator(app);
-            passiveIntuition = 13;
-        } else if ('hum' === player) {
-            generator = new HumGenerator(app);
-            passiveIntuition = 9;
-        } else if ('alsariph' === player) {
-            generator = new AlsariphGenerator(app);
-            passiveIntuition = 11;
-        }
-        playerObj = generator.getRandomObject();
-
-        head += `<th class="tg-0pky">${playerObj.name}</th>`;
-
-        strength += `<th class="tg-0pky">${playerObj.statistics.strength}</th>`;
-        dexterity += `<th class="tg-0pky">${playerObj.statistics.dexterity}</th>`;
-        condition += `<th class="tg-0pky">${playerObj.statistics.condition}</th>`;
-        intelligence += `<th class="tg-0pky">${playerObj.statistics.intelligence}</th>`;
-        wisdom += `<th class="tg-0pky">${playerObj.statistics.wisdom}</th>`;
-        charisma += `<th class="tg-0pky">${playerObj.statistics.charisma}</th>`;
-
-        pp += `<th class="tg-0pky">${playerObj.statistics.pp}</th>`;
-        pi += `<th class="tg-0pky">${passiveIntuition}</th>`;
-    });
-
-
-    body += `
-    <tr>
-        ${strength}
-    </tr>
-    <tr>
-        ${dexterity}
-    </tr>
-    <tr>
-        ${condition}
-    </tr>
-    <tr>
-        ${intelligence}
-    </tr>
-    <tr>
-        ${wisdom}
-    </tr>
-    <tr>
-        ${charisma}
-    </tr>`;
-
-    body_2 += `
-    <tr>
-        ${pp}
-    </tr>
-    <tr>
-        ${pi}
-    </tr>`;
-
-    html += `
-    <div class="row">
-    <div class="col-12">
-        <table class="tg">
-            <thead>
-                <tr>
-                    <th class="tg-0pky">---</th>
-                    ${head}
-                </tr>
-            </thead>
-            <tbody>
-                ${body}
-            </tbody>
-        </table>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-12">
-        <table class="tg">
-            <thead>
-                <tr>
-                    <th class="tg-0pky">---</th>
-                    ${head}
-                </tr>
-            </thead>
-            <tbody>
-                ${body_2}
-            </tbody>
-        </table>
-    </div>
-    </div>
-    `;
+    const htmlHelper = new HtmlHelper(app);
+    const html = htmlHelper.renderPlayersAttribute();
     app.renderCache(html);
 });
 

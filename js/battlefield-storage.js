@@ -2,7 +2,7 @@ import App from "./app.js";
 import EnemyHelper from "./helpers/enemy-helper.js";
 import Random from "./random.js";
 
-export class BattlefieldStorage {
+export default class BattlefieldStorage {
     appClass = null;
     constructor (app) {
         if (app instanceof App) {
