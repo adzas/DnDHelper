@@ -1,0 +1,141 @@
+{
+    "group": [
+        {
+            "name": "Bandyci",
+            "content": [
+                {
+                    "name": "Pies",
+                    "EXP": 35,
+                    "type": "dog",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Bandyta",
+                    "EXP": 25,
+                    "type": "bandit",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Bandyta Zwiadowca",
+                    "EXP": 100,
+                    "type": "scout-bandit",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Zbir",
+                    "EXP": 100,
+                    "type": "thug",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Przywódca bandytów",
+                    "EXP": 450,
+                    "type": "bandit-captain",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Gobliny",
+            "content": [
+                {
+                    "name": "Goblin",
+                    "EXP": 50,
+                    "type": "goblin",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Hobgoblin",
+                    "EXP": 100,
+                    "type": "hobgoblin",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Hobgoblin przywódca",
+                    "EXP": 700,
+                    "type": "hobgoblin-captain",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Krasnoludy",
+            "content": [
+                {
+                    "name": "Krasnolud wojownik",
+                    "EXP": 100,
+                    "type": "dwarf",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Krasnolud extra",
+                    "EXP": 150,
+                    "type": "dwarf-extra",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Gnolle",
+            "content": [
+                {
+                    "name": "Gnoll",
+                    "EXP": 100,
+                    "type": "gnoll",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Poszukiwacze przygód",
+            "content": [
+                {
+                    "name": "Barbarzyńca",
+                    "EXP": 450,
+                    "type": "barbarian",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Dzikie zwierzęta",
+            "content": [
+                {
+                    "name": "Straszny Wilk",
+                    "EXP": 200,
+                    "type": "dire-wolf",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Inne",
+            "content": [
+                {
+                    "name": "Golem drzewny",
+                    "EXP": 500,
+                    "type": "wood-golem",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Cień",
+                    "EXP": 100,
+                    "type": "shadow",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Przeklęty (darkling)",
+                    "EXP": 100,
+                    "type": "darkling",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Losowy gość",
+                    "EXP": 99,
+                    "type": "anyone",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        }
+    ]
+}
