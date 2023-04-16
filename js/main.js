@@ -30,12 +30,15 @@ const battlefield = new BattlefieldStorage(app);
 const enemyHelper = new EnemyHelper(app);
 // battlefield.clear();
 const contentBF = battlefield.get();
-// renf=dering enemies list
+
+// rendering enemies list
 $('.js-battlefield__enemies-list').html('Loading ...');
 enemyHelper.renderEnemyListTo('.js-battlefield__enemies-list');
+
 if (null === contentBF || 0 == contentBF.length) {
     $('#js-battlefield__settings').click();
 };
+
 app.renderBF(contentBF);
 $('#js-battlefield--refresh').on('click', function(){
     app.renderBF(battlefield.get());
