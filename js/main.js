@@ -84,10 +84,9 @@ $(document.body).on('click', '.js-enemy', function(e) {
     }
     const enemyType = $(e.target).data('type');
     const customInitiative = parseInt($('#js-attributes__initiative--custom-value').val());
-    newEnemy = enemyHelper.getRandomEnemyObjectByType(enemyType, customInitiative);
-    console.log('newEnemy', newEnemy);
+    const newEnemy = enemyHelper.getRandomEnemyObjectByType(enemyType, customInitiative);
     battlefield.store(newEnemy);
-    let message = `Dodano ${enemyType} do pola bitwy.`;
+    const message = `Dodano ${enemyType} do pola bitwy.`;
     console.log(message);
 });
 

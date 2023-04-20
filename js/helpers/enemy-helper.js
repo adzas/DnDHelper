@@ -48,162 +48,201 @@ export default class EnemyHelper {
         } else console.log('Not Defined appClass in EnemyHelper class constructor');
     };
     getRandomEnemyObjectByType(enemyType, customInitiative) {
-        let enemyObject = null;
-        switch (enemyType) {
-            case 'bandit':
-                enemyObject = new BanditGenerator(this.appClass);
-                break;
-            case 'scout-bandit':
-                enemyObject = new ScoutBanditGenerator(this.appClass);
-                break;
-    
-            case 'dog':
-                enemyObject = new DogGenerator(this.appClass);
-                break;
-    
-            case 'wood-golem':
-                enemyObject = new WoodGolemGenerator(this.appClass);
-                break;
-    
-            case 'goblin':
-                enemyObject = new GoblinGenerator(this.appClass);
-                break;
-    
-            case 'hobgoblin':
-                enemyObject = new HobgoblinGenerator(this.appClass);
-                break;
-    
-            case 'dwarf':
-                enemyObject = new DwarfGenerator(this.appClass);
-                break;
-    
-            case 'hum':
-                enemyObject = new HumGenerator(this.appClass);
-                break;
-    
-            case 'kreatura':
-                enemyObject = new KreaturaGenerator(this.appClass);
-                break;
-    
-            case 'omalen':
-                enemyObject = new OmalenGenerator(this.appClass);
-                break;
-    
-            case 'alsariph':
-                enemyObject = new AlsariphGenerator(this.appClass);
-                break;
-    
-            case 'gnoll':
-                enemyObject = new GnollGenerator(this.appClass);
-                break;
-    
-            case 'shadow':
-                enemyObject = new ShadowGenerator(this.appClass);
-                break;
-    
-            case 'thug':
-                enemyObject = new ThugGenerator(this.appClass);
-                break;
-    
-            case 'dwarf-extra':
-                enemyObject = new DwarfExtraGenerator(this.appClass);
-                break;
-    
-            case 'darkling':
-                enemyObject = new DarklingGenerator(this.appClass);
-                break;
-    
-            case 'barbarian':
-                enemyObject = new BarbarianGenerator(this.appClass);
-                break;
-    
-            case 'anyone':
-                enemyObject = new AnyoneGenerator(this.appClass);
-                break;
-    
-            case 'bandit-captain':
-                enemyObject = new BanditCaptainGenerator(this.appClass);
-                break;
-    
-            case 'dire-wolf':
-                enemyObject = new DireWolfGenerator(this.appClass);
-                break;
-    
-            case 'hobgoblin-captain':
-                enemyObject = new HobgoblinCaptainGenerator(this.appClass);
-                break;
-        
-            default:
-                console.log('enemyType: '+enemyType+' is ubdefined');
-                break;
-        }
+        const enemyObject = this.getClassObjectKindByTypeEnemy(enemyType, 'getGenerator');
 
         return enemyObject.getRandomObject(customInitiative);
     };
     getEnemyObject(obj) {
-        switch (obj.type) {
+        return this.getClassObjectKindByTypeEnemy(obj.type, 'getEnemyObjectClass', obj);
+    };
+    /**
+     * Returns Enemy class object or Enemy-Generator class object for a entered type value.
+     */
+    getClassObjectKindByTypeEnemy(enemyType, requestKind = 'getGenerator', object = null) {
+        let classObjectReturned = null;
+        if ('getEnemyObjectClass' === requestKind) {
+            if (typeof object === "undefined" || null === object) {
+                console.log('"object" parameter is requered for this requestKind')
+            }
+        }
+        switch (enemyType) {
             case 'bandit':
-                return new Bandit(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new BanditGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Bandit(object, this.appClass);
+                }
+                break;
 
             case 'dwarf':
-                return new Dwarf(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new DwarfGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Dwarf(object, this.appClass);
+                }
+                break;
 
             case 'scout-bandit':
-                return new ScoutBandit(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new ScoutBanditGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new ScoutBandit(object, this.appClass);
+                }
+                break;
 
             case 'wood-golem':
-                return new WoodGolem(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new WoodGolemGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new WoodGolem(object, this.appClass);
+                }
+                break;
 
             case 'dog':
-                return new Dog(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+
+                    classObjectReturned = new DogGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Dog(object, this.appClass);
+                }
+                break;
 
             case 'goblin':
-                return new Goblin(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+
+                    classObjectReturned = new GoblinGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Goblin(object, this.appClass);
+                }
+                break;
 
             case 'hobgoblin':
-                return new Hobgoblin(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new HobgoblinGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Hobgoblin(object, this.appClass);
+                }
+                break;
 
             case 'gnoll':
-                return new Gnoll(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new GnollGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Gnoll(object, this.appClass);
+                }
+                break;
 
             case 'shadow':
-                return new Shadow(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new ShadowGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Shadow(object, this.appClass);
+                }
+                break;
 
             case 'thug':
-                return new Thug(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new ThugGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Thug(object, this.appClass);
+                }
+                break;
 
             case 'dwarf-extra':
-                return new DwarfExtra(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new DwarfExtraGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new DwarfExtra(object, this.appClass);
+                }
+                break;
 
             case 'darkling':
-                return new Darkling(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new DarklingGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Darkling(object, this.appClass);
+                }
+                break;
 
             case 'barbarian':
-                return new Barbarian(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new BarbarianGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Barbarian(object, this.appClass);
+                }
+                break;
 
             case 'anyone':
-                return new Anyone(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new AnyoneGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Anyone(object, this.appClass);
+                }
+                break;
 
             case 'bandit-captain':
-                return new BanditCaptain(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new BanditCaptainGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new BanditCaptain(object, this.appClass);
+                }
+                break;
 
             case 'dire-wolf':
-                return new DireWolf(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new DireWolfGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new DireWolf(object, this.appClass);
+                }
+                break;
 
             case 'hobgoblin-captain':
-                return new HobgoblinCaptain(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new HobgoblinCaptainGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new HobgoblinCaptain(object, this.appClass);
+                }
+                break;
 
             case 'hum':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new HumGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Player(object, this.appClass);
+                }
+                break;
+
             case 'omalen':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new OmalenGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Player(object, this.appClass);
+                }
+                break;
+
             case 'kreatura':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new KreaturaGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Player(object, this.appClass);
+                }
+                break;
+
             case 'alsariph':
-                return new Player(obj, this.appClass);
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new AlsariphGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Player(object, this.appClass);
+                }
+                break;
         
             default:
-                alert('Nieznany typ przeciwnika: '+obj.type);
+                alert('Undefined enemy type: ' + enemyType);
                 break;
         }
-    };
+
+        return classObjectReturned;
+    }
     getAttackName(type) {
         const result = this.getAttackDataFromConfigFile(type);
 

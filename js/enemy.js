@@ -112,9 +112,14 @@ export default class Enemy extends RandomHelper{
         } else if (35 > percentHP) {
             w3color = 'w3-orange';
         }
+        let label = `${this.currentHp}/${this.hp}`;
+        if (this.appClass.getPlayersName().includes(this.type)) {
+            // It is a player
+            label = this.currentHp;
+        }
         
         return `<div class="w3-light-gray w3-round w3-tiny">
-            <div class="w3-container w3-round w3-left ${w3color}" style="width:${percentHP}%">${this.currentHp}/${this.hp}</div>
+            <div class="w3-container w3-round w3-left ${w3color}" style="width:${percentHP}%">${label}</div>
         </div>`;
     }
     getLP() {

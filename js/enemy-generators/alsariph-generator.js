@@ -6,6 +6,7 @@ export default class AlsariphGenerator extends RandomHelper {
         if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
+        const hp = 25;
         return {
             "type": "alsariph",
             "name": "Alsariph",
@@ -13,8 +14,8 @@ export default class AlsariphGenerator extends RandomHelper {
             "statistics": {
                 "xp": 999,
                 "kp": 12,
-                "currentHp": 16,
-                "hp": 16,
+                "currentHp": hp,
+                "hp": hp,
                 "initiative": initiative,
                 'pp': 11,
                 "strength": 8,
