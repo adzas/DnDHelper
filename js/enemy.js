@@ -1,5 +1,6 @@
 import App from "./app.js";
 import DieRoll from "./die-roll.js";
+import EnemyHelper from "./helpers/enemy-helper.js";
 import RandomHelper from "./helpers/random-helper.js";
 
 export default class Enemy extends RandomHelper{
@@ -111,9 +112,14 @@ export default class Enemy extends RandomHelper{
         } else if (35 > percentHP) {
             w3color = 'w3-orange';
         }
+        let label = `${this.currentHp}/${this.hp}`;
+        if (this.appClass.getPlayersName().includes(this.type)) {
+            // It is a player
+            label = this.currentHp;
+        }
         
         return `<div class="w3-light-gray w3-round w3-tiny">
-            <div class="w3-container w3-round w3-left ${w3color}" style="width:${percentHP}%">${this.currentHp}/${this.hp}</div>
+            <div class="w3-container w3-round w3-left ${w3color}" style="width:${percentHP}%">${label}</div>
         </div>`;
     }
     getLP() {
@@ -215,6 +221,8 @@ export default class Enemy extends RandomHelper{
         return html;
     };
     renderAction(type){
+        const enemyHelper = new EnemyHelper(this.appClass);
+        
         return `
             <div class="btn-group mb-1 w-100" role="group" aria-label="t1">
                 <button type="button" class="js-actions__attack btn btn-secondary"
@@ -231,7 +239,7 @@ export default class Enemy extends RandomHelper{
                     data-attack-method="normal"
                     data-parent-id="${this.getIdBaseElementDom()}"
                 >
-                    ${this.getAttackName(type)}
+                    ${enemyHelper.getAttackName(type)}
                 </button>
                 <button type="button" class="js-actions__attack btn btn-secondary"
                     data-enemy-type="${this.type}"
@@ -250,166 +258,16 @@ export default class Enemy extends RandomHelper{
         this.attackMethod = method;
     };
     attack() {
-        let result = '<div class="result-atack">';
-        switch (this.attackType) {
-            case 'axe':
-                result += this.attackAxe();
-                break;
-
-            case 'short-bow':
-                result += this.attackShortBow();
-                break;
-
-            case 'sword':
-                result += this.attackSword();
-                break;
-
-            case 'smash':
-                result += this.attackSmash();
-                break;
-    
-            case 'throw-wood':
-                result += this.attackThrowWood();
-                break;
-    
-            case 'light-crossbow':
-                result += this.attackLightCrossbow();
-                break;
-    
-            case 'bite':
-                result += this.attackBite();
-                break;
-
-            case 'scimitar':
-                result += this.attackScimitar();
-                break;
-
-            case 'long-bow':
-                result += this.attackLongBow();
-                break;
-
-            case 'spear':
-                result += this.attackSpear();
-                break;
-
-            case 'strength-drain':
-                result += this.attackStrengthDrain();
-                break;
-
-            case 'mace':
-                result += this.attackMace();
-                break;
-
-            case 'heavy-crossbow':
-                result += this.attackHeavyCrossbow();
-                break;
-
-            case 'battleaxe':
-                result += this.attackBattleaxe();
-                break;
-
-            case 'dagger':
-                result += this.attackDagger();
-                break;
-
-            case 'greataxe':
-                result += this.attackGreataxe();
-                break;
-
-            case 'reaction':
-                result += this.attackReaction();
-                break;
-
-            case 'leadership':
-                result += this.attackLeadership();
-                break;
-
-            case 'javelin':
-                result += this.attackJavelin();
-                break;
-
-            case 'greatsword':
-                result += this.attackGreatsword();
-                break;
+        const enemyHelper = new EnemyHelper(this.appClass);
         
-            default:
-                console.log(`undefined attack '${this.attackType}' in Enemy class`);
-                break;
-        }
+        let result = '<div class="result-atack">';
+        result += this[enemyHelper.getAttackFunction(this.attackType)]();
         result += '</div>';
 
         return result;
     };
     getIdBaseElementDom() {
         return 'id-'+this.id;
-    };
-    getAttackName(typeAction) {
-        switch (typeAction) {
-            case 'axe':
-                return 'Topór';
-
-            case 'short-bow':
-                return 'Krótki łuk';
-
-            case 'sword':
-                return 'Krótki miecz';
-
-            case 'smash':
-                return 'Uderzenie';
-
-            case 'throw-wood':
-                return 'Rzut gałęzią';
-
-            case 'light-crossbow':
-                return 'Lekka kusza';
-
-            case 'bite':
-                return 'Ugryzienie';
-
-            case 'scimitar':
-                return 'Bułat';
-
-            case 'long-bow':
-                return 'Długi łuk';
-
-            case 'spear':
-                return 'Włócznia';
-
-            case 'strength-drain':
-                return 'Wysysanie sił';
-
-            case 'mace':
-                return 'Buzdygan';
-
-            case 'heavy-crossbow':
-                return 'Ciężka kusza';
-
-            case 'battleaxe':
-                return 'Topór bojowy';
-
-            case 'dagger':
-                return 'Sztylet';
-
-            case 'greataxe':
-                return 'Topór bojowy';
-
-            case 'reaction':
-                return 'Reakcja';
-
-            case 'leadership':
-                return 'Przywództwo';
-
-            case 'javelin':
-                return 'Oszczep';
-
-            case 'greatsword':
-                return 'Wilki miecz';
-        
-            default:
-                console.log(`nieokreślono typeAction: '${typeAction}'`);
-                return 'nieokreślono';
-
-        }
     };
     getTestResult(plus) {
         const dieRollHelper = new DieRoll(this.appClass);

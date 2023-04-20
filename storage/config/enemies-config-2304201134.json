@@ -137,5 +137,107 @@
                 }
             ]
         }
+    ],
+    "attackType": [
+        {
+            "type": "axe",
+            "function": "attackAxe",
+            "name": "Topór"
+        },
+        {
+            "type": "short-bow",
+            "function": "attackShortBow",
+            "name": "Krótki łuk"
+        },
+        {
+            "type": "sword",
+            "function": "attackSword",
+            "name": "Krótki miecz"
+        },
+        {
+            "type": "smash",
+            "function": "attackSmash",
+            "name": "Uderzenie"
+        },
+        {
+            "type": "throw-wood",
+            "function": "attackThrowWood",
+            "name": "Rzut gałęzią"
+        },
+        {
+            "type": "light-crossbow",
+            "function": "attackLightCrossbow",
+            "name": "Lekka kusza"
+        },
+        {
+            "type": "bite",
+            "function": "attackBite",
+            "name": "Ugryzienie"
+        },
+        {
+            "type": "scimitar",
+            "function": "attackScimitar",
+            "name": "Bułat"
+        },
+        {
+            "type": "long-bow",
+            "function": "attackLongBow",
+            "name": "Długi łuk"
+        },
+        {
+            "type": "spear",
+            "function": "attackSpear",
+            "name": "Włócznia"
+        },
+        {
+            "type": "strength-drain",
+            "function": "attackStrengthDrain",
+            "name": "Wysysanie sił"
+        },
+        {
+            "type": "mace",
+            "function": "attackMace",
+            "name": "Buzdygan"
+        },
+        {
+            "type": "heavy-crossbow",
+            "function": "attackHeavyCrossbow",
+            "name": "Ciężka kusza"
+        },
+        {
+            "type": "battleaxe",
+            "function": "attackBattleaxe",
+            "name": "Topór bojowy"
+        },
+        {
+            "type": "dagger",
+            "function": "attackDagger",
+            "name": "Sztylet"
+        },
+        {
+            "type": "greataxe",
+            "function": "attackGreataxe",
+            "name": "Topór bojowy"
+        },
+        {
+            "type": "reaction",
+            "function": "attackReaction",
+            "name": "Reakcja"
+        },
+        {
+            "type": "leadership",
+            "function": "attackLeadership",
+            "name": "Przywództwo"
+        },
+        {
+            "type": "javelin",
+            "function": "attackJavelin",
+            "name": "Oszczep"
+        },
+        {
+            "type": "greatsword",
+            "function": "attackGreatsword",
+            "name": "Wilki miecz"
+        }
     ]
 }

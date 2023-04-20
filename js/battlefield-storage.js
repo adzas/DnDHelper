@@ -33,8 +33,6 @@ export default class BattlefieldStorage {
     };
     get() {
         const getStorageFB = JSON.parse(localStorage.getItem('gameStorage'));
-        console.log('getStorageFB: ');
-        console.log(getStorageFB);
 
         return getStorageFB;
     };
