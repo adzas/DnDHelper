@@ -4,12 +4,6 @@
             "name": "Bandyci",
             "content": [
                 {
-                    "name": "Pies",
-                    "EXP": 35,
-                    "type": "dog",
-                    "btnClass": "btn-danger"
-                },
-                {
                     "name": "Bandyta",
                     "EXP": 25,
                     "type": "bandit",
@@ -83,6 +77,12 @@
                     "EXP": 100,
                     "type": "gnoll",
                     "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Gnoll przywódca watachy",
+                    "EXP": 450,
+                    "type": "gnoll-pack-lord",
+                    "btnClass": "btn-danger"
                 }
             ]
         },
@@ -98,12 +98,35 @@
             ]
         },
         {
-            "name": "Dzikie zwierzęta",
+            "name": "Zwierzęta",
             "content": [
+                {
+                    "name": "Pies",
+                    "EXP": 35,
+                    "type": "dog",
+                    "btnClass": "btn-danger"
+                },
                 {
                     "name": "Straszny Wilk",
                     "EXP": 200,
                     "type": "dire-wolf",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Cienie",
+            "content": [
+                {
+                    "name": "Cień",
+                    "EXP": 100,
+                    "type": "shadow",
+                    "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Przeklęty (darkling)",
+                    "EXP": 100,
+                    "type": "darkling",
                     "btnClass": "btn-danger"
                 }
             ]
@@ -115,18 +138,6 @@
                     "name": "Golem drzewny",
                     "EXP": 500,
                     "type": "wood-golem",
-                    "btnClass": "btn-danger"
-                },
-                {
-                    "name": "Cień",
-                    "EXP": 100,
-                    "type": "shadow",
-                    "btnClass": "btn-danger"
-                },
-                {
-                    "name": "Przeklęty (darkling)",
-                    "EXP": 100,
-                    "type": "darkling",
                     "btnClass": "btn-danger"
                 },
                 {
@@ -177,7 +188,8 @@
         {
             "type": "scimitar",
             "function": "attackScimitar",
-            "name": "Bułat"
+            "name": "Bułat",
+            "description": "zakrzywiony miecz o szerokim ostrzu"
         },
         {
             "type": "long-bow",
@@ -238,6 +250,12 @@
             "type": "greatsword",
             "function": "attackGreatsword",
             "name": "Wilki miecz"
+        },
+        {
+            "type": "glaive",
+            "function": "attackGlaive",
+            "name": "Glewia",
+            "description": "(włócznia o szszym płaskim ostrzu)"
         }
     ]
 }
