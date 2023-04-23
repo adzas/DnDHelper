@@ -63,6 +63,7 @@ $('#js-settings__manual-mode').on('click', function(){
     location.reload();
 });
 
+// slide down or slide up enemies actions content
 $(document.body).on('click', '.js-actions__collapse' ,function(e){
     const target = $(e.target);
     if ($(target.attr('data-collapse-target-id')).hasClass('js-actions__collapsed')) {
@@ -75,6 +76,7 @@ $(document.body).on('click', '.js-actions__collapse' ,function(e){
     }
 });
 
+// adding a enemies
 $(document.body).on('click', '.js-enemy', function(e) {
     if (app.isManualMode()) {
         app.clickedElement(e.target);
@@ -90,17 +92,17 @@ $(document.body).on('click', '.js-enemy', function(e) {
     console.log(message);
 });
 
+// resolving a attack action
 $('.js-actions__attack').on('click', function(e) {
     const target = $(e.target);
     app.clickedElement(target);
     const attackType = target.data('attack-type');
     const attackMethod = target.data('attack-method');
-    let cache = '';
     const obj = enemyHelper.setObjArrayFromTarget(target);
     const enemy = enemyHelper.getEnemyObject(obj);
     enemy.setAttackType(attackType);
     enemy.setAttackMethod(attackMethod);
-    cache = enemy.attack();
+    const cache = enemy.attack();
     app.renderCache(cache);
 });
 
@@ -192,7 +194,7 @@ $('.js-battlefield__enemy--store-label').on('click', function(e) {
     const result = battlefield.storeLabelElementValue(enemy_id, label);
     let info = "";
     if (result) {
-        info = `stored "${label}" value in ${enemy_id} element`;
+        info = `Zapisano informację "${label}" dla elementu ${enemy_id}.`;
         const obj = battlefield.getElementById(enemy_id, battlefield.get());
         const enemy = enemyHelper.getEnemyObject(obj);
         enemy.changeLabel(label);
