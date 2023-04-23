@@ -58,6 +58,12 @@ export default class Enemy extends RandomHelper{
             this.charisma = obj.statistics.charisma;
             this.speed = obj.statistics.speed;
             this.i = obj.statistics.i;
+            // new informations content
+            if (typeof obj.statistics.informations === "undefined") {
+                this.informations = null;
+            } else {
+                this.informations = obj.statistics.informations;
+            }
             if (typeof obj.label === "undefined") {
                 this.label = '---';
             } else {
@@ -305,9 +311,23 @@ export default class Enemy extends RandomHelper{
     };
     renderInformation() {
         let html = '';
-        const informations = this.i.split(';');
-        for (let k in informations) {
-            html += informations[k]+'</br>';
+        // new way to the display informations:
+        if (null !== this.informations) {
+            $.each(this.informations, function(k, val) {
+                html += '<details>';
+                html += `<summary>${val.name}</summary>`;
+                for (let k in val.content) {
+                    html += `<p>${val.content[k]}</p>`;
+                }
+                html += '</details>';
+            });
+            console.log('this.informations: ', this.informations);
+        } else {
+            // old compatible version
+            const informations = this.i.split(';');
+            for (let k in informations) {
+                html += informations[k]+'</br>';
+            }
         }
         html += `pasywna percepcja: ${this.pp}</br>`;
         html += `szybkość: ${this.speed}</br>`;

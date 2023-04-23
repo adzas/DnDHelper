@@ -10,6 +10,7 @@ import DogGenerator from "../enemy-generators/dog-generator.js";
 import DwarfExtraGenerator from "../enemy-generators/dwarf-extra-generator.js";
 import DwarfGenerator from "../enemy-generators/dwarf-generator.js";
 import GnollGenerator from "../enemy-generators/gnoll-generator.js";
+import GnollPackLordGenerator from "../enemy-generators/gnoll-pack-lord-generator.js";
 import GoblinGenerator from "../enemy-generators/golbin-generator.js";
 import HobgoblinCaptainGenerator from "../enemy-generators/hobgoblin-captain-generator.js";
 import HobgoblinGenerator from "../enemy-generators/hobgoblin-generator.js";
@@ -29,6 +30,7 @@ import DireWolf from "../enemy-type/dire-wolf.js";
 import Dog from "../enemy-type/dog.js";
 import DwarfExtra from "../enemy-type/dwarf-extra.js";
 import Dwarf from "../enemy-type/dwarf.js";
+import GnollPackLord from "../enemy-type/gnoll-pack-lord.js";
 import Gnoll from "../enemy-type/gnoll.js";
 import Goblin from "../enemy-type/goblin.js";
 import HobgoblinCaptain from "../enemy-type/hobgoblin-captain.js";
@@ -41,7 +43,7 @@ import WoodGolem from "../enemy-type/wood-golem.js";
 
 export default class EnemyHelper {
     appClass = null;
-    pathToConfigFile = './storage/config/enemies-config-2304201134.json';
+    pathToConfigFile = './storage/config/enemies-config-2304231544.json';
     constructor (app) {
         if (app instanceof App) {
             this.appClass = app;
@@ -129,6 +131,14 @@ export default class EnemyHelper {
                     classObjectReturned = new GnollGenerator(this.appClass);
                 } else {
                     classObjectReturned = new Gnoll(object, this.appClass);
+                }
+                break;
+
+            case 'gnoll-pack-lord':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new GnollPackLordGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new GnollPackLord(object, this.appClass);
                 }
                 break;
 
