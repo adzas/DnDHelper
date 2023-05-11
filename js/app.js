@@ -72,8 +72,10 @@ export default class App {
         this.manualMode = config.manualMode; 
         if (true === this.manualMode) {
             $('#js-settings__manual-mode').prop('checked', true);
+            $('#js-info__manualmode').html('manual mode');
         } else {
             $('#js-settings__manual-mode').prop('checked', false);
+            $('#js-info__manualmode').html('');
         }
     };
     getConfig() {
