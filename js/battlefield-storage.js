@@ -4,6 +4,9 @@ import Random from "./random.js";
 
 export default class BattlefieldStorage {
     appClass = null;
+    currentGameStorage = 'gameStorage';
+    firstGameSet = 'firstBackuSet';
+    secondGameSet = 'secondBackupSet';
     constructor (app) {
         if (app instanceof App) {
             this.appClass = app;
@@ -32,11 +35,14 @@ export default class BattlefieldStorage {
         this.saveAll(newBfStorage);
     };
     get() {
-        const getStorageFB = JSON.parse(localStorage.getItem('gameStorage'));
+        const getStorageFB = JSON.parse(localStorage.getItem(this.currentGameStorage));
 
         return getStorageFB;
     };
-    clear() {
+    clearBFStorage() {
+        this.saveAll(null);
+    };
+    clearLocalStorage() {
         localStorage.clear();
     };
     moveUp(element_id) {
@@ -73,7 +79,7 @@ export default class BattlefieldStorage {
             }
         }
         if (0 < new_content.length) {
-            this.clear();
+            this.clearBFStorage();
             let new_indexint_content = this.reindexContent(new_content);
             new_indexint_content.sort(this.sortById);
             this.saveAll(new_indexint_content);
@@ -98,11 +104,11 @@ export default class BattlefieldStorage {
         return 0;
     };
     saveAll(data) {
-        localStorage.setItem('gameStorage', JSON.stringify(data));
+        localStorage.setItem(this.currentGameStorage, JSON.stringify(data));
     };
     deleteElement(id) {
         const content = this.get();
-        this.clear();
+        this.clearBFStorage();
         let new_contetnt = [];
         let i = 0;
         for (let k in content) {
@@ -129,7 +135,7 @@ export default class BattlefieldStorage {
     changeHpElementById(id, value) {
         let actualValue = 0;
         let content = this.get();
-        this.clear();
+        this.clearBFStorage();
         let hpBar = '';
         let object = {};
         const enemyHelper = new EnemyHelper(this.appClass);
@@ -149,7 +155,7 @@ export default class BattlefieldStorage {
     storeLabelElementValue(id, value) {
         let stored = false;
         let content = this.get();
-        this.clear();
+        this.clearBFStorage();
         for (let k in content) {
             if (parseInt(id) === parseInt(content[k].id)) {
                 content[k].label = value;
@@ -174,7 +180,6 @@ export default class BattlefieldStorage {
         const random = new Random(this.appClass);
         // random.resetRandomData();
         let bfContent = this.get();
-        // this.clear();
         console.log('bfContent', bfContent);
         for (let k in bfContent) {
             if (parseInt(id) === parseInt(bfContent[k].id)) {
@@ -188,6 +193,47 @@ export default class BattlefieldStorage {
         // newBfContent = newBfContent.sort(this.sortByHpAsc);
         // newBfContent[0].label = random.getCharacteristicsAttribute('easy');
         // this.saveAll(newBfContent);
-        
+    };
+    previewGameSet(key) {
+        const savedSets = this.loadGameSet(key);
+        console.log('savedSets', savedSets);
+
+        let content = '';
+        savedSets.forEach(elem => {
+            console.log('elem', elem);
+            content += `${elem.name}: ${elem.label}</br>`;
+        });
+
+        return content;
+    };
+    saveSettings(key) {
+        const currentGameStorage = JSON.parse(localStorage.getItem(this.currentGameStorage));
+        this.saveGameSet(key, currentGameStorage);
+
+        return 'Zapisano set '+key;
+    };
+    loadSettings(key) {
+        const savedSets = this.loadGameSet(key);
+        this.saveAll(savedSets);
+    };
+    loadGameSet(key) {
+        if (1 === key) {
+            return JSON.parse(localStorage.getItem(this.firstGameSet));
+        } else {
+            return JSON.parse(localStorage.getItem(this.secondGameSet));
+        }
+    };
+    saveGameSet(key, data) {
+        if (1 === key) {
+            this.saveGameSettingsInLocalStorage(this.firstGameSet, data);
+        } else {
+            this.saveGameSettingsInLocalStorage(this.secondGameSet, data);
+        }
+    };
+    saveSecondGameSet(data) {
+        this.saveGameSettings(this.secondGameSet, data);
+    };
+    saveGameSettingsInLocalStorage(key, data) {
+        localStorage.setItem(key, JSON.stringify(data));
     }
 }

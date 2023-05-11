@@ -7,7 +7,8 @@ import Random from './random.js';
 const app = new App;
 const battlefield = new BattlefieldStorage(app);
 const enemyHelper = new EnemyHelper(app);
-// battlefield.clear();
+const htmlHelper = new HtmlHelper(app);
+// battlefield.clearBFStorage();
 const contentBF = battlefield.get();
 
 // rendering enemies list
@@ -106,14 +107,51 @@ $('.js-actions__attack').on('click', function(e) {
     app.renderCache(cache);
 });
 
-$('#js-battlefield--clear').on('click', function(){
-    battlefield.clear();
+$(document.body).on('click', '#js-battlefield--clear', function(){
+    battlefield.clearLocalStorage();
     app.renderBF(battlefield.get());
+});
+
+/** battlefield sets */
+$(document.body).on('click', '#js-battlefield--preview-set-1', function(e){
+    const info = battlefield.previewGameSet(1);
+    app.clickedElement(e.target);
+    app.showInfo(info);
+});
+$(document.body).on('click', '#js-battlefield--preview-set-2', function(e){
+    const info = battlefield.previewGameSet(2);
+    app.clickedElement(e.target);
+    app.showInfo(info);
+});
+$(document.body).on('click', '#js-battlefield--save-set-1', function(e){
+    const info = battlefield.saveSettings(1);
+    app.clickedElement(e.target);
+    app.renderCache(info);
+});
+$(document.body).on('click', '#js-battlefield--save-set-2', function(e){
+    const info = battlefield.saveSettings(2);
+    app.clickedElement(e.target);
+    app.renderCache(info);
+});
+$(document.body).on('click', '#js-battlefield--load-set-1', function(e){
+    const info = battlefield.loadSettings(1);
+    app.clickedElement(e.target);
+    app.renderCache(info);
+});
+$(document.body).on('click', '#js-battlefield--load-set-2', function(e){
+    const info = battlefield.loadSettings(2);
+    app.clickedElement(e.target);
+    app.renderCache(info);
+});
+$('#js-battlefield--sats-list').on('click', function(e) {
+    const popupContent = htmlHelper.renderBattlefieldSetsPopupContent();
+    app.clickedElement(e.target);
+    app.renderCache(popupContent);
 });
 
 $('#js-battlefield--sort-by-initiative').on('click', function(){
     let bfContent = battlefield.get();
-    battlefield.clear();
+    battlefield.clearBFStorage();
     let newBfContent = bfContent.sort(battlefield.sortByIni);
     battlefield.saveAll(newBfContent);
     app.renderBF(battlefield.get());
@@ -163,7 +201,6 @@ $('.js-actions__click--clear-value').on('click', function(e) {
 
 $('#js-players__statistics--show').on('click', function(e) {
     app.clickedElement(e.target);
-    const htmlHelper = new HtmlHelper(app);
     const html = htmlHelper.renderPlayersAttribute();
     app.renderCache(html);
 });

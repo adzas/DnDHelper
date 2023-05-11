@@ -125,5 +125,33 @@ export default class HtmlHelper {
         `;
 
         return html;
+    };
+    renderBattlefieldSetsPopupContent() {
+        const html = `
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class="btn btn-default pt-4 text-success" rel="noopener noreferrer" id="js-battlefield--preview-set-1">
+                        <i class="ra ra-anchor"></i> Podgląd set 1
+                    </a>
+                    <a href="#" class="btn btn-default pt-4 text-success" rel="noopener noreferrer" id="js-battlefield--preview-set-2">
+                        <i class="ra ra-anchor"></i> Podgląd set 2
+                    </a>
+                    <a href="#" class="btn btn-default pt-4 text-success" rel="noopener noreferrer" id="js-battlefield--save-set-1">
+                        <i class="ra ra-anchor"></i> Zapisz set 1
+                    </a>
+                    <a href="#" class="btn btn-default pt-4 text-success" rel="noopener noreferrer" id="js-battlefield--save-set-2">
+                        <i class="ra ra-anchor"></i> Zapisz set 2
+                    </a>
+                    <a href="#" class="btn btn-default pt-4 text-primary" rel="noopener noreferrer" id="js-battlefield--load-set-1">
+                        <i class="ra ra-anchor"></i> Załaduj set 1
+                    </a>
+                    <a href="#" class="btn btn-default pt-4 text-primary" rel="noopener noreferrer" id="js-battlefield--load-set-2">
+                        <i class="ra ra-anchor"></i> Załaduj set 2
+                    </a>
+                </div>
+            </div>
+        `;
+
+        return html;
     }
 }

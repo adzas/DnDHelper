@@ -30,7 +30,7 @@ body {
     padding-bottom: 5px;
 }
 
-.rules-row > .name {
+.cursor-pointer {
     cursor: pointer;
 }
 
@@ -122,4 +122,8 @@ body {
     position: absolute;
     width: 97.5%;
     z-index: 3;
+}
+
+.navbar {
+    /* something */
 }
