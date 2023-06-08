@@ -137,7 +137,7 @@ export default class Enemy extends RandomHelper{
     }
     render() {
         let html = `
-        <div class="col-12 mb-1" ${this.style()}>
+        <div class="col-xs-12 col-md-6 col-xl-4 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
                 <button class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
                     -<i class="ra ra-skull" data-id="${this.id}"></i>-
