@@ -20,7 +20,7 @@ export default class BanditCaptainGenerator extends RandomHelper {
                 "intelligence": 14,
                 "wisdom": 11,
                 "charisma": 14,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "Rzuty obronne na siłę +4, zręczność +5, wiedzę +2; atletyka +4, Oszustwo +4; elfi i wspólny; atakuje 2razy bułatem i raz sztyletem; lub dwa razy rzuca sztyletem; Reakcje: opisane w akcjach"
             }
         }

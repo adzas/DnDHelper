@@ -29,7 +29,7 @@ export default class AnyoneGenerator extends RandomHelper {
                 "intelligence": this.getRandom(8, 18),
                 "wisdom": this.getRandom(8, 18),
                 "charisma": this.getRandom(8, 18),
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": ''//`wygląd: ${appearance}; cechy: ${character.positive} lub ${character.negative}`
             }
         }

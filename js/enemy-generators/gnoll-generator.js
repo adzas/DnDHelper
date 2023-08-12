@@ -20,7 +20,7 @@ export default class GnollGenerator extends RandomHelper {
                 "intelligence": 6,
                 "wisdom": 10,
                 "charisma": 7,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "szał: Jeśli gnoll zmniejszy hp przeciwnika do 0hp atakiem z bliska otrzymuje dodatkową akcją z połową szybkości i może wykonać atak ugryzienia; widzenie w ciemności 60ft 12[ ]"
             }
         }

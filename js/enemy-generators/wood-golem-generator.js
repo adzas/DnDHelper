@@ -20,7 +20,7 @@ export default class WoodGolemGenerator extends RandomHelper {
                 "intelligence": 1,
                 "wisdom": 6,
                 "charisma": 1,
-                "speed": "10ft (2[ ])",
+                "speed": "10ft",
                 "i": "3x atak mele lub range; odporny na zmiany kształtu; podatny na ogień, obrażenia toporem i srebro; ślepowidzenie do 60ft (6[ ])"
             }
         }

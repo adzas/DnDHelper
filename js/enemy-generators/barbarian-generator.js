@@ -20,7 +20,7 @@ export default class BarbarianGenerator extends RandomHelper {
                 "intelligence": 9,
                 "wisdom": 11,
                 "charisma": 9,
-                "speed": "30ft [6]",
+                "speed": "30ft",
                 "i": "brawura: ułatwienie w testach ataku i ułatwienie dla przeciwników w testach ataku na nim;"
             }
         }

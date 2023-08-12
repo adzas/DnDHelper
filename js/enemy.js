@@ -103,12 +103,16 @@ export default class Enemy extends RandomHelper{
         }
         
         return `
-            ${this.name}
+            ${this.name}<br/>
+            <span style="font-size: 0.7em"">${this.shortInfo()}</span>
             <i style="font-size: 0.7em" id="${this.getIdBaseElementDom()}--label">${label}</i>
             <div class="js-battlefield__enemy--hp-bar-by-id-${this.id}">
             ${this.renderHpBar()}
             </div>
         `;
+    };
+    shortInfo() {
+        return ''; // To complete in specyfic enemy function
     };
     renderHpBar() {
         const percentHP = Math.round(100*(this.currentHp/this.hp));
@@ -140,9 +144,12 @@ export default class Enemy extends RandomHelper{
         <div class="col-xs-12 col-md-6 col-xl-4 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
                 <button class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
+                    <i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}
                     -<i class="ra ra-skull" data-id="${this.id}"></i>-
                     <br>
                     ${this.getLP()}
+                    <br>
+                    <span style="font-size: .5em">${this.xp}</span>
                 </button>
                 <div 
                     class="btn ${this.getMyCssClass()} js-actions__collapse w-75" id="${this.getIdBaseElementDom()}"
@@ -170,6 +177,7 @@ export default class Enemy extends RandomHelper{
                 </div>
                 <div class="btn btn-primary">
                     <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
+                        <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed}
                         -<i class="ra ra-player" data-id="${this.id}"></i>-
                         <br>
                         ${this.initiative}

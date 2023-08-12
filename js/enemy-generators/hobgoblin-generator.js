@@ -20,7 +20,7 @@ export default class HobgoblinGenerator extends RandomHelper {
                 "intelligence": 10,
                 "wisdom": 10,
                 "charisma": 9,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "dodatkowe 2k6 obrażeń w istotę obok hobgoblina, którą atakował w tej turze i znajduje się przy sojuszniku;"
             }
         }

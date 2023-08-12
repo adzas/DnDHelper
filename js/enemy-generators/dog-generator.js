@@ -20,7 +20,7 @@ export default class DogGenerator extends RandomHelper {
                 "intelligence": 3,
                 "wisdom": 12,
                 "charisma": 6,
-                "speed": "40ft (8[ ])",
+                "speed": "40ft",
                 "i": "advantage w testach ataku z sojusznikiem obok; advantage w testach węchu i słuchu; percepcja +3; skradanie się +4"
             }
         }

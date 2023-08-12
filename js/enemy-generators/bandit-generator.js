@@ -20,7 +20,7 @@ export default class BanditGenerator extends RandomHelper {
                 "intelligence": 10,
                 "wisdom": 10,
                 "charisma": 10,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": ""
             }
         }

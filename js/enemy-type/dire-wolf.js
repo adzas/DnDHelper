@@ -2,6 +2,10 @@ import Enemy from "../enemy.js";
 
 export default class DireWolf extends Enemy
 {   
+    shortInfo() {
+        return `+5/2k6+3(kł) z powaleniem ST 13
+        <br/> ułatwienie z sojusznikiem obok`;
+    };
     // "actions": ["bit"],
     attackBite() {
         const testResult = this.getTestResult(5);

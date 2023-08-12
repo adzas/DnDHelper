@@ -20,7 +20,7 @@ export default class DwarfExtraGenerator extends RandomHelper {
                 "intelligence": 10,
                 "wisdom": 11,
                 "charisma": 10,
-                "speed": "25ft (5[ ])",
+                "speed": "25ft",
                 "i": "2x atak mele; ;"
             }
         }

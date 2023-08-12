@@ -20,7 +20,7 @@ export default class HobgoblinCaptainGenerator extends RandomHelper {
                 "intelligence": 12,
                 "wisdom": 10,
                 "charisma": 13,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "zbroja płytowa; Dwa ataki wielkim mieczem; Przewaga bojowa: raz na turę może walnąć 3k6 obrażeń w istotę obok niego, którą atakował w tej turze i znajduje się przy sojuszniku;"
             }
         }

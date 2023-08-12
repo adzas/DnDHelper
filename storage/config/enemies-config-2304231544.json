@@ -145,6 +145,23 @@
                     "EXP": 99,
                     "type": "anyone",
                     "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Gigant wzgórzowy",
+                    "EXP": 1800,
+                    "type": "hill-giant",
+                    "btnClass": "btn-danger"
+                }
+            ]
+        },
+        {
+            "name": "Potwory z bagien",
+            "content": [
+                {
+                    "name": "Gnilec",
+                    "EXP": 1800,
+                    "type": "rot-monster",
+                    "btnClass": "btn-danger"
                 }
             ]
         }
@@ -256,6 +273,26 @@
             "function": "attackGlaive",
             "name": "Glewia",
             "description": "(włócznia o szszym płaskim ostrzu)"
+        },
+        {
+            "type": "multiattack",
+            "function": "attackMultiattack",
+            "name": "Atak wielokrotny"
+        },
+        {
+            "type": "absorption",
+            "function": "attackAbsorption",
+            "name": "Pochłonięcie"
+        },
+        {
+            "type": "rock",
+            "function": "attackRock",
+            "name": "Głaz"
+        },
+        {
+            "type": "greatclub",
+            "function": "attackGreatclub",
+            "name": "Maczuga"
         }
     ]
 }

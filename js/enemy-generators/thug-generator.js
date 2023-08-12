@@ -20,7 +20,7 @@ export default class ThugGenerator extends RandomHelper {
                 "intelligence": 10,
                 "wisdom": 10,
                 "charisma": 11,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "2x atak mele; pack tactics;"
             }
         }

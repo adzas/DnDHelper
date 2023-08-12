@@ -24,7 +24,7 @@ export default class KreaturaGenerator extends RandomHelper {
                 "intelligence": 8,
                 "wisdom": 13,
                 "charisma": 8,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "136kg; 210cm wzrostu; 21lat; (78rok urodzenia); zasięg widzenia: 36m 120ft 24[ ]; intuicja pasywna: 13 (18 z runy)"
             }
         }

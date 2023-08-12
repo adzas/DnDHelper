@@ -12,11 +12,13 @@ import DwarfGenerator from "../enemy-generators/dwarf-generator.js";
 import GnollGenerator from "../enemy-generators/gnoll-generator.js";
 import GnollPackLordGenerator from "../enemy-generators/gnoll-pack-lord-generator.js";
 import GoblinGenerator from "../enemy-generators/golbin-generator.js";
+import HillGiantGenerator from "../enemy-generators/hill-giant-generator.js";
 import HobgoblinCaptainGenerator from "../enemy-generators/hobgoblin-captain-generator.js";
 import HobgoblinGenerator from "../enemy-generators/hobgoblin-generator.js";
 import HumGenerator from "../enemy-generators/hum-generator.js";
 import KreaturaGenerator from "../enemy-generators/kreatura-generator.js";
 import OmalenGenerator from "../enemy-generators/omalen-generator.js";
+import RotMonsterGenerator from "../enemy-generators/rot-generator.js";
 import ScoutBanditGenerator from "../enemy-generators/scout-bandit-generator.js";
 import ShadowGenerator from "../enemy-generators/shadow-generator.js";
 import ThugGenerator from "../enemy-generators/thug-generator.js";
@@ -33,9 +35,11 @@ import Dwarf from "../enemy-type/dwarf.js";
 import GnollPackLord from "../enemy-type/gnoll-pack-lord.js";
 import Gnoll from "../enemy-type/gnoll.js";
 import Goblin from "../enemy-type/goblin.js";
+import HillGiant from "../enemy-type/hill-giant.js";
 import HobgoblinCaptain from "../enemy-type/hobgoblin-captain.js";
 import Hobgoblin from "../enemy-type/hobgoblin.js";
 import Player from "../enemy-type/Player.js";
+import RotMonster from "../enemy-type/rot-monster.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
 import Shadow from "../enemy-type/shadow.js";
 import Thug from "../enemy-type/thug.js";
@@ -243,6 +247,21 @@ export default class EnemyHelper {
                     classObjectReturned = new AlsariphGenerator(this.appClass);
                 } else {
                     classObjectReturned = new Player(object, this.appClass);
+                }
+                break;
+
+            case 'rot-monster':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new RotMonsterGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new RotMonster(object, this.appClass);
+                }
+                break;
+            case 'hill-giant':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new HillGiantGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new HillGiant(object, this.appClass);
                 }
                 break;
         

@@ -20,7 +20,7 @@ export default class DireWolfGenerator extends RandomHelper {
                 "intelligence": 3,
                 "wisdom": 12,
                 "charisma": 7,
-                "speed": "50ft (10[ ])",
+                "speed": "50ft",
                 "i": "advantage w testach ataku z sojusznikiem obok; advantage w testach węchu i słuchu; percepcja +3; skradanie się +4"
             }
         }

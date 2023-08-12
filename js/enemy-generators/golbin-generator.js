@@ -20,7 +20,7 @@ export default class GoblinGenerator extends RandomHelper {
                 "intelligence": 10,
                 "wisdom": 8,
                 "charisma": 8,
-                "speed": "30ft (6[ ])",
+                "speed": "30ft",
                 "i": "+6 do kradzieży/podstępu; bonusową akcją może się ukryć albo odstąpić; ; widzenie w ciemności do 60ft (6[ ])"
             }
         }
