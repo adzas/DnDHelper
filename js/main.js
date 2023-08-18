@@ -41,12 +41,12 @@ $('#js-random-helper--characteristics').on('click', function(e){
 });
 
 // actual not use:
-$('#js-random-helper--attack-description').on('click', function(e){
+$(document.body).on('click', '.js-random-helper--attack-description', function(e){
     app.clickedElement(e.target);
+    const attackType = $(e.target).data('attack-type');
     const random = new Random(app);
-    // random.resetRandomData();
-    const description = random.getRandomAttackDescription('axe');
-    app.renderCache(description);
+    const description = random.getRandomAttackDescription(attackType);
+    app.showInfo(description);
 });
 
 // actual not use:

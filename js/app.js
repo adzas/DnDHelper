@@ -110,7 +110,7 @@ export default class App {
         informationsPopup.css({"top": topPositionValue});
         informationsPopup.html(text);
         informationsPopup.slideDown();
-        await this.sleep(2000);
+        await this.sleep(4000);
         informationsPopup.slideUp();
     };
     sleep(ms) {

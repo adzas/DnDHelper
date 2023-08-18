@@ -34,7 +34,7 @@ export default class DieRoll extends RandomHelper {
                 value = t2;
             }
         } else {
-            html += `<b>${t1+plus}</b>`;
+            html += `${t1}+${plus} = <b>${t1+plus}</b>`;
             value = t1;
         }
         
