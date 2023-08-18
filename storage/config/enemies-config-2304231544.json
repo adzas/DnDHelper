@@ -111,6 +111,12 @@
                     "EXP": 200,
                     "type": "dire-wolf",
                     "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Khello",
+                    "EXP": 400,
+                    "type": "khello",
+                    "btnClass": "btn-danger"
                 }
             ]
         },
@@ -293,6 +299,21 @@
             "type": "greatclub",
             "function": "attackGreatclub",
             "name": "Maczuga"
+        },
+        {
+            "type": "claws",
+            "function": "attackClaws",
+            "name": "Pazury"
+        },
+        {
+            "type": "spikes",
+            "function": "attackSpikes",
+            "name": "kolce"
+        },
+        {
+            "type": "scream",
+            "function": "attackScream",
+            "name": "krzyk"
         }
     ]
 }

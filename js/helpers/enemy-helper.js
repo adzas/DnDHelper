@@ -16,6 +16,7 @@ import HillGiantGenerator from "../enemy-generators/hill-giant-generator.js";
 import HobgoblinCaptainGenerator from "../enemy-generators/hobgoblin-captain-generator.js";
 import HobgoblinGenerator from "../enemy-generators/hobgoblin-generator.js";
 import HumGenerator from "../enemy-generators/hum-generator.js";
+import KhelloGenerator from "../enemy-generators/khello-generator.js";
 import KreaturaGenerator from "../enemy-generators/kreatura-generator.js";
 import OmalenGenerator from "../enemy-generators/omalen-generator.js";
 import RotMonsterGenerator from "../enemy-generators/rot-generator.js";
@@ -38,6 +39,7 @@ import Goblin from "../enemy-type/goblin.js";
 import HillGiant from "../enemy-type/hill-giant.js";
 import HobgoblinCaptain from "../enemy-type/hobgoblin-captain.js";
 import Hobgoblin from "../enemy-type/hobgoblin.js";
+import Khello from "../enemy-type/khello.js";
 import Player from "../enemy-type/Player.js";
 import RotMonster from "../enemy-type/rot-monster.js";
 import ScoutBandit from "../enemy-type/scout-bandit.js";
@@ -262,6 +264,13 @@ export default class EnemyHelper {
                     classObjectReturned = new HillGiantGenerator(this.appClass);
                 } else {
                     classObjectReturned = new HillGiant(object, this.appClass);
+                }
+                break;
+            case 'khello':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new KhelloGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Khello(object, this.appClass);
                 }
                 break;
         
