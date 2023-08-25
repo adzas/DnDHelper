@@ -2,6 +2,9 @@ import Enemy from "../enemy.js";
 
 export default class Shadow extends Enemy {
     // "actions": ["strength-drain"],
+    shortInfo() {
+        return '+4: 2k6+2(nekr) -k4(STR)';
+    };
     attackStrengthDrain() {
         const testResult = this.getTestResult(4);
         let html = testResult.html;
