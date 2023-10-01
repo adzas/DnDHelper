@@ -2,6 +2,9 @@ import Enemy from "../enemy.js";
 
 export default class BanditCaptain extends Enemy {
     // "actions": ["scimitar","dagger"],
+    shortInfo() {
+        return 'bułat:2x[+5:k6+3](cięte) <br> +sztylet:[+5:k4+3](kłute) <br> +2KP jako reakcja';
+    };
     attackScimitar() {
         const testResult = this.getTestResult(5);
         let html = testResult.html;
