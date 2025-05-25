@@ -1,6 +1,10 @@
 # Ignore everything in this directory
 storage/*
 
+# ignore config and db data files
+.vscode/
+db_data/
+
 # Except this file
 !.gitignore
 !storage/config/

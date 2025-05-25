@@ -272,7 +272,7 @@
             "type": "glaive",
             "function": "attackGlaive",
             "name": "Glewia",
-            "description": "(włócznia o szszym płaskim ostrzu)"
+            "description": "(włócznia o szerokim płaskim ostrzu)"
         },
         {
             "type": "multiattack",

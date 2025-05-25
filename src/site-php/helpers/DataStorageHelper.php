@@ -43,12 +43,12 @@ class DataStorageHelper
             $content = $data;
         }
 
-        $res = $this->storeContent($content, $filePath);
+        $res = $this->storeContent($filePath, $content);
 
         return $res !== false ? true : $res;
     }
 
-    public function storeContent(array $content =[], string $filePath): bool
+    public function storeContent(string $filePath, array $content = []): bool
     {
         Debuger::logInfo('$content', $content, __CLASS__, __FUNCTION__, __LINE__);
         $res = file_put_contents($filePath, json_encode($content));
