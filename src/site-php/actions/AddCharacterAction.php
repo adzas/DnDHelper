@@ -7,8 +7,7 @@ class AddCharacterAction extends Action implements ActionInterface
         Debuger::logInfo('$this->request->data', $this->request->data, __CLASS__, __FUNCTION__, __LINE__);
         if (empty($this->request->data)) {
             $this->view->render(Action::ACTION_MENU);
-            echo "Uzupełnij formularz";
-            $this->view->render(Action::ACTION_ADD_CHARACTER);
+            $this->view->render(Action::ACTION_ADD_CHARACTER, ["message" => "Uzupełnij formularz"]);
         } else {
             $character['name'] = $this->request->data['name'];
             $character['initiative'] = $this->request->data['initiative'];

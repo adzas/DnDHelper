@@ -6,10 +6,10 @@ export default class KreaturaGenerator extends RandomHelper {
         if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
-        const hp = 25;
+        const hp = 24;
         return {
             "type": "kreatura",
-            "name": "Kreatura",
+            "name": "Zane",
             "actions": ['runs'],
             "statistics": {
                 "xp": 999,

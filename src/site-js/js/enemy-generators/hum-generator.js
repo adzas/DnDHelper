@@ -6,10 +6,10 @@ export default class HumGenerator extends RandomHelper {
         if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
-        const hp = 25;
+        const hp = 14;
         return {
             "type": "hum",
-            "name": "Hum",
+            "name": "Dprfiz",
             "actions": [],
             "statistics": {
                 "xp": 999,

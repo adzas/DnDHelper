@@ -6,14 +6,14 @@ export default class OmalenGenerator extends RandomHelper {
         if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
-        const hp = 25;
+        const hp = 32;
         return {
             "type": "omalen",
-            "name": "Omalen",
+            "name": "Ea",
             "actions": [],
             "statistics": {
                 "xp": 999,
-                "kp": 15,
+                "kp": 14,
                 "currentHp": hp,
                 "hp": hp,
                 "initiative": initiative,

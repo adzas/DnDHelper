@@ -20,20 +20,24 @@ class Controller
     public function setRequestType()
     {
         switch ($this->submit) {
-            case Action::ACTION_CHECK_STATE:
-                $this->action = new CheckStateAction($this->request);
+            case Action::ACTION_MENU:
+                $this->action = new MenuAction($this->request);
                 break;
     
-            case Action::ACTION_START_THE_BATTLE:
-                $this->action = new StartTheBattleAction($this->request);
+            case Action::ACTION_CONFIGURATION:
+                $this->action = new ConfigurationAction($this->request);
                 break;
     
-            case Action::ACTION_ADD_CHARACTER:
-                $this->action = new AddCharacterAction($this->request);
+            case Action::ACTION_CONFIGURATION_LIST:
+                $this->action = new ConfigurationListAction($this->request);
                 break;
 
-            case Action::ACTION_CLEAR_CHARACTERS:
+            case Action::ACTION_ENEMY_TYPES:
                 $this->action = new ClearCharactersAction($this->request);
+                break;
+
+            case Action::ACTION_PLAYERS_CHARACTER:
+                $this->action = new PlayersCharactersAction($this->request);
                 break;
             
             default:

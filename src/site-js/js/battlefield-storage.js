@@ -12,7 +12,7 @@ export default class BattlefieldStorage {
             this.appClass = app;
         } else console.log('Not Defined appClass in BattlefieldStorage class constructor');
     }
-    store(obj) {
+    store(obj, expOrLvl = 0) {
         let bfStorage = [];
         const currentBfStorage = this.get();
         const players = this.appClass.getPlayersName();
@@ -29,9 +29,12 @@ export default class BattlefieldStorage {
         const newBfStorage = this.reindexContent(bfStorage);
         const counterLpEnemys = this.getEnemyCounter(newBfStorage);
         if (!isPlayer) {
-            obj.lp = counterLpEnemys;
+            newBfStorage[newBfStorage.length-1].lp = counterLpEnemys;
+            newBfStorage[newBfStorage.length-1].exp = expOrLvl;
+        } else {
+            newBfStorage[newBfStorage.length-1].lvl = expOrLvl;
         }
-        obj.label = '---';
+        newBfStorage[newBfStorage.length-1].label = '---';
         this.saveAll(newBfStorage);
     };
     get() {
@@ -235,5 +238,5 @@ export default class BattlefieldStorage {
     };
     saveGameSettingsInLocalStorage(key, data) {
         localStorage.setItem(key, JSON.stringify(data));
-    }
+    };
 }

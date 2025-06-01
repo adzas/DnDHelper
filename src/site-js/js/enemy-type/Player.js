@@ -103,7 +103,7 @@ export default class Player extends Enemy
                 `;
                 break;
 
-            case 'alsariph':
+            case 'player-2':
                 returnHtmlActions = `
                 nie krwawi; ma czarny tatuaż na ciele wychodzący od serca na wszystkie strony
                 widać go na szyi.

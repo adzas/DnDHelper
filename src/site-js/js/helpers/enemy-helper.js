@@ -1,5 +1,5 @@
 import App from "../app.js";
-import AlsariphGenerator from "../enemy-generators/alsariph-generator.js";
+import Player2Generator from "../enemy-generators/player-2-generator.js";
 import AnyoneGenerator from "../enemy-generators/anyone-generator.js";
 import BanditCaptainGenerator from "../enemy-generators/bandit-captain-generator.js";
 import BanditGenerator from "../enemy-generators/bandit-generator.js";
@@ -242,9 +242,9 @@ export default class EnemyHelper {
                 }
                 break;
 
-            case 'alsariph':
+            case 'player-2':
                 if ('getGenerator' === requestKind) {
-                    classObjectReturned = new AlsariphGenerator(this.appClass);
+                    classObjectReturned = new Player2Generator(this.appClass);
                 } else {
                     classObjectReturned = new Player(object, this.appClass);
                 }
@@ -334,7 +334,7 @@ export default class EnemyHelper {
                 $.each(group.content, function(k2, enemyElement) {
                     elementList += `
                         <button class="btn ${enemyElement.btnClass} btn-sm js-enemy" 
-                            data-type="${enemyElement.type}" type="button">
+                            data-type="${enemyElement.type}" data-exp-or-level="${enemyElement.EXP}" type="button">
                             ${enemyElement.name} - ${enemyElement.EXP}
                         </button>
                     `;

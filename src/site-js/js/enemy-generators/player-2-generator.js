@@ -1,15 +1,15 @@
 import RandomHelper from "../helpers/random-helper.js";
 
-export default class AlsariphGenerator extends RandomHelper {
+export default class Player2Generator extends RandomHelper {
     getRandomObject(customInitiative){
         let initiative = 99;
         if (typeof customInitiative === "number" && 0 < customInitiative) {
             initiative = customInitiative;
         }
-        const hp = 25;
+        const hp = 24;
         return {
-            "type": "alsariph",
-            "name": "Alsariph",
+            "type": "player-2",
+            "name": "Thorfinn",
             "actions": [],
             "statistics": {
                 "xp": 999,

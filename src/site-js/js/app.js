@@ -1,5 +1,6 @@
 import AppCache from "./app-cache.js";
 import EnemyHelper from "./helpers/enemy-helper.js";
+import QuestLevelHelper from "./helpers/quest-level-helper.js";
 
 export default class App {
     name = null;
@@ -41,6 +42,14 @@ export default class App {
                 $(target.attr('data-collapse-target-id')).slideDown();
             }
         });
+
+        const questLevelHelper = new QuestLevelHelper();
+        questLevelHelper.setPlayersName(this.getPlayersName());
+        questLevelHelper.setBFObjects(BFObjects);
+        const questLevel = questLevelHelper.getQuestLevel();
+        this.renderQuestLevel(questLevel);
+
+        // this.renderQuestLevel("test");
     };
     getHtml() {
         return this.getMyDom().html();
@@ -65,7 +74,7 @@ export default class App {
         this.cache.clearContent(content);
     };
     getPlayersName() {
-        return ['alsariph', 'hum', 'kreatura', 'omalen']
+        return ['player-2', 'hum', 'kreatura', 'omalen']
     };
     setConfig() {
         const config = this.getConfig();
@@ -115,5 +124,13 @@ export default class App {
     };
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    };
+    renderQuestLevel(text) {
+        if (text === null || text === '') {
+            expCounter.html('');
+            return;
+        }
+        const expCounter = $('#js-exp-counter');
+        expCounter.html(text);
+    };
 }

@@ -1,5 +1,5 @@
 import App from "../app.js";
-import AlsariphGenerator from "../enemy-generators/alsariph-generator.js";
+import Player2Generator from "../enemy-generators/player-2-generator.js";
 import HumGenerator from "../enemy-generators/hum-generator.js";
 import KreaturaGenerator from "../enemy-generators/kreatura-generator.js";
 import OmalenGenerator from "../enemy-generators/omalen-generator.js";
@@ -43,8 +43,8 @@ export default class HtmlHelper {
             } else if ('hum' === player) {
                 generator = new HumGenerator(this.app);
                 passiveIntuition = 9;
-            } else if ('alsariph' === player) {
-                generator = new AlsariphGenerator(this.app);
+            } else if ('player-2' === player) {
+                generator = new Player2Generator(this.app);
                 passiveIntuition = 11;
             }
             playerObj = generator.getRandomObject();

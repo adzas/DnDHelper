@@ -86,9 +86,10 @@ $(document.body).on('click', '.js-enemy', function(e) {
         return false;
     }
     const enemyType = $(e.target).data('type');
+    const expOrLvl = $(e.target).data('exp-or-level');
     const customInitiative = parseInt($('#js-attributes__initiative--custom-value').val());
     const newEnemy = enemyHelper.getRandomEnemyObjectByType(enemyType, customInitiative);
-    battlefield.store(newEnemy);
+    battlefield.store(newEnemy, expOrLvl);
     const message = `Dodano ${enemyType} do pola bitwy.`;
     console.log(message);
 });

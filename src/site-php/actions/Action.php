@@ -3,10 +3,14 @@
 class Action
 {
     const ACTION_MENU = 'menu';
-    const ACTION_ADD_CHARACTER = 'add_character';
-    const ACTION_START_THE_BATTLE = 'start_the_battle';
-    const ACTION_CHECK_STATE = 'check_state';
-    const ACTION_CLEAR_CHARACTERS = 'clear_characters';
+    // edit players characters
+    const ACTION_PLAYERS_CHARACTER = 'players_characters';
+    // edit enemy types
+    const ACTION_ENEMY_TYPES = 'enemy_types';
+    // edit configuration
+    const ACTION_CONFIGURATION = 'configuration';
+    // edit configuration list
+    const ACTION_CONFIGURATION_LIST = 'configuration_list';
     
     protected $request;
     protected $view;

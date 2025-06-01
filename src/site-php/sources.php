@@ -10,7 +10,4 @@ require_once('./actions/CheckStateAction.php');
 require_once('./actions/ClearCharactersAction.php');
 require_once('./actions/NoAction.php');
 require_once('./request/Request.php');
-require_once('./characters/Character.php');
-require_once('./characters/ChPlayer.php');
-require_once('./characters/ChEnemy.php');
 require_once('./View.php');
