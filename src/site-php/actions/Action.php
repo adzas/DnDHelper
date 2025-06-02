@@ -12,8 +12,8 @@ class Action
     // edit configuration list
     const ACTION_CONFIGURATION_LIST = 'configuration_list';
     
-    protected $request;
-    protected $view;
+    protected Request $request;
+    protected View $view;
     
     public function __construct(Request $request) {
         $this->view = new View();

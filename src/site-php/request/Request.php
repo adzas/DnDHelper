@@ -3,8 +3,9 @@
 class Request
 {
     protected $RequestType = null;
-    protected $warning = '';
-    public $data = [];
+    protected string $warning = '';
+    public array $data = [];
+    public ?string $action = null;
     
     public function unknownRequest()
     {

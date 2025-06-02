@@ -17,6 +17,24 @@ class Controller
         $this->action->execute();
     }
 
+    public function setRequest()
+    {
+        Debuger::logInfo('$_SERVER[\'REQUEST_METHOD\']', $_SERVER['REQUEST_METHOD'], __CLASS__, __FUNCTION__, __LINE__);
+        $this->request = new Request();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->request->setRequest($_POST);
+        } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->request->setRequest($_GET);
+        } else {
+            $this->request->unknownRequest();
+        }
+        // Capture 'action' from GET if present
+        if (isset($_GET['action'])) {
+            $this->request->action = $_GET['action'] ?? null;
+        }
+        $this->setSubmit();
+    }
+
     public function setRequestType()
     {
         switch ($this->submit) {
@@ -54,19 +72,5 @@ class Controller
             $this->submit = $this->request->data['submit'];
             unset($this->request->data['submit']);
         }
-    }
-
-    public function setRequest()
-    {
-        Debuger::logInfo('$_SERVER[\'REQUEST_METHOD\']', $_SERVER['REQUEST_METHOD'], __CLASS__, __FUNCTION__, __LINE__);
-        $this->request = new Request();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->request->setRequest($_POST);
-        } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->request->setRequest($_GET);
-        } else {
-            $this->request->unknownRequest();
-        }
-        $this->setSubmit();
     }
 }

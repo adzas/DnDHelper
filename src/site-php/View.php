@@ -14,13 +14,13 @@ class View
 
     public function render(string $type = '', array $options = [])
     {
+        $viewData = $options;
         switch ($type) {
             case 'menu':
-                include('./forms/menu.php');
+                include('./views/menu.php');
                 break;
 
             case 'pre':
-                $obj = $options;
                 include('./views/pre.php');
                 break;
             
