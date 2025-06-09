@@ -16,7 +16,7 @@ import HillGiantGenerator from "../enemy-generators/hill-giant-generator.js";
 import HobgoblinCaptainGenerator from "../enemy-generators/hobgoblin-captain-generator.js";
 import HobgoblinGenerator from "../enemy-generators/hobgoblin-generator.js";
 import HumGenerator from "../enemy-generators/hum-generator.js";
-import KreaturaGenerator from "../enemy-generators/kreatura-generator.js";
+import Player1Generator from "../enemy-generators/player-1-generator.js";
 import OmalenGenerator from "../enemy-generators/omalen-generator.js";
 import RotMonsterGenerator from "../enemy-generators/rot-generator.js";
 import ScoutBanditGenerator from "../enemy-generators/scout-bandit-generator.js";
@@ -234,9 +234,9 @@ export default class EnemyHelper {
                 }
                 break;
 
-            case 'kreatura':
+            case 'player-1':
                 if ('getGenerator' === requestKind) {
-                    classObjectReturned = new KreaturaGenerator(this.appClass);
+                    classObjectReturned = new Player1Generator(this.appClass);
                 } else {
                     classObjectReturned = new Player(object, this.appClass);
                 }

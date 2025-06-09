@@ -11,7 +11,7 @@ export default class Player extends Enemy
     renderActions() {
         let returnHtmlActions = 'niezdefiniowano';
         switch (this.type) {
-            case 'kreatura':
+            case 'player-1':
                 returnHtmlActions = `
                     <ul>
                         <li>zasięg widzenia: 36m 120ft 24[ ];</li>

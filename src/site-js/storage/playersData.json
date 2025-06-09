@@ -1,0 +1,86 @@
+[
+    {
+        "type": "player-2",
+        "name": "Thorfinn",
+        "actions": [],
+        "statistics": {
+            "xp": 999,
+            "kp": 12,
+            "currentHp": 24,
+            "hp": 24,
+            "initiative": null,
+            "pp": 11,
+            "strength": 8,
+            "dexterity": 14,
+            "condition": 16,
+            "intelligence": 10,
+            "wisdom": 12,
+            "charisma": 16,
+            "speed": "30ft",
+            "i": "76kg; 185cm; 22lata; zasięg widzenia: 36m 120ft 24[ ]; widzenie w ciemności: ; intuicja pasywna: 11"
+        }
+    },
+    {
+        "type": "hum",
+        "name": "Dprfiz",
+        "actions": [],
+        "statistics": {
+            "xp": 999,
+            "kp": 14,
+            "hp": 14,
+            "currentHp": 14,
+            "initiative": null,
+            "pp": 9,
+            "strength": 8,
+            "dexterity": 17,
+            "condition": 14,
+            "intelligence": 15,
+            "wisdom": 8,
+            "charisma": 12,
+            "speed": "30ft",
+            "i": "16kg; 62cm wzrostu; 16 lat; zasięg widzenia: 18m 60ft 12[ ]; widzenie w ciemności: ; intuicja pasywna: 9"
+        }
+    },
+    {
+        "type": "player-1",
+        "name": "Zane",
+        "actions": ["runs"],
+        "statistics": {
+            "xp": 999,
+            "kp": 19,
+            "currentHp": 24,
+            "hp": 24,
+            "initiative": null,
+            "pp": 13,
+            "strength": 16,
+            "dexterity": 12,
+            "condition": 17,
+            "intelligence": 8,
+            "wisdom": 13,
+            "charisma": 8,
+            "speed": "30ft",
+            "i": "136kg; 210cm wzrostu; 21lat; (78rok urodzenia); zasięg widzenia: 36m 120ft 24[ ]; intuicja pasywna: 13 (18 z runy)"
+        }
+    },
+    {
+        "type": "omalen",
+        "name": "Ea",
+        "actions": [],
+        "statistics": {
+            "xp": 999,
+            "kp": 14,
+            "currentHp": 32,
+            "hp": 32,
+            "initiative": null,
+            "pp": 15,
+            "strength": 12,
+            "dexterity": 17,
+            "condition": 13,
+            "intelligence": 8,
+            "wisdom": 16,
+            "charisma": 8,
+            "speed": "30ft",
+            "i": "80kg; 200cm wzrostu; 157 lat; zasięg widzenia w ciemności: 18m 60ft 12[ ]; intuicja pasywna: 13"
+        }
+    }
+]

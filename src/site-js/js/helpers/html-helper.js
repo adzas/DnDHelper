@@ -1,7 +1,7 @@
 import App from "../app.js";
 import Player2Generator from "../enemy-generators/player-2-generator.js";
 import HumGenerator from "../enemy-generators/hum-generator.js";
-import KreaturaGenerator from "../enemy-generators/kreatura-generator.js";
+import Player1Generator from "../enemy-generators/player-1-generator.js";
 import OmalenGenerator from "../enemy-generators/omalen-generator.js";
 
 export default class HtmlHelper {
@@ -34,8 +34,8 @@ export default class HtmlHelper {
         let passiveIntuition = 10;
 
         players.forEach(player => {
-            if ('kreatura' === player) {
-                generator = new KreaturaGenerator(this.app);
+            if ('player-1' === player) {
+                generator = new Player1Generator(this.app);
                 passiveIntuition = 18;
             } else if ('omalen' === player) {
                 generator = new OmalenGenerator(this.app);

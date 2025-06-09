@@ -31,7 +31,11 @@ export default class App {
         html += '<div class="row">';
         $.each(BFObjects, function(k, obj) {
             let enemyObj = enemyHelper.getEnemyObject(obj);
-            html += enemyObj.render();
+            if (typeof enemyObj === "undefined" || enemyObj === null) {
+                console.log('Enemy object is undefined for: ', obj);
+            } else {
+                html += enemyObj.render();
+            }
         });
         html += '</div>';
         $('#js-battlefield').html(html);
@@ -74,7 +78,7 @@ export default class App {
         this.cache.clearContent(content);
     };
     getPlayersName() {
-        return ['player-2', 'hum', 'kreatura', 'omalen']
+        return ['player-2', 'hum', 'player-1', 'omalen']
     };
     setConfig() {
         const config = this.getConfig();
@@ -126,11 +130,11 @@ export default class App {
         return new Promise(resolve => setTimeout(resolve, ms));
     };
     renderQuestLevel(text) {
+        const expCounter = $('#js-exp-counter');
         if (text === null || text === '') {
             expCounter.html('');
             return;
         }
-        const expCounter = $('#js-exp-counter');
         expCounter.html(text);
     };
 }
