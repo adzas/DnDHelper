@@ -16,7 +16,12 @@ class Action
     protected View $view;
     
     public function __construct(Request $request) {
-        $this->view = new View();
         $this->request = $request;
+        $this->view = new View($this->getAction());
+    }
+
+    public function getAction(): string
+    {
+        return $this->request->action ?? self::ACTION_MENU;
     }
 }

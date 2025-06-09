@@ -1,12 +1,9 @@
-# Ignore everything in this directory
-storage/*
+# Ignore storage files
+src/storage/*
 
 # ignore config and db data files
 .vscode/
 db_data/
 
-# Except this file
-!.gitignore
-!storage/config/
-!storage/config/*
+# Ignore MacOS system files
 .DS_Store

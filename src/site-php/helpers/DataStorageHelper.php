@@ -2,14 +2,16 @@
 
 class DataStorageHelper
 {
-    const STORAGE_FILE_PATH = '../storage/characters.json';
+    const STORAGE_FILE_PATH = '../site-js/js/enemy-generators/player-1-generator.js';
     const STORAGE_LOG_FILE_PATH = '../storage/log.txt';
     
     public function getCharacterStorage()
     {
         $characters_storage = file_get_contents(self::STORAGE_FILE_PATH);
+        // var_dump($characters_storage);
+        return $characters_storage;
 
-        return json_decode($characters_storage);
+        // return json_decode($characters_storage);
     }
 
     public function getContent()
@@ -59,10 +61,13 @@ class DataStorageHelper
 
     public function storeLog(string $log)
     {
-        if (file_exists(self::STORAGE_LOG_FILE_PATH)) {
-            $curr_content = file_get_contents(self::STORAGE_LOG_FILE_PATH);
-            $curr_content .= PHP_EOL . $log;
-            file_put_contents(self::STORAGE_LOG_FILE_PATH, $curr_content);
+        if (!file_exists(self::STORAGE_LOG_FILE_PATH)) {
+            file_put_contents(self::STORAGE_LOG_FILE_PATH, $log);
+        } else {
+            $current_log = file_get_contents(self::STORAGE_LOG_FILE_PATH);
+            $current_log .= PHP_EOL . $log . PHP_EOL;
+            file_put_contents(self::STORAGE_LOG_FILE_PATH, $current_log);
         }
+        return;
     }
 }

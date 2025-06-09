@@ -2,8 +2,8 @@
 
 class Controller
 {
-    public $request;
-    public $action;
+    public Request $request;
+    public ActionInterface $action;
     public $submit = null;
 
     public function __construct()
@@ -31,35 +31,32 @@ class Controller
         // Capture 'action' from GET if present
         if (isset($_GET['action'])) {
             $this->request->action = $_GET['action'] ?? null;
+            Debuger::logInfo('$_GET[\'action\']', $this->request->action, __CLASS__, __FUNCTION__, __LINE__);
         }
         $this->setSubmit();
     }
 
     public function setRequestType()
     {
-        switch ($this->submit) {
-            case Action::ACTION_MENU:
-                $this->action = new MenuAction($this->request);
-                break;
+        switch ($this->request->action) {
+            // case Action::ACTION_CONFIGURATION:
+            //     $this->action = new ConfigurationAction($this->request);
+            //     break;
     
-            case Action::ACTION_CONFIGURATION:
-                $this->action = new ConfigurationAction($this->request);
-                break;
-    
-            case Action::ACTION_CONFIGURATION_LIST:
-                $this->action = new ConfigurationListAction($this->request);
-                break;
+            // case Action::ACTION_CONFIGURATION_LIST:
+            //     $this->action = new ConfigurationListAction($this->request);
+            //     break;
 
-            case Action::ACTION_ENEMY_TYPES:
-                $this->action = new ClearCharactersAction($this->request);
-                break;
+            // case Action::ACTION_ENEMY_TYPES:
+            //     $this->action = new ClearCharactersAction($this->request);
+            //     break;
 
             case Action::ACTION_PLAYERS_CHARACTER:
                 $this->action = new PlayersCharactersAction($this->request);
                 break;
             
             default:
-                $this->action = new NoAction($this->request);
+                $this->action = new HomeAction($this->request);
                 break;
         }
         Debuger::logInfo('$this->action', get_class($this->action), __CLASS__, __FUNCTION__, __LINE__);

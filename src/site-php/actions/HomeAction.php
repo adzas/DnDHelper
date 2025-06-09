@@ -1,6 +1,6 @@
 <?php
 
-class MenuAction extends Action implements ActionInterface
+class HomeAction extends Action implements ActionInterface
 {
     public function execute()
     {
