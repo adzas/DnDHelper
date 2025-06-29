@@ -15,9 +15,9 @@ import GoblinGenerator from "../enemy-generators/golbin-generator.js";
 import HillGiantGenerator from "../enemy-generators/hill-giant-generator.js";
 import HobgoblinCaptainGenerator from "../enemy-generators/hobgoblin-captain-generator.js";
 import HobgoblinGenerator from "../enemy-generators/hobgoblin-generator.js";
-import HumGenerator from "../enemy-generators/hum-generator.js";
+import Player3Generator from "../enemy-generators/player-3-generator.js";
 import Player1Generator from "../enemy-generators/player-1-generator.js";
-import OmalenGenerator from "../enemy-generators/omalen-generator.js";
+import Player4Generator from "../enemy-generators/player-4-generator.js";
 import RotMonsterGenerator from "../enemy-generators/rot-generator.js";
 import ScoutBanditGenerator from "../enemy-generators/scout-bandit-generator.js";
 import ShadowGenerator from "../enemy-generators/shadow-generator.js";
@@ -57,6 +57,10 @@ export default class EnemyHelper {
         const enemyObject = this.getClassObjectKindByTypeEnemy(enemyType, 'getGenerator');
 
         return enemyObject.getRandomObject(customInitiative);
+    };
+    addRandomEnemyObjectByType(elementDOM, enemyType, customInitiative, expOrLvl, battlefield) {
+        const enemyObject = this.getClassObjectKindByTypeEnemy(enemyType, 'getGenerator');
+        enemyObject.addRandomObjectAsync(elementDOM, customInitiative, battlefield, expOrLvl);
     };
     getEnemyObject(obj) {
         return this.getClassObjectKindByTypeEnemy(obj.type, 'getEnemyObjectClass', obj);
@@ -218,17 +222,17 @@ export default class EnemyHelper {
                 }
                 break;
 
-            case 'hum':
+            case 'player-3':
                 if ('getGenerator' === requestKind) {
-                    classObjectReturned = new HumGenerator(this.appClass);
+                    classObjectReturned = new Player3Generator(this.appClass);
                 } else {
                     classObjectReturned = new Player(object, this.appClass);
                 }
                 break;
 
-            case 'omalen':
+            case 'player-4':
                 if ('getGenerator' === requestKind) {
-                    classObjectReturned = new OmalenGenerator(this.appClass);
+                    classObjectReturned = new Player4Generator(this.appClass);
                 } else {
                     classObjectReturned = new Player(object, this.appClass);
                 }

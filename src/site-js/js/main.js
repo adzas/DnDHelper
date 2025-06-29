@@ -93,6 +93,15 @@ $(document.body).on('click', '.js-enemy', function(e) {
     const message = `Dodano ${enemyType} do pola bitwy.`;
     console.log(message);
 });
+$(document.body).on('click', '.js-enemy-async', function(e) {
+    const elementDOM = $(e.target);
+    elementDOM.html('Loading ...');
+    const enemyType = elementDOM.data('type');
+    const expOrLvl = elementDOM.data('exp-or-level');
+    const initative = $('#js-attributes__initiative--custom-value').val();
+    const customInitiative = parseInt(initative);
+    enemyHelper.addRandomEnemyObjectByType(elementDOM, enemyType, customInitiative, expOrLvl, battlefield);
+});
 
 // resolving a attack action
 $('.js-actions__attack').on('click', function(e) {

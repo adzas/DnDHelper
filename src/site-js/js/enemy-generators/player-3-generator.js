@@ -1,7 +1,7 @@
 import RandomHelper from "../helpers/random-helper.js";
 
-export default class Player1Generator extends RandomHelper {
-    type = 'player-1';
+export default class Player3Generator extends RandomHelper {
+    type = 'player-3';
     async addRandomObjectAsync(elementDOM, customInitiative, battlefield, expOrLvl){
         let initiative = 99;
         if (typeof customInitiative === "number" && 0 < customInitiative) {
@@ -24,7 +24,7 @@ export default class Player1Generator extends RandomHelper {
                 return 1;
             }
         }
-        console.log('Player1Generator: No player-2 found in data');
+        console.log('Player3Generator: No player-2 found in data');
         return 0;
     }
 }

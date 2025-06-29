@@ -1,8 +1,8 @@
 import App from "../app.js";
 import Player2Generator from "../enemy-generators/player-2-generator.js";
-import HumGenerator from "../enemy-generators/hum-generator.js";
+import Player3Generator from "../enemy-generators/player-3-generator.js";
 import Player1Generator from "../enemy-generators/player-1-generator.js";
-import OmalenGenerator from "../enemy-generators/omalen-generator.js";
+import Player4Generator from "../enemy-generators/player-4-generator.js";
 
 export default class HtmlHelper {
     app = null;
@@ -37,11 +37,11 @@ export default class HtmlHelper {
             if ('player-1' === player) {
                 generator = new Player1Generator(this.app);
                 passiveIntuition = 18;
-            } else if ('omalen' === player) {
-                generator = new OmalenGenerator(this.app);
+            } else if ('player-4' === player) {
+                generator = new Player4Generator(this.app);
                 passiveIntuition = 13;
-            } else if ('hum' === player) {
-                generator = new HumGenerator(this.app);
+            } else if ('player-3' === player) {
+                generator = new Player3Generator(this.app);
                 passiveIntuition = 9;
             } else if ('player-2' === player) {
                 generator = new Player2Generator(this.app);

@@ -78,7 +78,7 @@ export default class App {
         this.cache.clearContent(content);
     };
     getPlayersName() {
-        return ['player-2', 'hum', 'player-1', 'omalen']
+        return ['player-2', 'player-3', 'player-1', 'player-4']
     };
     setConfig() {
         const config = this.getConfig();

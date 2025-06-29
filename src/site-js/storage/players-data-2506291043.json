@@ -1,7 +1,7 @@
 [
     {
         "type": "player-2",
-        "name": "Thorfinn",
+        "name": "Thorfin",
         "actions": [],
         "statistics": {
             "xp": 999,
@@ -21,7 +21,7 @@
         }
     },
     {
-        "type": "hum",
+        "type": "player-3",
         "name": "Dprfiz",
         "actions": [],
         "statistics": {
@@ -63,7 +63,7 @@
         }
     },
     {
-        "type": "omalen",
+        "type": "player-4",
         "name": "Ea",
         "actions": [],
         "statistics": {

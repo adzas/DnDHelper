@@ -2,6 +2,7 @@ import App from "../app.js";
 
 export default class RandomHelper {
     appClass = null;
+    playersDataConfigPath = './storage/players-data-2506291043.json';
     constructor(app) {
         if (app instanceof App) {
             this.appClass = app;
