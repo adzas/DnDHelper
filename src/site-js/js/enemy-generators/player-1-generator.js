@@ -9,7 +9,7 @@ export default class Player1Generator extends RandomHelper {
         }
 
         // get from playersDataConfigPath
-        const config = this.playersDataConfigPath;
+        const config = this.playersDataConfigPath + '?rnd=' + Math.random();
 
         // Załaduj dane z pliku JSON (asynchronicznie)
         const data = await fetch(config).then(res => res.json());

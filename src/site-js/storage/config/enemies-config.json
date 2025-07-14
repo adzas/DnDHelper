@@ -94,6 +94,12 @@
                     "EXP": 450,
                     "type": "barbarian",
                     "btnClass": "btn-danger"
+                },
+                {
+                    "name": "Weteran",
+                    "EXP": 700,
+                    "type": "veteran",
+                    "btnClass": "btn-danger"
                 }
             ]
         },
@@ -293,6 +299,16 @@
             "type": "greatclub",
             "function": "attackGreatclub",
             "name": "Maczuga"
+        },
+        {
+            "type": "long-sword",
+            "function": "attackLongSword",
+            "name": "Długi miecz"
+        },
+        {
+            "type": "long-sword-both-hands",
+            "function": "attackLongSwordBothHands",
+            "name": "Długi miecz Oburącz"
         }
     ]
 }

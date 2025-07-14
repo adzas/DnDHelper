@@ -21,6 +21,10 @@ class View
                 include('./forms/players_character_form.php');
                 break;
 
+            case 'battlefield':
+                include('./views/battlefield.php');
+                break;
+
             case 'pre':
                 include('./views/pre.php');
                 break;

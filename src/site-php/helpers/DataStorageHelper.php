@@ -2,7 +2,7 @@
 
 class DataStorageHelper
 {
-    const STORAGE_FILE_PATH = '../site-js/js/enemy-generators/player-1-generator.js';
+    const STORAGE_FILE_PATH = '../site-js/storage/players-data.json';
     const STORAGE_LOG_FILE_PATH = '../storage/log.txt';
     
     public function getCharacterStorage()

@@ -1,6 +1,12 @@
 
 <ol class="nav nav-pills">
     <li class="nav-item">
+        <a class="nav-link" 
+            href="../index.html">
+            <- Powrót
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="<?= $action == Action::ACTION_CONFIGURATION ? 'active' : ''; ?> nav-link" 
             href="./index.php?action=<?=Action::ACTION_CONFIGURATION;?>">
             Konfiguracja ogólna

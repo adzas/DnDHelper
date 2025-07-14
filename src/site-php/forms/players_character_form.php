@@ -1,7 +1,7 @@
 <?php
     // print_r($viewData);
 ?>
-<form method="POST" action="?action=players_character">
+<form method="POST" action="?action=players_characters_store">
     <div class="form-group">
         <label for="character_name">Nazwa postaci:</label>
         <input type="text" id="character_name" name="character_name" class="form-control" required>

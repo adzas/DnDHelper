@@ -44,10 +44,12 @@ import ScoutBandit from "../enemy-type/scout-bandit.js";
 import Shadow from "../enemy-type/shadow.js";
 import Thug from "../enemy-type/thug.js";
 import WoodGolem from "../enemy-type/wood-golem.js";
+import Veteran from "../enemy-type/veteran.js";
+import VeteranGenerator from "../enemy-generators/veteran-generator.js";
 
 export default class EnemyHelper {
     appClass = null;
-    pathToConfigFile = './storage/config/enemies-config-2304231544.json';
+    pathToConfigFile = './storage/config/enemies-config.json';
     constructor (app) {
         if (app instanceof App) {
             this.appClass = app;
@@ -268,6 +270,14 @@ export default class EnemyHelper {
                     classObjectReturned = new HillGiant(object, this.appClass);
                 }
                 break;
+
+            case 'veteran':
+                if ('getGenerator' === requestKind) {
+                    classObjectReturned = new VeteranGenerator(this.appClass);
+                } else {
+                    classObjectReturned = new Veteran(object, this.appClass);
+                }
+                break;
         
             default:
                 alert('Undefined enemy type: ' + enemyType);
@@ -292,7 +302,7 @@ export default class EnemyHelper {
         
         $.ajax({
             dataType: "json",
-            url: this.pathToConfigFile,
+            url: this.pathToConfigFile + '?r=' + Math.random(),
             async: false,
             success: function(result) {
                 $.each(result.attackType, function(k, attack) {
@@ -331,7 +341,7 @@ export default class EnemyHelper {
         };
     };
     renderEnemyListTo(DOMelementToRender) {
-        $.getJSON(this.pathToConfigFile, function(data){
+        $.getJSON(this.pathToConfigFile + '?r=' + Math.random(), function(data){
             let enemiesGroups = '';
             $.each(data.group, function(k, group){
                 let elementList = ``;
@@ -357,7 +367,7 @@ export default class EnemyHelper {
             $(DOMelementToRender).html(content);
         }).fail(function(){
             $(DOMelementToRender).html('Loaded failed.');
-            console.log("cant load: "+this.pathToConfigFile);
+            console.log("cant load: " + this.pathToConfigFile);
         });
     }
 }

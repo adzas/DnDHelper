@@ -49,6 +49,10 @@ $(document.body).on('click', '.js-random-helper--attack-description', function(e
     app.showInfo(description);
 });
 
+$(document.body).on('click', '#js-informations-popup', function(e){
+    $(e.target).slideUp();
+});
+
 // actual not use:
 $('#js-battlefield--generate-a-characteristic-attribute').on('click', function(e){
     app.clickedElement(e.target);

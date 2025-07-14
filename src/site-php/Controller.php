@@ -47,12 +47,16 @@ class Controller
             //     $this->action = new ConfigurationListAction($this->request);
             //     break;
 
-            // case Action::ACTION_ENEMY_TYPES:
-            //     $this->action = new ClearCharactersAction($this->request);
-            //     break;
+            case Action::ACTION_PLAYERS_CHARACTER_STORE:
+                $this->action = new PlayersCharactersStoreAction($this->request);
+                break;
 
             case Action::ACTION_PLAYERS_CHARACTER:
                 $this->action = new PlayersCharactersAction($this->request);
+                break;
+
+            case Action::ACTION_PLAY:
+                $this->action = new PlayAction($this->request);
                 break;
             
             default:
