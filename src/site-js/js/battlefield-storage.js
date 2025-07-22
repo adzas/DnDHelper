@@ -1,6 +1,5 @@
 import App from "./app.js";
 import EnemyHelper from "./helpers/enemy-helper.js";
-import Random from "./random.js";
 
 export default class BattlefieldStorage {
     appClass = null;
@@ -48,46 +47,46 @@ export default class BattlefieldStorage {
     clearLocalStorage() {
         localStorage.clear();
     };
-    moveUp(element_id) {
-        let new_content = [];
-        if (1 === parseInt(element_id)) {
-            const content = this.get();
-            let new_first_element = this.getElementById(element_id, content);
-            new_first_element.id = 0;
-            new_content[0] = new_first_element;
-            let i = 1;
-            const reindex_content = this.reindexContent(content, 1);
-            for(let k in reindex_content) {
-                if (parseInt(new_first_element.id) === parseInt(reindex_content[k].id)) {
-                    console.log('pomiń: ');
-                    console.log(reindex_content[k]);
-                } else {
-                    new_content[i++] = reindex_content[k];
-                }
-            }
-        } else if (1 < parseInt(element_id)) {
-            const content = this.get();
-            const target = this.getElementById(element_id, content);
-            let i = 0;
-            for(let k in content) {
-                if (parseInt(target.id) === parseInt(content[k].id)) {
-                    console.log('pomiń: ');
-                    console.log(content[k]);
-                } else {
-                    if (parseInt(content[k].id) === parseInt(target.id-1)) {
-                        new_content[i++] = target;
-                    }
-                    new_content[i++] = content[k];
-                }
-            }
-        }
-        if (0 < new_content.length) {
-            this.clearBFStorage();
-            let new_indexint_content = this.reindexContent(new_content);
-            new_indexint_content.sort(this.sortById);
-            this.saveAll(new_indexint_content);
-        }
-    };
+    // moveUp(element_id) {
+    //     let new_content = [];
+    //     if (1 === parseInt(element_id)) {
+    //         const content = this.get();
+    //         let new_first_element = this.getElementById(element_id, content);
+    //         new_first_element.id = 0;
+    //         new_content[0] = new_first_element;
+    //         let i = 1;
+    //         const reindex_content = this.reindexContent(content, 1);
+    //         for(let k in reindex_content) {
+    //             if (parseInt(new_first_element.id) === parseInt(reindex_content[k].id)) {
+    //                 console.log('pomiń: ');
+    //                 console.log(reindex_content[k]);
+    //             } else {
+    //                 new_content[i++] = reindex_content[k];
+    //             }
+    //         }
+    //     } else if (1 < parseInt(element_id)) {
+    //         const content = this.get();
+    //         const target = this.getElementById(element_id, content);
+    //         let i = 0;
+    //         for(let k in content) {
+    //             if (parseInt(target.id) === parseInt(content[k].id)) {
+    //                 console.log('pomiń: ');
+    //                 console.log(content[k]);
+    //             } else {
+    //                 if (parseInt(content[k].id) === parseInt(target.id-1)) {
+    //                     new_content[i++] = target;
+    //                 }
+    //                 new_content[i++] = content[k];
+    //             }
+    //         }
+    //     }
+    //     if (0 < new_content.length) {
+    //         this.clearBFStorage();
+    //         let new_indexint_content = this.reindexContent(new_content);
+    //         new_indexint_content.sort(this.sortById);
+    //         this.saveAll(new_indexint_content);
+    //     }
+    // };
     sortById (a, b) {
         if ( a.id < b.id ){
           return -1;
@@ -178,24 +177,6 @@ export default class BattlefieldStorage {
             }
         }
         return counter;
-    };
-    enterTheLabel() {
-        const random = new Random(this.appClass);
-        // random.resetRandomData();
-        let bfContent = this.get();
-        console.log('bfContent', bfContent);
-        for (let k in bfContent) {
-            if (parseInt(id) === parseInt(bfContent[k].id)) {
-                actualValue = parseInt(bfContent[k].statistics.currentHp) + value;
-                bfContent[k].statistics.currentHp = actualValue;
-            }
-        }
-        let newBfContent = bfContent.sort(this.sortByHpDesc);
-        newBfContent[0].label = random.getCharacteristicsAttribute('danger');
-        console.log('newBfContent', newBfContent);
-        // newBfContent = newBfContent.sort(this.sortByHpAsc);
-        // newBfContent[0].label = random.getCharacteristicsAttribute('easy');
-        // this.saveAll(newBfContent);
     };
     previewGameSet(key) {
         const savedSets = this.loadGameSet(key);

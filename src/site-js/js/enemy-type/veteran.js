@@ -7,6 +7,9 @@ import Enemy from "../enemy.js";
  * ciężka kusza: +3 do trafienia - 1d10 kłutych (100ft./400ft.)
  */
 export default class Veteran extends Enemy {
+    shortInfo() {
+        return '2x+5LongSw[1k8+3] ++5sztylet[1k6+3] zbroja_łuskowa'
+    };
     attackMultiattack() {
         return `
             <div class="attack">

@@ -132,37 +132,35 @@
             "Siekł od boku w biudro",
             "Prosty cios w głowę",
             "Machnięcie na wskroś",
-            "Próba trafienia w bark"
+            "Próba trafienia w bark",
+            "Rąbnięcie w ramię"
         ],
         "longSword": [
-            "Twój miecz przecina powietrze napotykając opór, gdy ostrze wbija się w pancerz przecinwika",
-            "Słyszysz przytłumiony dźwięk metalu trącego o metal oraz satysfakcjonujący zapach krwi",
-            "Twój miecz przeszywa głęboko ranę, którą wcześniej zadałeś, przeciwnik jęczy z bulu i traci na moment koncentrację"
+            "Cięcie w nadgarstek",
+            "Proste pchnięcie w brzuch",
+            "Cios wyprowadzony na wprost w szyję",
+            "Szybki atak od góry w skroń",
+            "Ostrze prowadzone po łuku w biodro",
+            "Cięcie z piruetu prosto w brzuch"
         ],
         "magickDagger": [
-            "Twój sztylet śmiga przez powietrze, zderzając się z przeciwnikiem nie wydając dźwięku",
-            "Sztylet wbija się w przeciwnika powodując krótki krzyk bólu",
-            "Twój sztylet dosięgł celu. Przeciwnik z trudem utrzymuje równowagę",
-            "Twój magiczny sztylet migocze intensywnie, gdy wbija się w przeciwnika. Chociaż nie ma fizycznych ran, przeciwnik nagle blado opada, dłonie drżą mu, a oczy zdają się być nieobecne."
+            "..."
         ],
         "staff": [
-            "Twój kij trafia przeciwnika z donośnym trzaskiem. Przeciwnik odczuwa wstrząs i cofa się",
-            "kolejny trzask. Przeciwnik chwyta się za miajsce, w które został trafiony",
-            "Po uderzeniu słychać huk, a przeciwnik próbuje złapać równowagę",
-            "?Twój kij jedynie smagnął powietrze niedaleko głowy przeciwnika"
+            "Szybkie uderzenie w głowę",
+            "Uderzenie w ramię",
+            "Pchnięcie w brzuch",
+            "Szybki atak od góry w skroń"
         ],
         "hand": [
-            "Skupiasz energię w swojej dłoni i wypuszczasz ją w kierunku wroga. Widzisz u przeciwnika wykrzywioną od bólu twarz",
-            "Twoje dłonie pływają w powietrzu zadając kolejne ciosy przeciwnikowi",
-            "Twoja dłoń trafia w lukę w obronie przeciwnika. Słychać stłumione, a przeciwnik z trudem łapie powietrze",
-            "Twoja dłoń trafia przeciwnika na oślep, ale z wystarczającą siłą, by wyrządzić szkodę. Przeciwnik cofa się, łapiąc się tam, gdzie go trafiłeś, z widocznym zdziwieniem na twarzy",
-            "?słychać jedynie plaśnięcie, które nie powoduje żadnego efektu",
-            "?przeciwnik spojrzał się tylko na Ciebie zdziwiony marnością tego uderzenia"
+            "Szybkie uderzenie w głowę",
+            "hak w szczękę",
+            "cios w brzuch",
+            "podbródkowy cios",
+            "zamaszyste uderzenie w szczękę"
         ],
         "fireBolt": [
-            "Twój gest w kierunku przeciwnika wyzwala iskrzącą smugę ognia, która trafia w cel. Zapach palonego ... wypełnia powietrze",
-            "Twoja kula ognia trafia w pancerz przeciwnika, rozpryskując iskry na wszystkie strony.",
-            "Przeciwnik udarza się w korpus i dyszy, zapewne ciepło z czaru przenika przez zbroję"
+            "..."
         ]
     },
     "characteristicsAttribute": {
@@ -179,7 +177,13 @@
         "global": [
             "najgrożniejszy",
             "niegroźny",
-            "karłowaty"
+            "karłowaty",
+            "potężny",
+            "przerażający",
+            "przyjazny",
+            "zwinny",
+            "niezgrabny",
+            "olbrzymi"
         ],
         "beast": [
             "białowłosy",
@@ -187,7 +191,9 @@
             "siwowłosy",
             "wyliniały",
             "brązowowłosy",
-            "tygrysi"
+            "tygrysi",
+            "srebrzysty",
+            "czarny"
         ]
     }
 }

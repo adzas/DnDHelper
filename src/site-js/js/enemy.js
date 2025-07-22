@@ -88,11 +88,21 @@ export default class Enemy extends RandomHelper{
         return 'style="opacity: 0.5"';
     };
     getMyCssClass() {
-        if (0 < this.currentHp) {
-            return 'btn-warning';
+        if (this.appClass.getPlayersName().includes(this.type)) {
+            if (0 < this.currentHp) {
+                return 'btn-primary btn-primary';
+            }
+    
+            // the order class is important.
+            return 'btn-primary btn-primary--dead btn-primary';
+        } else {
+            if (0 < this.currentHp) {
+                return 'btn-warning btn-warning';
+            }
+    
+            // the order class is important.
+            return 'btn-warning btn-warning--dead btn-warning';
         }
-
-        return 'btn-danger';
     };
     renderHeader() {
         let label = '<br>';
@@ -143,14 +153,16 @@ export default class Enemy extends RandomHelper{
         let html = `
         <div class="col-xs-12 col-md-6 col-xl-4 mb-1" ${this.style()}>
             <div class="btn-group w-100 mb-1" role="group" aria-label="t2">
-                <button class="btn btn-danger js-battlefield__enemy--delete" data-id="${this.id}">
-                    <i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}
-                    -<i class="ra ra-skull" data-id="${this.id}"></i>-
-                    <br>
-                    ${this.getLP()}
-                    <br>
-                    <span style="font-size: .5em">${this.xp}</span>
-                </button>
+                <div class="btn ${this.getMyCssClass()}__left">
+                    <button class="btn ${this.getMyCssClass()}__left--button js-battlefield__enemy--delete" data-id="${this.id}">
+                        <i style="font-size:0.75em" class="ra ra-eye-shield"></i>${this.kp}
+                        -<i class="ra ra-skull" data-id="${this.id}"></i>-
+                        <br>
+                        ${this.getLP()}
+                        <br>
+                        <span style="font-size: .5em">${this.xp}</span>
+                    </button>
+                </div>
                 <div 
                     class="btn ${this.getMyCssClass()} js-actions__collapse w-75" id="${this.getIdBaseElementDom()}"
                     data-collapse-target-id="#js-battlefield__enemy--show-actions-${this.id}" 
@@ -175,8 +187,8 @@ export default class Enemy extends RandomHelper{
                 >
                     ${this.renderHeader()}
                 </div>
-                <div class="btn btn-primary">
-                    <button class="btn btn-default js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
+                <div class="btn ${this.getMyCssClass()}__right">
+                    <button class="btn ${this.getMyCssClass()}__right--button js-battlefield__enemy--actions__show-statisticks" data-id="${this.id}">
                         <i style="font-size:0.75em" class="ra ra-rabbit"></i> ${this.speed}
                         -<i class="ra ra-player" data-id="${this.id}"></i>-
                         <br>

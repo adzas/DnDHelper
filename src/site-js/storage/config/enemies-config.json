@@ -7,25 +7,25 @@
                     "name": "Bandyta",
                     "EXP": 25,
                     "type": "bandit",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Bandyta Zwiadowca",
                     "EXP": 100,
                     "type": "scout-bandit",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Zbir",
                     "EXP": 100,
                     "type": "thug",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Przywódca bandytów",
                     "EXP": 450,
                     "type": "bandit-captain",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -36,19 +36,19 @@
                     "name": "Goblin",
                     "EXP": 50,
                     "type": "goblin",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Hobgoblin",
                     "EXP": 100,
                     "type": "hobgoblin",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Hobgoblin przywódca",
                     "EXP": 700,
                     "type": "hobgoblin-captain",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -59,13 +59,13 @@
                     "name": "Krasnolud wojownik",
                     "EXP": 100,
                     "type": "dwarf",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Krasnolud extra",
                     "EXP": 150,
                     "type": "dwarf-extra",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -76,13 +76,13 @@
                     "name": "Gnoll",
                     "EXP": 100,
                     "type": "gnoll",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Gnoll przywódca watachy",
                     "EXP": 450,
                     "type": "gnoll-pack-lord",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -93,13 +93,13 @@
                     "name": "Barbarzyńca",
                     "EXP": 450,
                     "type": "barbarian",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Weteran",
                     "EXP": 700,
                     "type": "veteran",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -110,13 +110,13 @@
                     "name": "Pies",
                     "EXP": 35,
                     "type": "dog",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Straszny Wilk",
                     "EXP": 200,
                     "type": "dire-wolf",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -127,13 +127,13 @@
                     "name": "Cień",
                     "EXP": 100,
                     "type": "shadow",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Przeklęty (darkling)",
                     "EXP": 100,
                     "type": "darkling",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -144,19 +144,19 @@
                     "name": "Golem drzewny",
                     "EXP": 500,
                     "type": "wood-golem",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Losowy gość",
                     "EXP": 99,
                     "type": "anyone",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 },
                 {
                     "name": "Gigant wzgórzowy",
                     "EXP": 1800,
                     "type": "hill-giant",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         },
@@ -167,7 +167,7 @@
                     "name": "Gnilec",
                     "EXP": 1800,
                     "type": "rot-monster",
-                    "btnClass": "btn-danger"
+                    "btnClass": "btn-warning"
                 }
             ]
         }

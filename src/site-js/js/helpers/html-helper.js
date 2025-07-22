@@ -11,15 +11,25 @@ export default class HtmlHelper {
             this.app = app;
         } else console.log('Not Defined appClass in HtmlHelper class constructor');
     }
-    renderPlayersAttribute() {
+    async renderPlayersAttribute() {
         let html = '';
         
         const players = this.app.getPlayersName();
+
+        const promises = players.map(player => {
+            let generator;
+            if (player === 'player-1') generator = new Player1Generator(this.app);
+            else if (player === 'player-2') generator = new Player2Generator(this.app);
+            else if (player === 'player-3') generator = new Player3Generator(this.app);
+            else if (player === 'player-4') generator = new Player4Generator(this.app);
+            return generator.getRandomObjectAsync();
+        });
+        // Wait for all promises to resolve
+        const playerObjs = await Promise.all(promises);
+
         let head = '';
         let body = '';
         let body_2 = '';
-        let playerObj = {};
-        let generator = {};
 
         let strength = '<th class="tg-0pky">str</th>';
         let dexterity = '<th class="tg-0pky">dex</th>';
@@ -31,37 +41,17 @@ export default class HtmlHelper {
         let pp = '<th class="tg-0pky">pp</th>';
         let pi = '<th class="tg-0pky">pi</th>';
 
-        let passiveIntuition = 10;
-
-        players.forEach(player => {
-            if ('player-1' === player) {
-                generator = new Player1Generator(this.app);
-                passiveIntuition = 18;
-            } else if ('player-4' === player) {
-                generator = new Player4Generator(this.app);
-                passiveIntuition = 13;
-            } else if ('player-3' === player) {
-                generator = new Player3Generator(this.app);
-                passiveIntuition = 9;
-            } else if ('player-2' === player) {
-                generator = new Player2Generator(this.app);
-                passiveIntuition = 11;
-            }
-            playerObj = generator.getRandomObject();
-
+        playerObjs.forEach(playerObj => {
             head += `<th class="tg-0pky">${playerObj.name}</th>`;
-
             strength += `<th class="tg-0pky">${playerObj.statistics.strength}</th>`;
             dexterity += `<th class="tg-0pky">${playerObj.statistics.dexterity}</th>`;
             condition += `<th class="tg-0pky">${playerObj.statistics.condition}</th>`;
             intelligence += `<th class="tg-0pky">${playerObj.statistics.intelligence}</th>`;
             wisdom += `<th class="tg-0pky">${playerObj.statistics.wisdom}</th>`;
             charisma += `<th class="tg-0pky">${playerObj.statistics.charisma}</th>`;
-
             pp += `<th class="tg-0pky">${playerObj.statistics.pp}</th>`;
-            pi += `<th class="tg-0pky">${passiveIntuition}</th>`;
+            pi += `<th class="tg-0pky">${playerObj.statistics.pi}</th>`;
         });
-
 
         body += `
         <tr>
@@ -124,7 +114,7 @@ export default class HtmlHelper {
         </div>
         `;
 
-        return html;
+        this.app.renderCache(html);
     };
     renderBattlefieldSetsPopupContent() {
         const html = `

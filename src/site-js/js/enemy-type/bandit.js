@@ -1,6 +1,9 @@
 import Enemy from "../enemy.js";
 
 export default class Bandit extends Enemy {
+    shortInfo () {
+        return 'miecz+3[1k6+1] lub kusza+3[1k8+1]';
+    };
     // "actions": ["short-bow","sword"],
     attackSword() {
         const testResult = this.getTestResult(3); // +3

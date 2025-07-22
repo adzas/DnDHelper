@@ -8,7 +8,6 @@ const app = new App;
 const battlefield = new BattlefieldStorage(app);
 const enemyHelper = new EnemyHelper(app);
 const htmlHelper = new HtmlHelper(app);
-// battlefield.clearBFStorage();
 const contentBF = battlefield.get();
 
 // rendering enemies list
@@ -25,22 +24,6 @@ $('#js-battlefield--refresh').on('click', function(){
     location.reload();
 });
 
-// actual not use:
-$('#js-random-helper--characteristics').on('click', function(e){
-    app.clickedElement(e.target);
-    let characteristics = '';
-    const random = new Random(app);
-    const appearance = random.getRandomAppearance();
-    const character = random.getRandomCharacterAttr();
-    characteristics += `wygląd: ${appearance}<br>
-    cechy charakteru: <ul>
-        <li>${character.negative}</li>
-        <li>${character.positive}</li>
-    </ul>`;
-    app.renderCache(characteristics);
-});
-
-// actual not use:
 $(document.body).on('click', '.js-random-helper--attack-description', function(e){
     app.clickedElement(e.target);
     const attackType = $(e.target).data('attack-type');
@@ -51,12 +34,6 @@ $(document.body).on('click', '.js-random-helper--attack-description', function(e
 
 $(document.body).on('click', '#js-informations-popup', function(e){
     $(e.target).slideUp();
-});
-
-// actual not use:
-$('#js-battlefield--generate-a-characteristic-attribute').on('click', function(e){
-    app.clickedElement(e.target);
-    // battlefield.enterTheLabel();
 });
 
 $('#js-settings__manual-mode').on('click', function(){
@@ -98,6 +75,12 @@ $(document.body).on('click', '.js-enemy', function(e) {
     console.log(message);
 });
 $(document.body).on('click', '.js-enemy-async', function(e) {
+    if (app.isManualMode()) {
+        app.clickedElement(e.target);
+        app.renderCache('Wyłącz tryb ręczny aby edytować listę przeciwników!');
+
+        return false;
+    }
     const elementDOM = $(e.target);
     elementDOM.html('Loading ...');
     const enemyType = elementDOM.data('type');
@@ -169,7 +152,6 @@ $('#js-battlefield--sort-by-initiative').on('click', function(){
     let newBfContent = bfContent.sort(battlefield.sortByIni);
     battlefield.saveAll(newBfContent);
     app.renderBF(battlefield.get());
-    // battlefield.enterTheLabel();
 });
 
 $(document.body).on('click', '.js-dmg--show', function(e){
@@ -215,8 +197,7 @@ $('.js-actions__click--clear-value').on('click', function(e) {
 
 $('#js-players__statistics--show').on('click', function(e) {
     app.clickedElement(e.target);
-    const html = htmlHelper.renderPlayersAttribute();
-    app.renderCache(html);
+    htmlHelper.renderPlayersAttribute();
 });
 
 $('#js-cache__actions--show-last-cache-history-page').on('click',function() {
@@ -253,4 +234,11 @@ $('.js-battlefield__enemy--store-label').on('click', function(e) {
         info = `WARNING: label: "${label}", id's element ${enemy_id}`;
     }
     app.showInfo(info);
-})
+});
+
+$('#js-random-list--reset').on('click', function(e) {
+    app.clickedElement(e.target);
+    const random = new Random(app);
+    random.resetRandomData();
+    app.renderCache('Zresetowano słownik losowych danych.');
+});

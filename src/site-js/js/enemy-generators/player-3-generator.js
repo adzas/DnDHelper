@@ -26,5 +26,23 @@ export default class Player3Generator extends RandomHelper {
         }
         console.log('Player3Generator: No player-2 found in data');
         return 0;
-    }
+    };
+    // Generated with AI - it works.
+    getRandomObjectAsync() {
+        return new Promise((resolve, reject) => {
+            const config = this.playersDataConfigPath + '?rnd=' + Math.random();
+            fetch(config)
+                .then(res => res.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        if (data[i].type === this.type) {
+                            resolve(data[i]);
+                            return;
+                        }
+                    }
+                    reject('Player1Generator: No player-3 found in data');
+                })
+                .catch(error => reject(error));
+        });
+    };
 }
